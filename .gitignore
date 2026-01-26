@@ -1,0 +1,26 @@
+# Backups
+Respaldo*.html
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Editor files
+*.swp
+*.swo
+*~
+
+# Temporary files
+*.tmp
+*.temp
+
+# Large original files (not needed for web)
+**/Tamaño original/
+**/tamaño original/
+*.ARW
+*.MP4
+*.mp4
+
+# Test files
+Prueba.html
+Assets.csv

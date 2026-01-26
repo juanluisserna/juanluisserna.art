@@ -1,0 +1,10 @@
+Help me: I'm working on building my own website. I'm a professional photographer and I want this website to be my way to present my work and creativity to new clients. This is the code so far.
+The idea is that the user experience is like navegating on a real life camera, with the screen on the left and the controls and information on the right.
+If you make a change on the code give me back the full code to copy and paste it on my file.
+Help me improve it by: 
+
+
+Help me: I'm working on building my own website. I'm a professional photographer and I want this website to be my way to present my work and creativity to new clients. This is the code so far in index.html
+The idea is that the user experience is like navegating on a real life camera, with the screen on the left and the controls and information on the right.
+When we make changes you can edit them directly on the document
+Help me improve it by: 

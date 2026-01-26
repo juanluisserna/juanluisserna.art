@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Juan Luis Serna Photography</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet"> <!-- 8-bit font -->
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { 
+      font-family: 'Roboto', sans-serif; 
+      background: #4A4A4A;
+      color: #E6E6E6;
+      overflow: hidden;
+    }
+
+    .hero {
+      height: 100vh;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .hero-container {
+      position: absolute;
+      top: 143px;
+      left: 0;
+      width: 70%;
+      height: calc(100% - 143px);
+      overflow: hidden;
+      z-index: 0;
+    }
+
+    .hero-background {
+      position: absolute;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background: no-repeat center/cover;
+    }
+
+    .index-number {
+      position: absolute;
+      top: 15px; /* Increased from 10px */
+      left: 15px; /* Increased from 10px */
+      font-family: 'Press Start 2P', cursive;
+      font-size: 1.25rem; /* Increased from 1rem */
+      color: #FFFFFF;
+      z-index: 2;
+      text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+    }
+
+    .header-bar {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      padding: 10px 20px;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: 3;
+    }
+
+    .logo {
+      width: 100px;
+      flex: 0 0 auto;
+    }
+
+    .header-text {
+      position: absolute;
+      left: 35%;
+      transform: translateX(-50%);
+      width: 70%;
+      text-align: center;
+      z-index: 1;
+    }
+    .header-text h1 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: #E6E6E6;
+      letter-spacing: 2px;
+    }
+    .header-text p {
+      font-size: 1.2rem;
+      color: #F28C38;
+      margin-top: 5px;
+    }
+
+    .menu-btn {
+      position: absolute;
+      left: 85%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      background: #4A4A4A;
+      color: #E6E6E6;
+      padding: 8px 20px;
+      border: 2px solid #E6E6E6;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 2.5rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      transition: background 0.2s;
+      z-index: 3;
+    }
+    .menu-btn:hover {
+      background: #F28C38;
+    }
+
+    .frame {
+      position: absolute;
+      top: 143px;
+      left: 0;
+      width: 70%;
+      height: calc(100% - 143px);
+      border: 2px solid #4A4A4A;
+      z-index: 2;
+      pointer-events: none;
+    }
+
+    .rule-of-thirds {
+      position: absolute;
+      top: 143px;
+      left: 0;
+      width: 70%;
+      height: calc(100% - 143px);
+      z-index: 2;
+      pointer-events: none;
+    }
+    .rule-of-thirds::before,
+    .rule-of-thirds::after,
+    .rule-of-thirds .vertical {
+      content: '';
+      position: absolute;
+      background: rgba(255, 255, 255, 0.5);
+    }
+    .rule-of-thirds::before {
+      top: 33.33%;
+      left: 0;
+      width: 100%;
+      height: 3px;
+    }
+    .rule-of-thirds::after {
+      top: 66.66%;
+      left: 0;
+      width: 100%;
+      height: 3px;
+    }
+    .rule-of-thirds .vertical:nth-child(1) {
+      top: 0;
+      left: 33.33%;
+      width: 3px;
+      height: 100%;
+    }
+    .rule-of-thirds .vertical:nth-child(2) {
+      top: 0;
+      left: 66.66%;
+      width: 3px;
+      height: 100%;
+    }
+
+    .camera-ui {
+      position: absolute;
+      top: 50%;
+      left: 70%;
+      width: 30%;
+      transform: translateY(-50%);
+      background: rgba(0, 0, 0, 0.7);
+      padding: 20px;
+      border-radius: 10px;
+      z-index: 3;
+      display: flex;
+      flex-direction: column; /* Changed to column for info section */
+      gap: 20px;
+      align-items: center;
+    }
+
+    .camera-controls {
+      display: flex;
+      flex-direction: row;
+      gap: 100px;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .info-section {
+      text-align: center;
+      color: #E6E6E6;
+    }
+    .info-section h3 {
+      font-size: 1.2rem;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+    .info-section .file-name {
+      font-size: 1rem;
+      margin-bottom: 5px;
+    }
+    .info-section .body-text {
+      font-size: 0.9rem;
+    }
+
+    .shutter-btn {
+      width: 80px;
+      height: 80px;
+      background: #F28C38;
+      border: 4px solid #E6E6E6;
+      border-radius: 50%;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .shutter-btn:hover {
+      background: #F28C38;
+      transform: scale(1.1);
+    }
+
+    .nav-cluster {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+      position: relative;
+      width: 50px;
+    }
+    .nav-btn {
+      width: 50px;
+      height: 50px;
+      background: #E6E6E6;
+      border: 3px solid #4A4A4A;
+      border-radius: 10px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      color: #1A1A1A;
+      transition: background 0.2s;
+    }
+    .nav-btn:hover {
+      background: #F28C38;
+      color: #E6E6E6;
+    }
+    .nav-left-right {
+      display: flex;
+      justify-content: space-between;
+      width: 150px;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+  </style>
+</head>
+<body>
+  <section class="hero">
+    <div class="hero-container">
+      <div class="hero-background" id="currentImage"></div>
+      <div class="index-number" id="indexNumber"></div>
+    </div>
+    <div class="header-bar">
+      <a href="/" class="logo-link"><img src="logo.png" alt="Juan Luis Serna Logo" class="logo"></a>
+      <div class="header-text">
+        <h1>Juan Luis Serna</h1>
+        <p>Using light to write stories</p>
+      </div>
+      <button class="menu-btn">Menu</button>
+    </div>
+    <div class="frame"></div>
+    <div class="rule-of-thirds">
+      <div class="vertical"></div>
+      <div class="vertical"></div>
+    </div>
+    <div class="camera-ui">
+      <div class="camera-controls">
+        <div class="nav-cluster">
+          <button class="nav-btn" title="Up">▲</button>
+          <div class="nav-left-right">
+            <button class="nav-btn" title="Left" id="prevBtn">◄</button>
+            <button class="nav-btn" title="Right" id="nextBtn">►</button>
+          </div>
+          <button class="nav-btn" title="Down">▼</button>
+        </div>
+        <button class="shutter-btn" id="shutterBtn" title="Confirm"></button>
+      </div>
+      <div class="info-section">
+        <h3>Info</h3>
+        <div class="file-name" id="fileName"></div>
+        <div class="body-text" id="bodyText"></div>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    const carouselData = [
+      { file: './hero.jpg', title: 'Welcome to my camera, feel free to look around', body: 'You can navigate using the camera buttons on the right.', url: '#' },
+      { file: './juan.jpg', title: 'About me', body: 'Let\'s get to know each other.', url: '/about' },
+      { file: './weddings.jpg', title: 'Weddings', body: 'This special day for you needs to be remembered forever.', url: '/weddings' },
+      { file: './ceeuropa1.jpg', title: 'Sports Photography', body: 'Woah that is fast, let\'s increase the shutter speed.', url: '/sports' },
+      { file: './Corporate.jpg', title: 'For your business', body: 'Can I help your business grow? If you have great products might as well have amazing photos to show them.', url: '/corporate' }
+    ];
+    let currentIndex = 0;
+    const currentImage = document.getElementById('currentImage');
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+    const shutterBtn = document.getElementById('shutterBtn');
+    const indexNumber = document.getElementById('indexNumber');
+    const fileName = document.getElementById('fileName');
+    const bodyText = document.getElementById('bodyText');
+
+    function updateContent(index) {
+      const data = carouselData[index];
+      currentImage.style.backgroundImage = `url('${data.file}')`;
+      indexNumber.textContent = `${index + 1}/${carouselData.length}`;
+      fileName.textContent = `File name: ${data.title}.jpg`;
+      bodyText.textContent = data.body;
+    }
+
+    function changeImage(direction) {
+      currentIndex = (currentIndex + direction + carouselData.length) % carouselData.length;
+      updateContent(currentIndex);
+    }
+
+    prevBtn.addEventListener('click', () => changeImage(-1));
+    nextBtn.addEventListener('click', () => changeImage(1));
+    shutterBtn.addEventListener('click', () => {
+      window.location.href = carouselData[currentIndex].url;
+    });
+
+    // Initialize with first image
+    updateContent(currentIndex);
+  </script>
+</body>
+</html>

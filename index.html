@@ -1,0 +1,3454 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- SEO Meta Tags -->
+  <title>Juan Luis Serna | Fotógrafo Profesional en Barcelona - Bodas, Eventos y Retratos</title>
+  <meta name="description" content="Fotógrafo profesional en Barcelona especializado en bodas, eventos, retratos, deportes y fotografía de producto. Capturando momentos únicos con pasión y creatividad. Contacta para tu próxima sesión.">
+  <meta name="keywords" content="fotógrafo Barcelona, fotografía bodas Barcelona, fotógrafo eventos, retratos profesionales, fotografía deportiva, fotografía producto, Juan Luis Serna, fotógrafo profesional España">
+  <meta name="author" content="Juan Luis Serna">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://www.juanluisserna.art">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.juanluisserna.art">
+  <meta property="og:title" content="Juan Luis Serna | Fotógrafo Profesional en Barcelona">
+  <meta property="og:description" content="Fotógrafo especializado en bodas, eventos, retratos y deportes. Capturando momentos únicos en Barcelona y toda España.">
+  <meta property="og:image" content="https://www.juanluisserna.art/images/og-image.jpg">
+  <meta property="og:locale" content="es_ES">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Juan Luis Serna | Fotógrafo Profesional en Barcelona">
+  <meta name="twitter:description" content="Fotógrafo especializado en bodas, eventos, retratos y deportes en Barcelona.">
+  <meta name="twitter:image" content="https://www.juanluisserna.art/images/og-image.jpg">
+
+  <!-- Schema.org structured data for Local Business -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "Juan Luis Serna Photography",
+    "image": "https://www.juanluisserna.art/images/logo/logo.png",
+    "description": "Fotógrafo profesional en Barcelona especializado en bodas, eventos, retratos y fotografía deportiva.",
+    "@id": "https://www.juanluisserna.art",
+    "url": "https://www.juanluisserna.art",
+    "telephone": "+34653413157",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Barcelona",
+      "addressCountry": "ES"
+    },
+    "priceRange": "€€",
+    "sameAs": [
+      "https://instagram.com/juanluisserna_foto"
+    ]
+  }
+  </script>
+
+  <link rel="icon" type="image/png" href="./images/icons/favicon.png">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { font-size: 62.5%; }
+    body { 
+      font-family: 'Roboto', sans-serif; 
+      background: #4A4A4A;
+      color: #E6E6E6;
+      overflow: hidden;
+      height: 100vh;
+    }
+  
+    .hero {
+      height: 100vh;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .header-bar {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      padding: clamp(0.5vh, 1vh, 1.5vh) clamp(0.5vw, 1vw, 1.5vw);
+      background: rgba(0, 0, 0, 0.5);
+      z-index: 3;
+    }
+  
+    .logo {
+      width: clamp(30px, 5vw, 75px);
+      height: auto;
+      flex: 0 0 auto;
+    }
+  
+    .header-text {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 70%;
+      text-align: center;
+      z-index: 1;
+    }
+    .header-text h1 {
+      font-size: clamp(1.5rem, 3.5vw, 3.5rem);
+      font-weight: 700;
+      color: #E6E6E6;
+      letter-spacing: 0.2vw;
+    }
+    .header-text p {
+      font-size: clamp(0.8rem, 1.8vw, 1.8rem);
+      color: #F28C38;
+      margin-top: 0.25vh;
+    }
+  
+    .menu-btn {
+      position: absolute;
+      left: 85%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      background: #4A4A4A;
+      color: #E6E6E6;
+      padding: 1.2vh 2.4vw;
+      border: 0.1vw solid #E6E6E6;
+      border-radius: 0.25vw;
+      cursor: pointer;
+      font-size: clamp(2.4rem, 4.4vw, 3.6rem);
+      font-weight: 700;
+      text-transform: uppercase;
+      transition: background 0.2s;
+      z-index: 3;
+    }
+    .menu-btn:hover {
+      background: #F28C38;
+    }
+
+    .lang-selector {
+      position: absolute;
+      right: 2vw;
+      top: 50%;
+      transform: translateY(-50%);
+      display: flex;
+      align-items: center;
+      gap: 0.5vw;
+      z-index: 4;
+    }
+    .lang-option {
+      color: #E6E6E6;
+      font-size: clamp(1.2rem, 1.4vw, 1.6rem);
+      cursor: pointer;
+      padding: 0.3vh 0.5vw;
+      transition: color 0.2s;
+    }
+    .lang-option:hover {
+      color: #F28C38;
+    }
+    .lang-option.active {
+      color: #F28C38;
+      font-weight: 700;
+    }
+    .lang-divider {
+      color: #E6E6E6;
+      font-size: clamp(1.2rem, 1.4vw, 1.6rem);
+    }
+  
+    .hero-container {
+      position: absolute;
+      top: var(--header-height, 15vh);
+      left: 0;
+      width: clamp(60%, 70vw, 80%);
+      height: calc(100vh - var(--header-height, 15vh) - 85px); /* Leave room for film strip */
+      overflow: hidden;
+      z-index: 0;
+    }
+
+    .gallery-container {
+      position: absolute;
+      top: var(--header-height, 15vh);
+      left: 0;
+      width: clamp(60%, 70vw, 80%);
+      height: calc(100vh - var(--header-height, 15vh));
+      overflow-y: auto;
+      overflow-x: hidden;
+      z-index: 0;
+    }
+  
+    .hero-background {
+      position: absolute;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background: black;
+      z-index: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  
+    .hero-background img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      transition: transform 0.1s ease, filter 0.4s ease;
+    }
+
+    /* Focus effect - blur to sharp */
+    .hero-background img.focusing {
+      filter: blur(8px);
+      transform: scale(1.02);
+    }
+    .hero-background img.focused {
+      filter: blur(0);
+      transform: scale(1);
+    }
+  
+    .shutter-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: #000000;
+      opacity: 0;
+      z-index: 1;
+      pointer-events: none;
+    }
+    .shutter-overlay.blink {
+      animation: shutterBlink 0.3s ease;
+    }
+  
+    @keyframes shutterBlink {
+      0% { opacity: 0; }
+      20% { opacity: 1; }
+      100% { opacity: 0; }
+    }
+  
+    .index-number {
+      position: absolute;
+      top: 2vh;
+      left: 2vw;
+      font-family: 'Press Start 2P', cursive;
+      font-size: clamp(1.2rem, 1.5vw, 1.8rem);
+      color: #FFFFFF;
+      z-index: 2;
+      text-shadow: 0.1vw 0.1vw 0.2vw rgba(0, 0, 0, 0.5);
+      background: rgba(0, 0, 0, 0.7);
+      padding: 0.5vw;
+      border-radius: 0.5vw;
+    }
+  
+    .frame {
+      position: absolute;
+      top: var(--header-height, 15vh);
+      left: 0;
+      width: clamp(60%, 70vw, 80%);
+      height: calc(100vh - var(--header-height, 15vh) - 85px); /* Match hero-container, leave room for film strip */
+      border: 0.2vw solid #4A4A4A;
+      z-index: 2;
+      pointer-events: none;
+    }
+
+    /* Film Strip */
+    .film-strip {
+      position: absolute;
+      bottom: var(--footer-height, 5vh);
+      left: 0;
+      width: clamp(60%, 70vw, 80%);
+      height: 80px;
+      background: #1a1a1a;
+      z-index: 5;
+      display: none; /* Hidden by default, shown via JS */
+      align-items: center;
+      padding: 0 10px;
+      overflow-x: auto;
+      overflow-y: hidden;
+      gap: 8px;
+      border-top: 3px solid #333;
+      border-bottom: 3px solid #333;
+    }
+    .film-strip.visible {
+      display: flex;
+    }
+    .film-strip::before,
+    .film-strip::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      width: 20px;
+      background: repeating-linear-gradient(
+        to bottom,
+        transparent 0px,
+        transparent 5px,
+        #333 5px,
+        #333 12px,
+        transparent 12px,
+        transparent 17px
+      );
+      z-index: 10;
+      pointer-events: none;
+    }
+    .film-strip::before { left: 0; }
+    .film-strip::after { right: 0; }
+    .film-strip::-webkit-scrollbar {
+      height: 4px;
+    }
+    .film-strip::-webkit-scrollbar-track {
+      background: #111;
+    }
+    .film-strip::-webkit-scrollbar-thumb {
+      background: #F28C38;
+      border-radius: 2px;
+    }
+    .film-frame {
+      flex: 0 0 auto;
+      width: 55px;
+      height: 55px;
+      border: 2px solid #444;
+      border-radius: 2px;
+      overflow: hidden;
+      cursor: pointer;
+      opacity: 0.6;
+      transition: all 0.2s ease;
+      margin: 0 2px;
+      background: #333;
+      position: relative;
+      z-index: 2;
+    }
+    .film-frame:first-child {
+      margin-left: 25px;
+    }
+    .film-frame:last-child {
+      margin-right: 25px;
+    }
+    .film-frame:hover {
+      opacity: 0.9;
+      border-color: #888;
+      transform: scale(1.05);
+    }
+    .film-frame.active {
+      opacity: 1;
+      border-color: #F28C38;
+      box-shadow: 0 0 10px rgba(242, 140, 56, 0.5);
+    }
+    .film-frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  
+    .camera-ui {
+      position: absolute;
+      top: var(--header-height, 15vh);
+      left: clamp(60%, 70vw, 80%);
+      width: clamp(20%, 30vw, 40%);
+      height: calc(100vh - var(--header-height, 15vh));
+      background: url('./images/textures/texture1.jpg') no-repeat center/cover;
+      background-blend-mode: overlay;
+      background-color: rgba(0, 0, 0, 0.5);
+      padding: clamp(1vw, 2vw, 3vw);
+      z-index: 3;
+      display: flex;
+      flex-direction: column;
+      gap: 2vh;
+      align-items: center;
+      overflow-y: auto;
+    }
+  
+    .camera-controls {
+      display: flex;
+      flex-direction: row;
+      gap: clamp(2vw, 5vw, 8vw);
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: auto;
+      margin-bottom: auto;
+    }
+
+    /* Mode Dial */
+    .mode-dial-container {
+      flex-shrink: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: 1vh;
+    }
+    .mode-dial {
+      width: clamp(70px, 8vw, 100px);
+      height: clamp(70px, 8vw, 100px);
+      border-radius: 50%;
+      background: linear-gradient(145deg, #2a2a2a, #1a1a1a);
+      border: 3px solid #444;
+      box-shadow:
+        0 4px 15px rgba(0,0,0,0.5),
+        inset 0 2px 5px rgba(255,255,255,0.1);
+      position: relative;
+      cursor: pointer;
+      transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .mode-dial::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 25%;
+      height: 25%;
+      background: linear-gradient(145deg, #3a3a3a, #222);
+      border-radius: 50%;
+      border: 2px solid #555;
+    }
+    .mode-dial::after {
+      content: '';
+      position: absolute;
+      top: 6px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 3px;
+      height: 10px;
+      background: #F28C38;
+      border-radius: 2px;
+      box-shadow: 0 0 8px rgba(242, 140, 56, 0.6);
+    }
+    .dial-marker {
+      position: absolute;
+      font-size: clamp(0.5rem, 0.7vw, 0.8rem);
+      font-weight: 600;
+      color: #888;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      white-space: nowrap;
+      transition: color 0.3s, text-shadow 0.3s;
+    }
+    .dial-marker.active {
+      color: #F28C38;
+      text-shadow: 0 0 10px rgba(242, 140, 56, 0.5);
+    }
+    .mode-dial-label {
+      text-align: center;
+      margin-top: 6px;
+      font-size: clamp(0.8rem, 1vw, 1.1rem);
+      color: #F28C38;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .info-section {
+      text-align: center;
+      color: #E6E6E6;
+      flex: 1;
+    }
+    .info-section .category-name {
+      font-size: clamp(1.8rem, 2.5vw, 3rem);
+      font-weight: 700;
+      margin-bottom: 0.5vh;
+    }
+    .info-section .photo-title {
+      font-size: clamp(1.5rem, 2vw, 2.5rem);
+      font-weight: 400;
+      margin-bottom: 1vh;
+    }
+    .info-section .body-text {
+      font-size: clamp(1.2rem, 1.5vw, 1.8rem);
+      margin-bottom: 1vh;
+    }
+  
+    .photo-settings {
+      font-family: 'Press Start 2P', cursive;
+      font-size: clamp(1rem, 1.2vw, 1.5rem);
+      color: #FFFFFF;
+      text-align: center;
+      margin-top: 1vh;
+    }
+    .photo-settings span {
+      display: block;
+      margin-bottom: 0.5vh;
+    }
+    .photo-settings .histogram {
+      width: clamp(15vw, 20vw, 25vw);
+      height: clamp(8vh, 10vw, 12vh);
+      background: #FFFFFF;
+      border: 0.1vw solid #000000;
+      margin: 1vh auto;
+    }
+    .photo-settings .histogram img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+  
+    .footer {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      padding: 0.5vh 1vw;
+      background: url('./images/textures/texture1.jpg') no-repeat center/cover;
+      background-blend-mode: overlay;
+      background-color: rgba(0, 0, 0, 0.7);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: clamp(1rem, 1.2vw, 1.5rem);
+      color: #E6E6E6;
+      z-index: 4;
+    }
+    .footer a {
+      color: #F28C38;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .footer a:hover {
+      color: #FFFFFF;
+    }
+
+    .social-links {
+      display: flex;
+      gap: 1.5vw;
+      align-items: center;
+    }
+
+    .social-link {
+      display: flex;
+      align-items: center;
+      gap: 0.5vw;
+      color: #F28C38;
+      text-decoration: none;
+      transition: all 0.2s ease;
+    }
+
+    .social-link:hover {
+      color: #FFFFFF;
+      transform: scale(1.05);
+    }
+
+    .social-link svg {
+      flex-shrink: 0;
+    }
+
+    .social-link span {
+      font-size: clamp(0.9rem, 1.1vw, 1.3rem);
+    }
+  
+    .shutter-btn {
+      width: clamp(60px, 8vw, 100px);
+      height: clamp(60px, 8vw, 100px);
+      background: #F28C38;
+      border: 0.4vw solid #E6E6E6;
+      border-radius: 50%;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.2s;
+    }
+    .shutter-btn:hover {
+      background: #F28C38;
+      transform: scale(1.1);
+    }
+  
+    .nav-cluster {
+      display: grid;
+      grid-template-areas: 
+        "up"
+        "leftright"
+        "down";
+      gap: 1vh;
+      justify-items: center;
+      width: clamp(40px, 6vw, 80px);
+    }
+    .nav-cluster .nav-btn:nth-child(1) { grid-area: up; }
+    .nav-cluster .nav-left-right { grid-area: leftright; }
+    .nav-cluster .nav-btn:nth-child(3) { grid-area: down; }
+  
+    .nav-btn {
+      width: clamp(30px, 4vw, 60px);
+      height: clamp(30px, 4vw, 60px);
+      background: #E6E6E6;
+      border: 0.3vw solid #4A4A4A;
+      border-radius: 0.8vw;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: clamp(1rem, 1.8vw, 2.5rem);
+      color: #1A1A1A;
+      transition: background 0.2s;
+    }
+    .nav-btn:hover {
+      background: #F28C38;
+      color: #E6E6E6;
+    }
+    .nav-left-right {
+      display: flex;
+      justify-content: space-between;
+      width: clamp(80px, 12vw, 160px);
+      position: relative;
+    }
+  
+    .gallery-btn {
+      position: absolute;
+      bottom: 5vh;
+      left: 2vw;
+      width: clamp(40px, 5vw, 70px);
+      height: clamp(40px, 5vw, 70px);
+      background: #E6E6E6 url('./images/icons/gallery.png') no-repeat center/contain;
+      border: 0.3vw solid #4A4A4A;
+      border-radius: 50%;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .gallery-btn:hover {
+      background: #F28C38 url('./images/icons/gallery.png') no-repeat center/contain;
+    }
+  
+    /* Tooltip styling */
+    button[title]:hover:after {
+      content: attr(title);
+      position: absolute;
+      bottom: 100%;
+      left: 50%;
+      transform: translateX(-50%);
+      background: rgba(0, 0, 0, 0.8);
+      color: #E6E6E6;
+      padding: 0.5vw 1vw;
+      border-radius: 0.5vw;
+      font-size: clamp(1rem, 1.2vw, 1.5rem);
+      white-space: nowrap;
+      z-index: 5;
+    }
+  
+    .camera-screen-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: transparent;
+      z-index: 1;
+      color: #FFFFFF;
+      font-family: 'Press Start 2P', cursive;
+      pointer-events: none;
+    }
+  
+    .camera-screen-overlay .status-bar {
+      position: absolute;
+      top: 1vh;
+      right: 1vw;
+      display: flex;
+      gap: 1vw;
+      align-items: center;
+      font-size: clamp(1.2rem, 1.5vw, 1.8rem);
+      text-shadow: 0.1vw 0.1vw 0.2vw rgba(0, 0, 0, 0.5);
+      background: rgba(0, 0, 0, 0.7);
+      padding: 0.5vw;
+      border-radius: 0.5vw;
+    }
+  
+    .camera-screen-overlay .battery-icon {
+      width: clamp(20px, 3vw, 40px);
+      height: clamp(15px, 2vh, 30px);
+      background: url('./images/icons/bateria-llena.png') no-repeat center/contain;
+    }
+  
+    .camera-screen-overlay .shutter-aperture {
+      position: absolute;
+      bottom: 1vh;
+      right: 1vw;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5vh;
+      font-size: clamp(1.2rem, 1.5vw, 1.8rem);
+      text-shadow: 0.1vw 0.1vw 0.2vw rgba(0, 0, 0, 0.5);
+      background: rgba(0, 0, 0, 0.7);
+      padding: 0.5vw;
+      border-radius: 0.5vw;
+    }
+  
+    .camera-screen-overlay .histogram {
+      position: absolute;
+      bottom: 5vh;
+      left: 1vw;
+      width: clamp(15vw, 20vw, 25vw);
+      height: clamp(8vh, 10vw, 12vh);
+      background: #FFFFFF;
+      border: 0.1vw solid #000000;
+    }
+  
+    .histogram img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+  
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: repeat(2, 1fr);
+      gap: 1vw;
+      width: 100%;
+      height: 100%;
+      padding: 2vw;
+      background: black;
+    }
+
+    /* Photo gallery mode - Masonry layout */
+    .gallery-grid.photo-gallery-mode {
+      position: relative;
+      overflow: visible;
+      height: auto;
+      min-height: 100%;
+      padding: 1vw;
+    }
+
+    .gallery-grid.photo-gallery-mode .gallery-item {
+      position: absolute;
+      width: calc(25% - 1.5vw);
+      display: block;
+      transition: transform 0.2s ease;
+    }
+
+    .gallery-grid.photo-gallery-mode .gallery-item img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .gallery-grid.photo-gallery-mode .gallery-item .category-title {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      padding: 0.5vh;
+      background: rgba(0, 0, 0, 0.7);
+      text-align: center;
+    }
+  
+    .gallery-item {
+      position: relative;
+      overflow: hidden;
+      border: 0.2vw solid #4A4A4A;
+      border-radius: 0.5vw;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+  
+    .gallery-item img {
+      width: 100%;
+      height: 80%;
+      object-fit: cover;
+      object-position: center;
+    }
+  
+    .gallery-item .category-title {
+      position: absolute;
+      top: 0;
+      width: 100%;
+      text-align: center;
+      font-family: 'Press Start 2P', cursive;
+      font-size: clamp(1rem, 1.2vw, 1.5rem);
+      color: #E6E6E6;
+      background: rgba(0, 0, 0, 0.7);
+      padding: 0.5vh;
+    }
+  
+    .gallery-item.selected {
+      border: 0.3vw solid #F28C38;
+      box-shadow: 0 0 1vw #F28C38;
+    }
+  
+    /* Hide mobile-specific elements on desktop */
+    .mobile-controls-overlay,
+    .mobile-modes,
+    .mobile-timer,
+    .mobile-shutter,
+    .info-btn,
+    .photo-info-panel,
+    .mobile-gallery-btn,
+    .mobile-zoom-btn {
+      display: none;
+    }
+  
+    /* Mobile-specific styles */
+    @media (max-width: 768px) {
+      .header-bar { padding: 0.5vh 0.5vw; }
+      .hero-container {
+        width: 100%;
+        top: var(--header-height, 10vh);
+        height: calc(70vh - var(--header-height, 10vh));
+        border: 0.2vw solid #4A4A4A;
+        box-sizing: border-box;
+      }
+      .gallery-container {
+        width: 100%;
+        top: var(--header-height, 10vh);
+        height: calc(70vh - var(--header-height, 10vh));
+        border: 0.2vw solid #4A4A4A;
+        box-sizing: border-box;
+        overflow-y: auto;
+        overflow-x: hidden;
+      }
+      .frame {
+        width: 100%;
+        top: var(--header-height, 10vh);
+        height: calc(70vh - var(--header-height, 10vh));
+      }
+      .film-strip {
+        display: none !important;
+      }
+      .mode-dial-container {
+        display: none !important;
+      }
+      .camera-ui { 
+        width: 100%;
+        left: 0; 
+        top: calc(70vh + 5vh); /* Adjusted for mobile-modes height */
+        height: calc(25vh - var(--footer-height, 5vh));
+        padding: 1vw; 
+        background: rgba(0, 0, 0, 0.8);
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        overflow-y: auto;
+      }
+      .camera-controls, .nav-cluster, .shutter-btn, .gallery-btn { 
+        display: none; /* Hide desktop buttons on mobile */
+      }
+      .header-text { width: 90%; }
+      .menu-btn { left: 90%; }
+      .footer { 
+        font-size: clamp(0.8rem, 1vw, 1.2rem); 
+        padding: 0.5vh 1vw;
+        height: var(--footer-height, 5vh);
+      }
+      .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: auto;
+      }
+      .gallery-grid.photo-gallery-mode .gallery-item {
+        width: calc(33.33% - 1.5vw);
+      }
+      .index-number { 
+        top: 2vh; 
+        left: 2vw; 
+        font-size: clamp(1rem, 1.2vw, 1.5rem); 
+      }
+      .info-section {
+        display: none; /* Hide info section on mobile */
+      }
+  
+      /* Info button and panel for mobile */
+      .info-btn {
+        display: block;
+        position: absolute;
+        top: 2vh; /* Aligned with index-number */
+        right: 2vw; /* Symmetrical to index-number's left position */
+        width: 30px;
+        height: 30px;
+        background: rgba(255, 255, 255, 0.7) url('./images/icons/info.png') no-repeat center/contain;
+        border: 1px solid #E6E6E6;
+        border-radius: 50%;
+        z-index: 5;
+        cursor: pointer;
+      }
+  
+      .photo-info-panel {
+        display: none;
+        position: absolute;
+        top: var(--header-height, 10vh);
+        right: 0;
+        width: 50%;
+        height: calc(70vh - var(--header-height, 10vh));
+        background: rgba(0, 0, 0, 0.9);
+        padding: 2vw;
+        z-index: 6;
+        overflow-y: auto;
+        transform: translateX(100%);
+        transition: transform 0.3s ease-in-out;
+      }
+  
+      .photo-info-panel.active {
+        display: block;
+        transform: translateX(0);
+      }
+  
+      .photo-info-panel .photo-title {
+        font-size: clamp(1.2rem, 1.5vw, 2rem);
+        font-weight: 400;
+        margin-bottom: 1vh;
+        color: #E6E6E6;
+        text-align: center;
+      }
+  
+      .photo-info-panel .body-text {
+        font-size: clamp(1rem, 1.2vw, 1.5rem);
+        margin-bottom: 2vh;
+        color: #E6E6E6;
+        text-align: center;
+      }
+  
+      .photo-info-panel .photo-settings {
+        font-size: clamp(0.8rem, 1vw, 1.2rem);
+      }
+  
+      .photo-info-panel .histogram {
+        width: 100%;
+        height: auto;
+        max-height: 20vh;
+        background: #FFFFFF;
+        border: 0.1vw solid #000000;
+        margin: 1vh auto;
+      }
+  
+      /* Category carousel (mobile-modes) */
+      .mobile-modes {
+        display: flex;
+        position: absolute;
+        top: calc(70vh); /* Position below the hero-container */
+        left: 0;
+        width: 100%;
+        height: 5vh;
+        justify-content: flex-start;
+        align-items: center;
+        gap: 2vw;
+        z-index: 4;
+        background: rgba(0, 0, 0, 0.7);
+        overflow-x: auto;
+        white-space: nowrap;
+        padding: 0 2vw;
+        pointer-events: auto; /* Allow interaction */
+      }
+      .mobile-modes span {
+        font-size: clamp(1rem, 1.2vw, 1.5rem);
+        color: #ccc;
+        text-transform: uppercase;
+        cursor: pointer;
+        padding: 0 1vw;
+      }
+      .mobile-modes span.active {
+        color: #F28C38;
+      }
+  
+      /* Mobile camera app UI - Shutter and Gallery buttons */
+      .mobile-shutter {
+        display: block;
+        position: absolute;
+        bottom: calc(5vh + var(--footer-height, 5vh)); /* Just below mobile-modes */
+        left: 50%;
+        transform: translateX(-50%);
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        background: white;
+        border: 4px solid #ccc;
+        z-index: 5;
+        cursor: pointer;
+      }
+      .mobile-shutter.gallery-mode {
+        background: red;
+      }
+  
+      .mobile-gallery-btn {
+        display: block;
+        position: absolute;
+        bottom: calc(5vh + var(--footer-height, 5vh)); /* Just below mobile-modes */
+        left: calc(50% - 80px); /* Position to the left of the shutter */
+        width: 40px;
+        height: 40px;
+        background: #E6E6E6 url('./images/icons/gallery.png') no-repeat center/contain;
+        border: 0.3vw solid #4A4A4A;
+        border-radius: 50%;
+        cursor: pointer;
+        z-index: 5;
+        transition: background 0.2s;
+      }
+      .mobile-gallery-btn:hover {
+        background: #F28C38 url('./images/icons/gallery.png') no-repeat center/contain;
+      }
+  
+      /* Zoom buttons inside the frame */
+      .mobile-controls-overlay {
+        display: flex;
+        position: absolute;
+        bottom: 2vh; /* At the bottom of the frame */
+        left: 50%;
+        transform: translateX(-50%);
+        justify-content: center;
+        align-items: center;
+        z-index: 4;
+        pointer-events: none;
+      }
+      .mobile-zoom-btn {
+        display: inline-block;
+        font-size: clamp(1rem, 1.2vw, 1.5rem);
+        color: #F28C38;
+        background: rgba(0, 0, 0, 0.7);
+        padding: 0.5vh 1vw;
+        margin: 0 0.5vw;
+        border-radius: 1vw;
+        cursor: pointer;
+        pointer-events: auto;
+      }
+      .mobile-zoom-btn.active {
+        background: #F28C38;
+        color: #FFFFFF;
+      }
+  
+      .mobile-timer {
+        display: none;
+        position: absolute;
+        top: 2vh;
+        right: 2vw;
+        font-size: clamp(1rem, 1.2vw, 1.5rem);
+        color: white;
+        background: rgba(0, 0, 0, 0.7);
+        padding: 0.5vh 1vw;
+        border-radius: 1vw;
+        z-index: 4;
+      }
+      .mobile-timer.active {
+        display: block;
+      }
+    }
+  
+    @media (max-width: 480px) {
+      .gallery-grid {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+      }
+      .gallery-grid.photo-gallery-mode .gallery-item {
+        width: calc(50% - 1vw);
+      }
+    }
+
+    /* Utility classes */
+    .hidden {
+      display: none !important;
+    }
+
+    /* Menu dropdown styles */
+    .menu-item {
+      display: block;
+      padding: 12px 20px;
+      color: #E6E6E6;
+      text-decoration: none;
+      font-size: 1.4rem;
+      transition: background 0.2s, color 0.2s;
+      cursor: pointer;
+    }
+    .menu-item:hover {
+      background: #F28C38;
+      color: #1A1A1A;
+    }
+
+    /* Contact Modal Styles */
+    .contact-modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.85);
+      z-index: 1000;
+      justify-content: center;
+      align-items: center;
+      padding: 2vw;
+    }
+    .contact-modal.active {
+      display: flex;
+    }
+    .contact-form-container {
+      background: #2A2A2A;
+      border: 2px solid #F28C38;
+      border-radius: 1vw;
+      padding: clamp(20px, 3vw, 40px);
+      max-width: 500px;
+      width: 100%;
+      max-height: 90vh;
+      overflow-y: auto;
+      position: relative;
+    }
+    .contact-form-container h2 {
+      color: #F28C38;
+      font-size: clamp(1.8rem, 2.5vw, 2.5rem);
+      margin-bottom: 1.5vh;
+      text-align: center;
+    }
+    .contact-form-container p {
+      color: #E6E6E6;
+      font-size: clamp(1.2rem, 1.4vw, 1.6rem);
+      text-align: center;
+      margin-bottom: 2vh;
+    }
+    .close-modal {
+      position: absolute;
+      top: 10px;
+      right: 15px;
+      background: none;
+      border: none;
+      color: #E6E6E6;
+      font-size: 2.5rem;
+      cursor: pointer;
+      transition: color 0.2s;
+    }
+    .close-modal:hover {
+      color: #F28C38;
+    }
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5vh;
+    }
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5vh;
+    }
+    .form-group label {
+      color: #E6E6E6;
+      font-size: clamp(1.2rem, 1.4vw, 1.5rem);
+      font-weight: 500;
+    }
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      background: #4A4A4A;
+      border: 1px solid #E6E6E6;
+      border-radius: 0.5vw;
+      padding: clamp(8px, 1vh, 12px) clamp(10px, 1vw, 15px);
+      color: #E6E6E6;
+      font-size: clamp(1.2rem, 1.4vw, 1.5rem);
+      font-family: 'Roboto', sans-serif;
+      transition: border-color 0.2s;
+    }
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      outline: none;
+      border-color: #F28C38;
+    }
+    .form-group textarea {
+      min-height: 100px;
+      resize: vertical;
+    }
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1vw;
+    }
+    .submit-btn {
+      background: #F28C38;
+      color: #1A1A1A;
+      border: none;
+      border-radius: 0.5vw;
+      padding: clamp(12px, 1.5vh, 18px);
+      font-size: clamp(1.4rem, 1.6vw, 1.8rem);
+      font-weight: 700;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.2s;
+      margin-top: 1vh;
+    }
+    .submit-btn:hover {
+      background: #E6E6E6;
+      transform: scale(1.02);
+    }
+    .submit-btn:disabled {
+      background: #666;
+      cursor: not-allowed;
+      transform: none;
+    }
+    .form-success {
+      text-align: center;
+      padding: 3vh 0;
+    }
+    .form-success h3 {
+      color: #F28C38;
+      font-size: clamp(1.8rem, 2vw, 2.2rem);
+      margin-bottom: 1vh;
+    }
+    .form-success p {
+      color: #E6E6E6;
+    }
+    @media (max-width: 768px) {
+      .form-row {
+        grid-template-columns: 1fr;
+      }
+      .contact-form-container {
+        margin: 2vh;
+        max-height: 85vh;
+      }
+    }
+
+    /* Portal Modal Styles */
+    .portal-modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.9);
+      z-index: 1000;
+      justify-content: center;
+      align-items: center;
+      padding: 2vw;
+    }
+    .portal-modal.active {
+      display: flex;
+    }
+    .portal-container {
+      background: #2A2A2A;
+      border: 2px solid #F28C38;
+      border-radius: 1vw;
+      padding: clamp(20px, 3vw, 40px);
+      max-width: 900px;
+      width: 100%;
+      max-height: 90vh;
+      overflow-y: auto;
+      position: relative;
+    }
+    .portal-container h2 {
+      color: #F28C38;
+      font-size: clamp(1.8rem, 2.5vw, 2.5rem);
+      margin-bottom: 1.5vh;
+      text-align: center;
+    }
+    .portal-container > p {
+      color: #E6E6E6;
+      font-size: clamp(1.2rem, 1.4vw, 1.6rem);
+      text-align: center;
+      margin-bottom: 2vh;
+    }
+
+    /* Portal Login */
+    #portalLogin .form-group {
+      max-width: 400px;
+      margin: 0 auto 2vh;
+    }
+    #portalLogin .form-group input {
+      width: 100%;
+      background: #4A4A4A;
+      border: 1px solid #E6E6E6;
+      border-radius: 0.5vw;
+      padding: clamp(10px, 1.2vh, 15px) clamp(12px, 1.2vw, 18px);
+      color: #E6E6E6;
+      font-size: clamp(1.3rem, 1.5vw, 1.6rem);
+      font-family: 'Roboto', sans-serif;
+      text-align: center;
+    }
+    #portalLogin .form-group input:focus {
+      outline: none;
+      border-color: #F28C38;
+    }
+    #portalLogin .form-group input::placeholder {
+      color: #999;
+    }
+    #portalLogin .submit-btn {
+      display: block;
+      width: 200px;
+      margin: 0 auto;
+      background: #F28C38;
+      color: #1A1A1A;
+      border: none;
+      border-radius: 0.5vw;
+      padding: clamp(12px, 1.5vh, 18px);
+      font-size: clamp(1.4rem, 1.6vw, 1.8rem);
+      font-weight: 700;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.2s;
+    }
+    #portalLogin .submit-btn:hover {
+      background: #E6E6E6;
+      transform: scale(1.02);
+    }
+    .portal-error {
+      color: #ff6b6b;
+      text-align: center;
+      margin-top: 1.5vh;
+      font-size: clamp(1.2rem, 1.3vw, 1.5rem);
+    }
+
+    /* Portal Header */
+    .portal-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 2vh;
+      flex-wrap: wrap;
+      gap: 1vh;
+    }
+    .portal-header h2 {
+      margin: 0;
+      flex: 1;
+      text-align: center;
+    }
+    #portalSubtitle {
+      color: #999;
+      font-size: clamp(1.1rem, 1.3vw, 1.4rem);
+      text-align: center;
+      margin-bottom: 2vh;
+    }
+
+    /* Portal Buttons */
+    .back-btn {
+      background: none;
+      border: 1px solid #E6E6E6;
+      color: #E6E6E6;
+      padding: 8px 16px;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: clamp(1.2rem, 1.3vw, 1.5rem);
+      transition: all 0.2s;
+    }
+    .back-btn:hover {
+      background: #E6E6E6;
+      color: #1A1A1A;
+    }
+    .download-all-btn {
+      background: #F28C38;
+      color: #1A1A1A;
+      border: none;
+      padding: 8px 16px;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: clamp(1.2rem, 1.3vw, 1.5rem);
+      font-weight: 600;
+      transition: all 0.2s;
+    }
+    .download-all-btn:hover {
+      background: #E6E6E6;
+      transform: scale(1.02);
+    }
+
+    /* Portal Grid */
+    .portal-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1vw;
+      max-height: 55vh;
+      overflow-y: auto;
+      padding-right: 0.5vw;
+    }
+    .portal-grid::-webkit-scrollbar {
+      width: 8px;
+    }
+    .portal-grid::-webkit-scrollbar-track {
+      background: #1A1A1A;
+      border-radius: 4px;
+    }
+    .portal-grid::-webkit-scrollbar-thumb {
+      background: #F28C38;
+      border-radius: 4px;
+    }
+    .portal-photo {
+      position: relative;
+      flex: 0 0 calc(33.33% - 0.67vw);
+      cursor: pointer;
+      overflow: hidden;
+      border-radius: 4px;
+    }
+    .portal-photo img {
+      width: 100%;
+      height: auto;
+      display: block;
+      transition: transform 0.3s;
+    }
+    .portal-photo:hover img {
+      transform: scale(1.05);
+    }
+    .portal-photo .download-btn {
+      position: absolute;
+      bottom: 8px;
+      right: 8px;
+      background: #F28C38;
+      color: #1A1A1A;
+      border: none;
+      padding: 6px 12px;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: clamp(1rem, 1.2vw, 1.3rem);
+      font-weight: 600;
+      opacity: 0;
+      transition: opacity 0.2s;
+    }
+    .portal-photo:hover .download-btn {
+      opacity: 1;
+    }
+    .portal-photo .download-btn:hover {
+      background: #E6E6E6;
+    }
+
+    /* Portal Responsive */
+    @media (max-width: 768px) {
+      .portal-container {
+        margin: 2vh;
+        max-height: 85vh;
+        padding: clamp(15px, 4vw, 25px);
+      }
+      .portal-photo {
+        flex: 0 0 calc(50% - 0.5vw);
+      }
+      .portal-header {
+        flex-direction: column;
+        gap: 1vh;
+      }
+      .portal-header h2 {
+        order: -1;
+        width: 100%;
+      }
+      .back-btn, .download-all-btn {
+        width: 100%;
+        text-align: center;
+      }
+      .portal-photo .download-btn {
+        opacity: 1;
+        padding: 8px 14px;
+      }
+      .portal-grid {
+        max-height: 50vh;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <section class="hero">
+    <div class="hero-container" id="heroContainer">
+      <div class="hero-background" id="currentImage">
+        <img id="photoImage" src="" alt="Current Photo">
+      </div>
+      <div class="shutter-overlay" id="shutterOverlay"></div>
+      <div class="camera-screen-overlay" id="cameraScreen"></div>
+      <div class="index-number" id="indexNumber"></div>
+      <button class="info-btn" id="infoBtn"></button>
+      <div class="photo-info-panel" id="photoInfoPanel">
+        <div class="photo-title" id="photoTitleMobile"></div>
+        <div class="body-text" id="bodyTextMobile"></div>
+        <div class="photo-settings" id="photoSettingsMobile"></div>
+      </div>
+      <!-- Zoom buttons moved inside the hero-container for mobile -->
+      <div class="mobile-controls-overlay">
+        <span class="mobile-zoom-btn active" id="zoom1x">1x</span>
+        <span class="mobile-zoom-btn" id="zoom2x">2x</span>
+        <span class="mobile-zoom-btn" id="zoom4x">4x</span>
+      </div>
+    </div>
+    <div class="gallery-container" id="galleryContainer" style="display: block;">
+      <div class="gallery-grid" id="galleryGrid"></div>
+      <div class="camera-screen-overlay" id="galleryScreen"></div>
+    </div>
+    <div class="header-bar" id="headerBar">
+      <a href="/" class="logo-link"><img src="./images/logo/logo.png" alt="Juan Luis Serna Logo" class="logo"></a>
+      <div class="header-text">
+        <h1>Juan Luis Serna</h1>
+        <p>Using light to write stories</p>
+      </div>
+      <button class="menu-btn" id="menuButton">Menu</button>
+      <div class="lang-selector" id="langSelector">
+        <span class="lang-option active" data-lang="en">EN</span>
+        <span class="lang-divider">|</span>
+        <span class="lang-option" data-lang="es">ES</span>
+      </div>
+    </div>
+
+    <!-- Film Strip -->
+    <div class="film-strip" id="filmStrip"></div>
+
+    <div class="frame"></div>
+    <div class="mobile-modes" id="mobileModes">
+      <!-- Categories will be populated dynamically -->
+    </div>
+    <div class="camera-ui">
+      <!-- Mode Dial -->
+      <div class="mode-dial-container" id="modeDialContainer">
+        <div class="mode-dial" id="modeDial"></div>
+        <div class="mode-dial-label" id="modeDialLabel"></div>
+      </div>
+
+      <div class="info-section">
+        <div class="category-name" id="categoryName"></div>
+        <div class="photo-title" id="photoTitle"></div>
+        <div class="body-text" id="bodyText"></div>
+        <div class="photo-settings" id="photoSettings"></div>
+      </div>
+      <div class="camera-controls">
+        <div class="nav-cluster">
+           <button class="nav-btn" title="Switch to Previous Category" id="upBtn">▲</button>
+           <div class="nav-left-right">
+              <button class="nav-btn" title="View Previous Photo" id="prevBtn">◄</button>
+              <button class="nav-btn" title="View Next Photo" id="nextBtn">►</button>
+           </div>
+           <button class="nav-btn" title="Switch to Next Category" id="downBtn">▼</button>
+        </div>
+        <button class="shutter-btn" id="shutterBtn" title="Go to Page"></button>
+      </div>
+      <button class="gallery-btn" id="galleryBtn" title="View Gallery"></button>
+      <div class="footer">
+        <span>© 2025 Juan Luis Serna Photography</span>
+        <div class="social-links">
+          <a href="https://instagram.com/juanluisserna_foto" target="_blank" rel="noopener" title="Sígueme en Instagram" class="social-link">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+            <span>@juanluisserna_foto</span>
+          </a>
+          <a href="https://wa.me/34653413157" target="_blank" rel="noopener" title="Contáctame por WhatsApp" class="social-link">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+            <span>WhatsApp</span>
+          </a>
+        </div>
+      </div>
+    </div>
+    <!-- Mobile-specific UI elements -->
+    <div class="mobile-timer" id="mobileTimer">00:00:00</div>
+    <div class="mobile-gallery-btn" id="mobileGalleryBtn"></div>
+    <div class="mobile-shutter gallery-mode" id="mobileShutter"></div>
+    <audio id="shutterSound" src="./audio/shutter.mp3" preload="auto"></audio>
+  </section>
+
+  <!-- Menu Dropdown -->
+  <div id="menuDropdown" class="hidden" style="position: fixed; right: 20px; top: 70px; background: #1a1a1a; border: 2px solid #F28C38; border-radius: 8px; padding: 8px 0; z-index: 9999; min-width: 220px; box-shadow: 0 4px 20px rgba(0,0,0,0.8);">
+    <a href="./portfolios/Portafolio Deportivo Juan Luis Serna_compressed.pdf" download="Portfolio_Deportivo_Juan_Luis_Serna.pdf" class="menu-item">Portfolio Deportivo</a>
+    <a href="./portfolios/Wedding Portfolio Juan Luis Serna.pdf" download="Wedding_Portfolio_Juan_Luis_Serna.pdf" class="menu-item">Portfolio de bodas y eventos</a>
+    <a href="#" id="openPortalBtn" class="menu-item">Portal de Clientes</a>
+    <a href="#" id="openContactBtn" class="menu-item">Contacto</a>
+  </div>
+
+  <!-- Contact Modal -->
+  <div class="contact-modal" id="contactModal">
+    <div class="contact-form-container">
+      <button class="close-modal" id="closeContactBtn">&times;</button>
+      <h2>Contacto</h2>
+      <p>Cuéntame sobre tu proyecto y te responderé pronto</p>
+      <form class="contact-form" id="contactForm" action="https://api.web3forms.com/submit" method="POST">
+        <input type="hidden" name="access_key" value="795e4f95-0750-431e-8604-2becad9d7f22">
+        <input type="hidden" name="subject" value="Nuevo contacto desde juanluisserna.art">
+        <input type="hidden" name="from_name" value="Web Juan Luis Serna">
+
+        <div class="form-group">
+          <label for="name">Nombre *</label>
+          <input type="text" id="name" name="name" required placeholder="Tu nombre completo">
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="email">Email *</label>
+            <input type="email" id="email" name="email" required placeholder="tu@email.com">
+          </div>
+          <div class="form-group">
+            <label for="phone">Teléfono</label>
+            <input type="tel" id="phone" name="phone" placeholder="+34 600 000 000">
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="eventType">Tipo de evento *</label>
+            <select id="eventType" name="event_type" required>
+              <option value="">Selecciona...</option>
+              <option value="boda">Boda</option>
+              <option value="preboda">Pre-boda</option>
+              <option value="comunion">Comunión</option>
+              <option value="bautizo">Bautizo</option>
+              <option value="cumpleanos">Cumpleaños</option>
+              <option value="corporativo">Evento corporativo</option>
+              <option value="retrato">Sesión de retrato</option>
+              <option value="producto">Fotografía de producto</option>
+              <option value="deportivo">Evento deportivo</option>
+              <option value="otro">Otro</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="eventDate">Fecha del evento</label>
+            <input type="date" id="eventDate" name="event_date">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="budget">Presupuesto estimado</label>
+          <select id="budget" name="budget">
+            <option value="">Selecciona un rango...</option>
+            <option value="menos-100">Menos de 100€</option>
+            <option value="100-250">100€ - 250€</option>
+            <option value="250-500">250€ - 500€</option>
+            <option value="500-1000">500€ - 1.000€</option>
+            <option value="1000-2000">1.000€ - 2.000€</option>
+            <option value="mas-2000">Más de 2.000€</option>
+            <option value="no-seguro">No estoy seguro/a</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="message">Mensaje *</label>
+          <textarea id="message" name="message" required placeholder="Cuéntame más sobre tu evento, ubicación, qué buscas..."></textarea>
+        </div>
+
+        <button type="submit" class="submit-btn" id="submitBtn">Enviar mensaje</button>
+      </form>
+      <div class="form-success" id="formSuccess" style="display: none;">
+        <h3>¡Mensaje enviado!</h3>
+        <p>Gracias por contactarme. Te responderé lo antes posible.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Client Portal Modal -->
+  <div class="portal-modal" id="clientPortalModal">
+    <div class="portal-container">
+      <button class="close-modal" id="closePortalBtn">&times;</button>
+
+      <!-- Login Section -->
+      <div id="portalLogin">
+        <h2>Portal de Clientes</h2>
+        <p>Ingresa tu código de acceso</p>
+        <form id="portalLoginForm">
+          <div class="form-group">
+            <input type="text" id="accessCode" placeholder="Ej: garcia-boda-2024" required>
+          </div>
+          <button type="submit" class="submit-btn">Acceder</button>
+          <p class="portal-error" id="portalError" style="display:none;">
+            Código no válido. Verifica e intenta de nuevo.
+          </p>
+        </form>
+      </div>
+
+      <!-- Gallery Section (hidden initially) -->
+      <div id="portalGallery" style="display:none;">
+        <div class="portal-header">
+          <button class="back-btn" id="portalBackBtn">← Volver</button>
+          <h2 id="portalTitle">Galería</h2>
+          <button class="download-all-btn" id="downloadAllBtn">Descargar todas</button>
+        </div>
+        <p id="portalSubtitle"></p>
+        <div class="portal-grid" id="portalGrid"></div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Translations system
+    const translations = {
+      en: {
+        tagline: "Using light to write stories",
+        menu: "Menu",
+        portfolioSports: "Sports Portfolio",
+        portfolioWeddings: "Weddings & Events Portfolio",
+        contact: "Contact",
+        categories: {
+          "About Me": {
+            name: "About Me",
+            body: "I'm Juan Luis, a Barcelona-based photographer painting stories with light. From weddings to sports, I capture moments that matter. Explore my work and let's create something unforgettable together.",
+            titles: { 0: "About Juan Luis Serna" }
+          },
+          "Portraits": {
+            name: "Portraits",
+            body: "Capturing love and connection, my portraits freeze your most cherished moments—candid, intimate, or bold. Let's tell your story through my lens.",
+            titles: { 0: "Timeless Portraits" }
+          },
+          "Product Photography": {
+            name: "Product Photography",
+            body: "From coffee to jewelry, my product photography highlights every detail, making your brand irresistible. Let's elevate your visuals to sell your story.",
+            titles: { 0: "Product Brilliance" }
+          },
+          "Sports": {
+            name: "Sports",
+            body: "From sprints to slams, my sports photography captures the heart-pounding thrill of every moment. Let's freeze your victories in time.",
+            titles: { 0: "Action in Focus" }
+          },
+          "Travels": {
+            name: "Travels",
+            body: "Chasing horizons across deserts, cities, and seas, my travel photography captures the world's stories. Let's frame your adventures.",
+            titles: { 0: "Wanderlust Woven" }
+          },
+          "Weddings": {
+            name: "Weddings",
+            body: "From vows to dances, my wedding photography immortalizes your love story with every glance and smile. Let's capture your perfect day.",
+            titles: { 0: "Forever Framed" }
+          }
+        },
+        gallery: {
+          title: "Portfolio Gallery",
+          description: "Select a category to view photos. Use the arrows to select the type of photography you want to see. I do different styles and for different occasions but I enjoy them all.",
+          descriptionMobile: "Select a category to view photos. Swipe to navigate, tap to select the type of photography you want to see. I do different styles and for different occasions but I enjoy them all."
+        },
+        contactForm: {
+          title: "Contact",
+          subtitle: "Tell me about your project and I'll get back to you soon",
+          name: "Name *",
+          email: "Email *",
+          phone: "Phone",
+          eventType: "Event type *",
+          eventDate: "Event date",
+          budget: "Estimated budget",
+          message: "Message *",
+          submit: "Send message",
+          successTitle: "Message sent!",
+          successText: "Thank you for contacting me. I'll respond as soon as possible.",
+          selectEvent: "Select...",
+          selectBudget: "Select a range...",
+          events: {
+            boda: "Wedding",
+            preboda: "Pre-wedding",
+            comunion: "Communion",
+            bautizo: "Baptism",
+            cumpleanos: "Birthday",
+            corporativo: "Corporate event",
+            retrato: "Portrait session",
+            producto: "Product photography",
+            deportivo: "Sports event",
+            otro: "Other"
+          }
+        },
+        portal: {
+          title: "Client Portal",
+          enterCode: "Enter your access code",
+          placeholder: "e.g.: garcia-wedding-2024",
+          access: "Access",
+          invalidCode: "Invalid code. Please check and try again.",
+          downloadAll: "Download all",
+          back: "← Back",
+          photos: "photos",
+          menuItem: "Client Portal"
+        }
+      },
+      es: {
+        tagline: "Usando la luz para escribir historias",
+        menu: "Menú",
+        portfolioSports: "Portfolio Deportivo",
+        portfolioWeddings: "Portfolio de Bodas y Eventos",
+        contact: "Contacto",
+        categories: {
+          "About Me": {
+            name: "Sobre Mí",
+            body: "Soy Juan Luis, un fotógrafo en Barcelona que pinta historias con luz. Desde bodas hasta deportes, capturo momentos que importan. Explora mi trabajo y creemos algo inolvidable juntos.",
+            titles: { 0: "Sobre Juan Luis Serna" }
+          },
+          "Portraits": {
+            name: "Retratos",
+            body: "Capturando amor y conexión, mis retratos congelan tus momentos más preciados—espontáneos, íntimos o atrevidos. Contemos tu historia a través de mi lente.",
+            titles: { 0: "Retratos Atemporales" }
+          },
+          "Product Photography": {
+            name: "Fotografía de Producto",
+            body: "Desde café hasta joyería, mi fotografía de producto resalta cada detalle, haciendo tu marca irresistible. Elevemos tus imágenes para vender tu historia.",
+            titles: { 0: "Brillantez en Producto" }
+          },
+          "Sports": {
+            name: "Deportes",
+            body: "Desde sprints hasta mates, mi fotografía deportiva captura la emoción de cada momento. Congelemos tus victorias en el tiempo.",
+            titles: { 0: "Acción en Foco" }
+          },
+          "Travels": {
+            name: "Viajes",
+            body: "Persiguiendo horizontes por desiertos, ciudades y mares, mi fotografía de viajes captura las historias del mundo. Enmarcemos tus aventuras.",
+            titles: { 0: "Pasión Viajera" }
+          },
+          "Weddings": {
+            name: "Bodas",
+            body: "Desde los votos hasta los bailes, mi fotografía de bodas inmortaliza tu historia de amor con cada mirada y sonrisa. Capturemos tu día perfecto.",
+            titles: { 0: "Amor Eterno" }
+          }
+        },
+        gallery: {
+          title: "Galería de Portfolio",
+          description: "Selecciona una categoría para ver las fotos. Usa las flechas para elegir el tipo de fotografía que quieres ver. Hago diferentes estilos y para distintas ocasiones, pero disfruto todos.",
+          descriptionMobile: "Selecciona una categoría para ver las fotos. Desliza para navegar, toca para seleccionar el tipo de fotografía que quieres ver. Hago diferentes estilos y para distintas ocasiones, pero disfruto todos."
+        },
+        contactForm: {
+          title: "Contacto",
+          subtitle: "Cuéntame sobre tu proyecto y te responderé pronto",
+          name: "Nombre *",
+          email: "Email *",
+          phone: "Teléfono",
+          eventType: "Tipo de evento *",
+          eventDate: "Fecha del evento",
+          budget: "Presupuesto estimado",
+          message: "Mensaje *",
+          submit: "Enviar mensaje",
+          successTitle: "¡Mensaje enviado!",
+          successText: "Gracias por contactarme. Te responderé lo antes posible.",
+          selectEvent: "Selecciona...",
+          selectBudget: "Selecciona un rango...",
+          events: {
+            boda: "Boda",
+            preboda: "Pre-boda",
+            comunion: "Comunión",
+            bautizo: "Bautizo",
+            cumpleanos: "Cumpleaños",
+            corporativo: "Evento corporativo",
+            retrato: "Sesión de retrato",
+            producto: "Fotografía de producto",
+            deportivo: "Evento deportivo",
+            otro: "Otro"
+          }
+        },
+        portal: {
+          title: "Portal de Clientes",
+          enterCode: "Ingresa tu código de acceso",
+          placeholder: "Ej: garcia-boda-2024",
+          access: "Acceder",
+          invalidCode: "Código no válido. Verifica e intenta de nuevo.",
+          downloadAll: "Descargar todas",
+          back: "← Volver",
+          photos: "fotos",
+          menuItem: "Portal de Clientes"
+        }
+      }
+    };
+
+    let currentLang = localStorage.getItem('lang') || 'en';
+
+    // Client galleries data - Add new clients here
+    const clientGalleries = {
+      "demo-2024": {
+        name: "Demo Gallery",
+        nameEs: "Galería Demo",
+        date: "January 2024",
+        dateEs: "Enero 2024",
+        photos: [
+          "Sabina & Santiago-1000.jpg",
+          "Sabina & Santiago-1015.jpg",
+          "Sabina & Santiago-187.jpg",
+          "Sabina & Santiago-324.jpg",
+          "Sabina & Santiago-385.jpg",
+          "Sabina & Santiago-392.jpg"
+        ]
+      }
+      // Add more clients like this:
+      // "garcia-boda-2024": {
+      //   name: "García & López Wedding",
+      //   nameEs: "Boda García & López",
+      //   date: "June 15, 2024",
+      //   dateEs: "15 de Junio, 2024",
+      //   photos: ["foto1.jpg", "foto2.jpg", ...]
+      // }
+    };
+
+    function applyTranslations(lang) {
+      const t = translations[lang];
+
+      // Update tagline
+      const tagline = document.querySelector('.header-text p');
+      if (tagline) tagline.textContent = t.tagline;
+
+      // Update menu items
+      const menuItems = document.querySelectorAll('.menu-item');
+      if (menuItems[0]) menuItems[0].textContent = t.portfolioSports;
+      if (menuItems[1]) menuItems[1].textContent = t.portfolioWeddings;
+      if (menuItems[2]) menuItems[2].textContent = t.contact;
+
+      // Update contact form
+      const formTitle = document.querySelector('.contact-form-container h2');
+      const formSubtitle = document.querySelector('.contact-form-container > p');
+      if (formTitle) formTitle.textContent = t.contactForm.title;
+      if (formSubtitle) formSubtitle.textContent = t.contactForm.subtitle;
+
+      // Update form labels
+      const labels = document.querySelectorAll('.contact-form label');
+      const labelsText = [t.contactForm.name, t.contactForm.email, t.contactForm.phone,
+                         t.contactForm.eventType, t.contactForm.eventDate, t.contactForm.budget, t.contactForm.message];
+      labels.forEach((label, i) => {
+        if (labelsText[i]) label.textContent = labelsText[i];
+      });
+
+      // Update submit button
+      const submitBtn = document.getElementById('submitBtn');
+      if (submitBtn && !submitBtn.disabled) submitBtn.textContent = t.contactForm.submit;
+
+      // Update success message
+      const successTitle = document.querySelector('.form-success h3');
+      const successText = document.querySelector('.form-success p');
+      if (successTitle) successTitle.textContent = t.contactForm.successTitle;
+      if (successText) successText.textContent = t.contactForm.successText;
+
+      // Update language selector
+      document.querySelectorAll('.lang-option').forEach(opt => {
+        opt.classList.toggle('active', opt.dataset.lang === lang);
+      });
+
+      // Save preference
+      localStorage.setItem('lang', lang);
+      currentLang = lang;
+
+      // Update current display if showing a category
+      if (typeof updateDisplay === 'function') {
+        updateDisplay();
+      }
+    }
+
+    // Get translated category data
+    function getTranslatedCategory(category) {
+      const t = translations[currentLang].categories[category.name];
+      if (!t) return category;
+      return {
+        ...category,
+        displayName: t.name,
+        displayBody: t.body,
+        displayTitles: t.titles
+      };
+    }
+
+    const categories = [
+      {
+        name: "About Me",
+        body: "I'm Juan Luis, a Barcelona-based photographer painting stories with light. From weddings to sports, I capture moments that matter. Explore my work and let’s create something unforgettable together.",
+        photos: [
+          { file: './images/about/aboutme1.jpg', title: 'About Juan Luis Serna', url: '/about', settings: { shutter: '1/125', aperture: 'F5.6', iso: '400', format: 'RAW', histogram: './images/histograms/histabout1.png' } },
+          { file: './images/about/aboutme2.jpg', title: '', url: '#', settings: { shutter: '1/60', aperture: 'F4.0', iso: '200', format: 'RAW', histogram: './images/histograms/histabout2.png' } },
+          { file: './images/about/aboutme3.jpg', title: '', url: '#', settings: { shutter: '1/250', aperture: 'F8.0', iso: '100', format: 'RAW', histogram: './images/histograms/histabout3.png' } },
+          { file: './images/about/aboutme4.jpg', title: '', url: '#', settings: { shutter: '1/30', aperture: 'F2.8', iso: '800', format: 'RAW', histogram: './images/histograms/histabout4.png' } }
+        ]
+      },
+      {
+        name: "Portraits",
+        body: "Capturing love and connection, my portraits freeze your most cherished moments—candid, intimate, or bold. Let’s tell your story through my lens.",
+        photos: [
+          { file: './images/portraits/port1.jpg', title: 'Timeless Portraits', url: '/portraits', settings: { shutter: '1/250', aperture: 'F2.8', iso: '200', format: 'RAW', histogram: './images/histograms/histport1.png' } },
+          { file: './images/portraits/port2.jpg', title: '', url: '#', settings: { shutter: '1/400', aperture: 'F3.5', iso: '100', format: 'RAW', histogram: './images/histograms/histport2.png' } },
+          { file: './images/portraits/port3.jpg', title: '', url: '#', settings: { shutter: '1/125', aperture: 'F4.0', iso: '400', format: 'RAW', histogram: './images/histograms/histport3.png' } },
+          { file: './images/portraits/port4.jpg', title: '', url: '#', settings: { shutter: '1/60', aperture: 'F2.2', iso: '800', format: 'RAW', histogram: './images/histograms/histport4.png' } },
+          { file: './images/portraits/port5.jpg', title: '', url: '#', settings: { shutter: '1/200', aperture: 'F5.6', iso: '160', format: 'RAW', histogram: './images/histograms/histport5.png' } },
+          { file: './images/portraits/port6.jpg', title: '', url: '#', settings: { shutter: '1/100', aperture: 'F3.2', iso: '320', format: 'RAW', histogram: './images/histograms/histport6.png' } },
+          { file: './images/portraits/port7.jpg', title: '', url: '#', settings: { shutter: '1/500', aperture: 'F4.5', iso: '100', format: 'RAW', histogram: './images/histograms/histport7.png' } },
+          { file: './images/portraits/port8.jpg', title: '', url: '#', settings: { shutter: '1/80', aperture: 'F2.8', iso: '640', format: 'RAW', histogram: './images/histograms/histport8.png' } },
+          { file: './images/portraits/port9.jpg', title: '', url: '#', settings: { shutter: '1/160', aperture: 'F3.5', iso: '200', format: 'RAW', histogram: './images/histograms/histport9.png' } },
+          { file: './images/portraits/port10.jpg', title: '', url: '#', settings: { shutter: '1/125', aperture: 'F4.0', iso: '400', format: 'RAW', histogram: './images/histograms/histport10.png' } },
+          { file: './images/portraits/port11.jpg', title: '', url: '#', settings: { shutter: '1/50', aperture: 'F2.0', iso: '1000', format: 'RAW', histogram: './images/histograms/histport11.png' } },
+          { file: './images/portraits/port12.jpg', title: '', url: '#', settings: { shutter: '1/320', aperture: 'F4.5', iso: '200', format: 'RAW', histogram: './images/histograms/histport12.png' } },
+          { file: './images/portraits/port13.jpg', title: '', url: '#', settings: { shutter: '1/200', aperture: 'F3.5', iso: '400', format: 'RAW', histogram: './images/histograms/histport13.png' } },
+          { file: './images/portraits/port14.jpg', title: '', url: '#', settings: { shutter: '1/100', aperture: 'F2.8', iso: '800', format: 'RAW', histogram: './images/histograms/histport14.png' } },
+          { file: './images/portraits/port15.jpg', title: '', url: '#', settings: { shutter: '1/250', aperture: 'F4.0', iso: '320', format: 'RAW', histogram: './images/histograms/histport15.png' } },
+          { file: './images/portraits/port16.jpg', title: '', url: '#', settings: { shutter: '1/200', aperture: 'F3.5', iso: '400', format: 'RAW', histogram: './images/histograms/histport16.png' } },
+          { file: './images/portraits/port17.jpg', title: '', url: '#', settings: { shutter: '1/320', aperture: 'F4.0', iso: '200', format: 'RAW', histogram: './images/histograms/histport17.png' } },
+          { file: './images/portraits/port18.jpg', title: '', url: '#', settings: { shutter: '1/400', aperture: 'F3.2', iso: '100', format: 'RAW', histogram: './images/histograms/histport18.png' } },
+          { file: './images/portraits/port19.jpg', title: '', url: '#', settings: { shutter: '1/60', aperture: 'F2.8', iso: '800', format: 'RAW', histogram: './images/histograms/histport19.png' } },
+          { file: './images/portraits/port20.jpg', title: '', url: '#', settings: { shutter: '1/250', aperture: 'F4.5', iso: '160', format: 'RAW', histogram: './images/histograms/histport20.png' } },
+          { file: './images/portraits/port21.jpg', title: '', url: '#', settings: { shutter: '1/125', aperture: 'F3.5', iso: '320', format: 'RAW', histogram: './images/histograms/histport21.png' } },
+          { file: './images/portraits/port22.jpg', title: '', url: '#', settings: { shutter: '1/100', aperture: 'F2.8', iso: '640', format: 'RAW', histogram: './images/histograms/histport22.png' } },
+          { file: './images/portraits/port23.jpg', title: '', url: '#', settings: { shutter: '1/500', aperture: 'F4.0', iso: '100', format: 'RAW', histogram: './images/histograms/histport23.png' } },
+          { file: './images/portraits/port24.jpg', title: '', url: '#', settings: { shutter: '1/80', aperture: 'F2.2', iso: '1000', format: 'RAW', histogram: './images/histograms/histport24.png' } },
+          { file: './images/portraits/port25.jpg', title: '', url: '#', settings: { shutter: '1/320', aperture: 'F3.5', iso: '200', format: 'RAW', histogram: './images/histograms/histport25.png' } },
+          { file: './images/portraits/port26.jpg', title: '', url: '#', settings: { shutter: '1/160', aperture: 'F3.2', iso: '400', format: 'RAW', histogram: './images/histograms/histport26.png' } },
+          { file: './images/portraits/port27.jpg', title: '', url: '#', settings: { shutter: '1/125', aperture: 'F2.8', iso: '800', format: 'RAW', histogram: './images/histograms/histport27.png' } },
+          { file: './images/portraits/port28.jpg', title: '', url: '#', settings: { shutter: '1/400', aperture: 'F4.0', iso: '100', format: 'RAW', histogram: './images/histograms/histport28.png' } },
+          { file: './images/portraits/port29.jpg', title: '', url: '#', settings: { shutter: '1/200', aperture: 'F3.5', iso: '320', format: 'RAW', histogram: './images/histograms/histport29.png' } },
+          { file: './images/portraits/port30.jpg', title: '', url: '#', settings: { shutter: '1/100', aperture: 'F2.8', iso: '640', format: 'RAW', histogram: './images/histograms/histport30.png' } },
+        ]
+      },
+      {
+        name: "Product Photography",
+        body: "From coffee to jewelry, my product photography highlights every detail, making your brand irresistible. Let’s elevate your visuals to sell your story.",
+        photos: [
+          { file: './images/product/product1.jpg', title: 'Product Brilliance', url: '/products', settings: { shutter: '1/80', aperture: 'F4.5', iso: '200', format: 'RAW', histogram: './images/histograms/product1hist.png' } },
+          { file: './images/product/product2.jpg', title: '', url: '#', settings: { shutter: '1/60', aperture: 'F5.6', iso: '400', format: 'RAW', histogram: './images/histograms/product2hist.png' } },
+          { file: './images/product/product3.jpg', title: '', url: '#', settings: { shutter: '1/125', aperture: 'F3.5', iso: '100', format: 'RAW', histogram: './images/histograms/product3hist.png' } },
+          { file: './images/product/product4.jpg', title: '', url: '#', settings: { shutter: '1/50', aperture: 'F2.8', iso: '800', format: 'RAW', histogram: './images/histograms/product4hist.png' } },
+          { file: './images/product/product5.jpg', title: '', url: '#', settings: { shutter: '1/100', aperture: 'F4.0', iso: '320', format: 'RAW', histogram: './images/histograms/product5hist.png' } },
+          { file: './images/product/product6.jpg', title: '', url: '#', settings: { shutter: '1/125', aperture: 'F4.0', iso: '200', format: 'RAW', histogram: './images/histograms/product6hist.png' } },
+          { file: './images/product/product7.jpg', title: '', url: '#', settings: { shutter: '1/80', aperture: 'F3.5', iso: '400', format: 'RAW', histogram: './images/histograms/product7hist.png' } },
+          { file: './images/product/product8.jpg', title: '', url: '#', settings: { shutter: '1/160', aperture: 'F2.8', iso: '100', format: 'RAW', histogram: './images/histograms/product8hist.png' } },
+          { file: './images/product/product9.jpg', title: '', url: '#', settings: { shutter: '1/60', aperture: 'F4.5', iso: '800', format: 'RAW', histogram: './images/histograms/product9hist.png' } },
+          { file: './images/product/product10.jpg', title: '', url: '#', settings: { shutter: '1/100', aperture: 'F3.2', iso: '320', format: 'RAW', histogram: './images/histograms/product10hist.png' } },
+          { file: './images/product/product11.jpg', title: '', url: '#', settings: { shutter: '1/125', aperture: 'F4.0', iso: '200', format: 'RAW', histogram: './images/histograms/product11hist.png' } },
+          { file: './images/product/product12.jpg', title: '', url: '#', settings: { shutter: '1/80', aperture: 'F3.5', iso: '400', format: 'RAW', histogram: './images/histograms/product12hist.png' } },
+          { file: './images/product/product13.jpg', title: '', url: '#', settings: { shutter: '1/200', aperture: 'F4.5', iso: '100', format: 'RAW', histogram: './images/histograms/product13hist.png' } },
+          { file: './images/product/product14.jpg', title: '', url: '#', settings: { shutter: '1/60', aperture: 'F2.8', iso: '800', format: 'RAW', histogram: './images/histograms/product14hist.png' } },
+          { file: './images/product/product15.jpg', title: '', url: '#', settings: { shutter: '1/100', aperture: 'F3.2', iso: '320', format: 'RAW', histogram: './images/histograms/product15hist.png' } },
+          { file: './images/product/product16.jpg', title: '', url: '#', settings: { shutter: '1/125', aperture: 'F4.0', iso: '200', format: 'RAW', histogram: './images/histograms/product16hist.png' } },
+          { file: './images/product/product17.jpg', title: '', url: '#', settings: { shutter: '1/80', aperture: 'F3.5', iso: '400', format: 'RAW', histogram: './images/histograms/product17hist.png' } },
+          { file: './images/product/product18.jpg', title: '', url: '#', settings: { shutter: '1/160', aperture: 'F2.8', iso: '100', format: 'RAW', histogram: './images/histograms/product18hist.png' } },
+          { file: './images/product/product19.jpg', title: '', url: '#', settings: { shutter: '1/60', aperture: 'F4.5', iso: '800', format: 'RAW', histogram: './images/histograms/product19hist.png' } },
+          { file: './images/product/product20.jpg', title: '', url: '#', settings: { shutter: '1/100', aperture: 'F3.2', iso: '320', format: 'RAW', histogram: './images/histograms/product20hist.png' } },
+          { file: './images/product/product21.jpg', title: '', url: '/contact', settings: { shutter: '1/125', aperture: 'F4.0', iso: '200', format: 'RAW', histogram: './images/histograms/product21hist.png' } }
+        ]
+      },
+      {
+        name: "Sports",
+        body: "From sprints to slams, my sports photography captures the heart-pounding thrill of every moment. Let’s freeze your victories in time.",
+        photos: [
+          { file: './images/sports/sp1.jpg', title: 'Action in Focus', url: '/sports', settings: { shutter: '1/800', aperture: 'F2.2', iso: '4000', format: 'RAW', histogram: './images/histograms/sphist1.png' } },
+          { file: './images/sports/sp2.jpg', title: '', url: '#', settings: { shutter: '1/1000', aperture: 'F2.8', iso: '1600', format: 'RAW', histogram: './images/histograms/sphist2.png' } },
+          { file: './images/sports/sp3.jpg', title: '', url: '#', settings: { shutter: '1/500', aperture: 'F3.5', iso: '800', format: 'RAW', histogram: './images/histograms/sphist3.png' } },
+          { file: './images/sports/sp4.jpg', title: '', url: '#', settings: { shutter: '1/640', aperture: 'F2.0', iso: '3200', format: 'RAW', histogram: './images/histograms/sphist4.png' } },
+          { file: './images/sports/sp5.jpg', title: '', url: '#', settings: { shutter: '1/400', aperture: 'F4.0', iso: '1000', format: 'RAW', histogram: './images/histograms/sphist5.png' } },
+          { file: './images/sports/sp6.jpg', title: '', url: '#', settings: { shutter: '1/800', aperture: 'F2.5', iso: '2000', format: 'RAW', histogram: './images/histograms/sphist6.png' } },
+          { file: './images/sports/sp7.jpg', title: '', url: '#', settings: { shutter: '1/250', aperture: 'F5.6', iso: '400', format: 'RAW', histogram: './images/histograms/sphist7.png' } },
+          { file: './images/sports/sp8.jpg', title: '', url: '#', settings: { shutter: '1/1000', aperture: 'F3.2', iso: '1600', format: 'RAW', histogram: './images/histograms/sphist8.png' } },
+          { file: './images/sports/sp9.jpg', title: '', url: '#', settings: { shutter: '1/640', aperture: 'F2.8', iso: '3200', format: 'RAW', histogram: './images/histograms/sphist9.png' } },
+          { file: './images/sports/sp10.jpg', title: '', url: '#', settings: { shutter: '1/500', aperture: 'F3.5', iso: '800', format: 'RAW', histogram: './images/histograms/sphist10.png' } },
+          { file: './images/sports/sp11.jpg', title: '', url: '#', settings: { shutter: '1/800', aperture: 'F2.2', iso: '4000', format: 'RAW', histogram: './images/histograms/sphist11.png' } },
+          { file: './images/sports/sp12.jpg', title: '', url: '#', settings: { shutter: '1/1000', aperture: 'F2.8', iso: '1600', format: 'RAW', histogram: './images/histograms/sphist12.png' } },
+          { file: './images/sports/sp13.jpg', title: '', url: '#', settings: { shutter: '1/400', aperture: 'F4.0', iso: '1000', format: 'RAW', histogram: './images/histograms/sphist13.png' } },
+          { file: './images/sports/sp14.jpg', title: '', url: '#', settings: { shutter: '1/800', aperture: 'F2.5', iso: '2000', format: 'RAW', histogram: './images/histograms/sphist14.png' } },
+          { file: './images/sports/sp15.jpg', title: '', url: '#', settings: { shutter: '1/250', aperture: 'F5.6', iso: '400', format: 'RAW', histogram: './images/histograms/sphist15.png' } },
+          { file: './images/sports/sp16.jpg', title: '', url: '#', settings: { shutter: '1/640', aperture: 'F2.0', iso: '3200', format: 'RAW', histogram: './images/histograms/sphist16.png' } },
+          { file: './images/sports/sp17.jpg', title: '', url: '#', settings: { shutter: '1/500', aperture: 'F3.5', iso: '800', format: 'RAW', histogram: './images/histograms/sphist17.png' } },
+          { file: './images/sports/sp18.jpg', title: '', url: '#', settings: { shutter: '1/1000', aperture: 'F2.8', iso: '1600', format: 'RAW', histogram: './images/histograms/sphist18.png' } },
+          { file: './images/sports/sp19.jpg', title: '', url: '#', settings: { shutter: '1/400', aperture: 'F4.0', iso: '1000', format: 'RAW', histogram: './images/histograms/sphist19.png' } },
+          { file: './images/sports/sp20.jpg', title: '', url: '#', settings: { shutter: '1/800', aperture: 'F2.5', iso: '2000', format: 'RAW', histogram: './images/histograms/sphist20.png' } },
+          { file: './images/sports/sp21.jpg', title: '', url: '#', settings: { shutter: '1/250', aperture: 'F5.6', iso: '400', format: 'RAW', histogram: './images/histograms/sphist21.png' } },
+          { file: './images/sports/sp22.jpg', title: '', url: '#', settings: { shutter: '1/640', aperture: 'F2.0', iso: '3200', format: 'RAW', histogram: './images/histograms/sphist22.png' } },
+          { file: './images/sports/sp23.jpg', title: '', url: '#', settings: { shutter: '1/500', aperture: 'F3.5', iso: '800', format: 'RAW', histogram: './images/histograms/sphist23.png' } },
+          { file: './images/sports/sp24.jpg', title: '', url: '#', settings: { shutter: '1/1000', aperture: 'F2.8', iso: '1600', format: 'RAW', histogram: './images/histograms/sphist24.png' } },
+          { file: './images/sports/sp25.jpg', title: '', url: '#', settings: { shutter: '1/400', aperture: 'F4.0', iso: '1000', format: 'RAW', histogram: './images/histograms/sphist25.png' } },
+          { file: './images/sports/sp26.jpg', title: '', url: '#', settings: { shutter: '1/800', aperture: 'F2.5', iso: '2000', format: 'RAW', histogram: './images/histograms/sphist26.png' } },
+          { file: './images/sports/sp27.jpg', title: '', url: '#', settings: { shutter: '1/250', aperture: 'F5.6', iso: '400', format: 'RAW', histogram: './images/histograms/sphist27.png' } },
+          { file: './images/sports/sp28.jpg', title: '', url: '#', settings: { shutter: '1/640', aperture: 'F2.0', iso: '3200', format: 'RAW', histogram: './images/histograms/sphist28.png' } },
+          { file: './images/sports/sp29.jpg', title: '', url: '#', settings: { shutter: '1/500', aperture: 'F3.5', iso: '800', format: 'RAW', histogram: './images/histograms/sphist29.png' } },
+          { file: './images/sports/sp30.jpg', title: '', url: '#', settings: { shutter: '1/1000', aperture: 'F2.8', iso: '1600', format: 'RAW', histogram: './images/histograms/sphist30.png' } },
+          { file: './images/sports/sp31.jpg', title: '', url: '#', settings: { shutter: '1/400', aperture: 'F4.0', iso: '1000', format: 'RAW', histogram: './images/histograms/sphist31.png' } },
+          { file: './images/sports/sp32.jpg', title: '', url: '/contact', settings: { shutter: '1/800', aperture: 'F2.5', iso: '2000', format: 'RAW', histogram: './images/histograms/sphist32.png' } }
+        ]
+      },
+      {
+        name: "Travels",
+        body: "Chasing horizons across deserts, cities, and seas, my travel photography captures the world’s stories. Let’s frame your adventures.",
+        photos: [
+          { file: './images/travels/travels1.jpg', title: 'Wanderlust Woven', url: '/travels', settings: { shutter: '1/250', aperture: 'F5.6', iso: '200', format: 'RAW', histogram: './images/histograms/travelshist1.png' } },
+          { file: './images/travels/travels2.jpg', title: '', url: '#', settings: { shutter: '1/400', aperture: 'F4.0', iso: '100', format: 'RAW', histogram: './images/histograms/travelshist2.png' } },
+          { file: './images/travels/travels3.jpg', title: '', url: '#', settings: { shutter: '1/125', aperture: 'F3.5', iso: '400', format: 'RAW', histogram: './images/histograms/travelshist3.png' } },
+          { file: './images/travels/travels4.jpg', title: '', url: '#', settings: { shutter: '1/60', aperture: 'F2.8', iso: '800', format: 'RAW', histogram: './images/histograms/travelshist4.png' } },
+          { file: './images/travels/travels5.jpg', title: '', url: '#', settings: { shutter: '1/320', aperture: 'F4.5', iso: '200', format: 'RAW', histogram: './images/histograms/travelshist5.png' } },
+          { file: './images/travels/travels6.jpg', title: '', url: '#', settings: { shutter: '1/100', aperture: 'F3.2', iso: '640', format: 'RAW', histogram: './images/histograms/travelshist6.png' } },
+          { file: './images/travels/travels7.jpg', title: '', url: '#', settings: { shutter: '1/500', aperture: 'F5.0', iso: '100', format: 'RAW', histogram: './images/histograms/travelshist7.png' } },
+          { file: './images/travels/travels8.jpg', title: '', url: '#', settings: { shutter: '1/200', aperture: 'F4.0', iso: '320', format: 'RAW', histogram: './images/histograms/travelshist8.png' } },
+          { file: './images/travels/travels9.jpg', title: '', url: '#', settings: { shutter: '1/160', aperture: 'F3.5', iso: '400', format: 'RAW', histogram: './images/histograms/travelshist9.png' } },
+          { file: './images/travels/travels10.jpg', title: '', url: '#', settings: { shutter: '1/125', aperture: 'F4.0', iso: '200', format: 'RAW', histogram: './images/histograms/travelshist10.png' } },
+          { file: './images/travels/travels11.jpg', title: '', url: '#', settings: { shutter: '1/400', aperture: 'F4.5', iso: '100', format: 'RAW', histogram: './images/histograms/travelshist11.png' } },
+          { file: './images/travels/travels12.jpg', title: '', url: '#', settings: { shutter: '1/60', aperture: 'F2.8', iso: '800', format: 'RAW', histogram: './images/histograms/travelshist12.png' } },
+          { file: './images/travels/travels13.jpg', title: '', url: '#', settings: { shutter: '1/100', aperture: 'F3.2', iso: '640', format: 'RAW', histogram: './images/histograms/travelshist13.png' } },
+          { file: './images/travels/travels14.jpg', title: '', url: '#', settings: { shutter: '1/320', aperture: 'F4.0', iso: '200', format: 'RAW', histogram: './images/histograms/travelshist14.png' } },
+          { file: './images/travels/travels15.jpg', title: '', url: '#', settings: { shutter: '1/125', aperture: 'F3.5', iso: '400', format: 'RAW', histogram: './images/histograms/travelshist15.png' } },
+          { file: './images/travels/travels16.jpg', title: '', url: '#', settings: { shutter: '1/500', aperture: 'F5.0', iso: '100', format: 'RAW', histogram: './images/histograms/travelshist16.png' } },
+          { file: './images/travels/travels17.jpg', title: '', url: '#', settings: { shutter: '1/200', aperture: 'F4.0', iso: '320', format: 'RAW', histogram: './images/histograms/travelshist17.png' } },
+          { file: './images/travels/travels18.jpg', title: '', url: '#', settings: { shutter: '1/250', aperture: 'F4.5', iso: '200', format: 'RAW', histogram: './images/histograms/travelshist18.png' } },
+          { file: './images/travels/travels19.jpg', title: '', url: '#', settings: { shutter: '1/60', aperture: 'F2.8', iso: '800', format: 'RAW', histogram: './images/histograms/travelshist19.png' } },
+          { file: './images/travels/travels20.jpg', title: '', url: '#', settings: { shutter: '1/100', aperture: 'F3.2', iso: '640', format: 'RAW', histogram: './images/histograms/travelshist20.png' } },
+          { file: './images/travels/travels21.jpg', title: '', url: '#', settings: { shutter: '1/400', aperture: 'F4.0', iso: '100', format: 'RAW', histogram: './images/histograms/travelshist21.png' } },
+          { file: './images/travels/travels22.jpg', title: '', url: '#', settings: { shutter: '1/125', aperture: 'F3.5', iso: '400', format: 'RAW', histogram: './images/histograms/travelshist22.png' } },
+          { file: './images/travels/travels23.jpg', title: '', url: '#', settings: { shutter: '1/60', aperture: 'F2.8', iso: '800', format: 'RAW', histogram: './images/histograms/travelshist23.png' } },
+          { file: './images/travels/travels24.jpg', title: '', url: '#', settings: { shutter: '1/320', aperture: 'F4.5', iso: '200', format: 'RAW', histogram: './images/histograms/travelshist24.png' } },
+          { file: './images/travels/travels25.jpg', title: '', url: '#', settings: { shutter: '1/500', aperture: 'F5.0', iso: '100', format: 'RAW', histogram: './images/histograms/travelshist25.png' } },
+          { file: './images/travels/travels26.jpg', title: '', url: '#', settings: { shutter: '1/200', aperture: 'F4.0', iso: '320', format: 'RAW', histogram: './images/histograms/travelshist26.png' } },
+          { file: './images/travels/travels27.jpg', title: '', url: '#', settings: { shutter: '1/125', aperture: 'F3.5', iso: '400', format: 'RAW', histogram: './images/histograms/travelshist27.png' } },
+          { file: './images/travels/travels28.jpg', title: '', url: '#', settings: { shutter: '1/60', aperture: 'F2.8', iso: '800', format: 'RAW', histogram: './images/histograms/travelshist28.png' } },
+          { file: './images/travels/travels29.jpg', title: '', url: '#', settings: { shutter: '1/320', aperture: 'F4.5', iso: '200', format: 'RAW', histogram: './images/histograms/travelshist29.png' } },
+          { file: './images/travels/travels30.jpg', title: '', url: '#', settings: { shutter: '1/400', aperture: 'F4.0', iso: '100', format: 'RAW', histogram: './images/histograms/travelshist30.png' } },
+          { file: './images/travels/travels31.jpg', title: '', url: '#', settings: { shutter: '1/100', aperture: 'F3.2', iso: '640', format: 'RAW', histogram: './images/histograms/travelshist31.png' } },
+          { file: './images/travels/travels32.jpg', title: '', url: '#', settings: { shutter: '1/250', aperture: 'F4.5', iso: '200', format: 'RAW', histogram: './images/histograms/travelshist32.png' } },
+          { file: './images/travels/travels33.jpg', title: '', url: '#', settings: { shutter: '1/125', aperture: 'F3.5', iso: '400', format: 'RAW', histogram: './images/histograms/travelshist33.png' } },
+          { file: './images/travels/travels34.jpg', title: '', url: '#', settings: { shutter: '1/60', aperture: 'F2.8', iso: '800', format: 'RAW', histogram: './images/histograms/travelshist34.png' } },
+          { file: './images/travels/travels35.jpg', title: '', url: '#', settings: { shutter: '1/500', aperture: 'F5.0', iso: '100', format: 'RAW', histogram: './images/histograms/travelshist35.png' } },
+          { file: './images/travels/travels36.jpg', title: '', url: '#', settings: { shutter: '1/200', aperture: 'F4.0', iso: '320', format: 'RAW', histogram: './images/histograms/travelshist36.png' } },
+          { file: './images/travels/travels37.jpg', title: '', url: '/contact', settings: { shutter: '1/125', aperture: 'F4.0', iso: '200', format: 'RAW', histogram: './images/histograms/travelshist37.png' } }
+        ]
+      },
+      {
+        name: "Weddings",
+        body: "From vows to dances, my wedding photography immortalizes your love story with every glance and smile. Let’s capture your perfect day.",
+        photos: [
+          { file: './images/weddings/wed1.jpg', title: 'Forever Framed', url: '/weddings', settings: { shutter: '1/400', aperture: 'F5.6', iso: '100', format: 'RAW', histogram: './images/histograms/wed1hist.png' } },
+          { file: './images/weddings/wed2.jpg', title: '', url: '#', settings: { shutter: '1/250', aperture: 'F3.5', iso: '200', format: 'RAW', histogram: './images/histograms/wed2hist.png' } },
+          { file: './images/weddings/wed3.jpg', title: '', url: '#', settings: { shutter: '1/60', aperture: 'F2.8', iso: '800', format: 'RAW', histogram: './images/histograms/wed3hist.png' } },
+          { file: './images/weddings/wed4.jpg', title: '', url: '#', settings: { shutter: '1/125', aperture: 'F4.0', iso: '400', format: 'RAW', histogram: './images/histograms/wed4hist.png' } },
+          { file: './images/weddings/wed5.jpg', title: '', url: '#', settings: { shutter: '1/200', aperture: 'F3.2', iso: '160', format: 'RAW', histogram: './images/histograms/wed5hist.png' } },
+          { file: './images/weddings/wed6.jpg', title: '', url: '#', settings: { shutter: '1/100', aperture: 'F5.0', iso: '320', format: 'RAW', histogram: './images/histograms/wed6hist.png' } },
+          { file: './images/weddings/wed7.jpg', title: '', url: '#', settings: { shutter: '1/500', aperture: 'F4.5', iso: '100', format: 'RAW', histogram: './images/histograms/wed7hist.png' } },
+          { file: './images/weddings/wed8.jpg', title: '', url: '#', settings: { shutter: '1/80', aperture: 'F2.8', iso: '640', format: 'RAW', histogram: './images/histograms/wed8hist.png' } },
+          { file: './images/weddings/wed9.jpg', title: '', url: '#', settings: { shutter: '1/320', aperture: 'F3.5', iso: '200', format: 'RAW', histogram: './images/histograms/wed9hist.png' } },
+          { file: './images/weddings/wed10.jpg', title: '', url: '#', settings: { shutter: '1/60', aperture: 'F2.8', iso: '800', format: 'RAW', histogram: './images/histograms/wed10hist.png' } },
+          { file: './images/weddings/wed11.jpg', title: '', url: '#', settings: { shutter: '1/400', aperture: 'F4.0', iso: '100', format: 'RAW', histogram: './images/histograms/wed11hist.png' } },
+          { file: './images/weddings/wed12.jpg', title: '', url: '#', settings: { shutter: '1/100', aperture: 'F3.2', iso: '640', format: 'RAW', histogram: './images/histograms/wed12hist.png' } },
+          { file: './images/weddings/wed13.jpg', title: '', url: '#', settings: { shutter: '1/200', aperture: 'F4.5', iso: '320', format: 'RAW', histogram: './images/histograms/wed13hist.png' } },
+          { file: './images/weddings/wed14.jpg', title: '', url: '#', settings: { shutter: '1/250', aperture: 'F3.5', iso: '200', format: 'RAW', histogram: './images/histograms/wed14hist.png' } },
+          { file: './images/weddings/wed15.jpg', title: '', url: '#', settings: { shutter: '1/125', aperture: 'F4.0', iso: '400', format: 'RAW', histogram: './images/histograms/wed15hist.png' } },
+          { file: './images/weddings/wed16.jpg', title: '', url: '#', settings: { shutter: '1/500', aperture: 'F5.0', iso: '100', format: 'RAW', histogram: './images/histograms/wed16hist.png' } },
+          { file: './images/weddings/wed17.jpg', title: '', url: '#', settings: { shutter: '1/60', aperture: 'F2.8', iso: '800', format: 'RAW', histogram: './images/histograms/wed17hist.png' } },
+          { file: './images/weddings/wed18.jpg', title: '', url: '#', settings: { shutter: '1/320', aperture: 'F3.5', iso: '200', format: 'RAW', histogram: './images/histograms/wed18hist.png' } },
+          { file: './images/weddings/wed19.jpg', title: '', url: '#', settings: { shutter: '1/100', aperture: 'F3.2', iso: '640', format: 'RAW', histogram: './images/histograms/wed19hist.png' } },
+          { file: './images/weddings/wed20.jpg', title: '', url: '#', settings: { shutter: '1/200', aperture: 'F4.5', iso: '320', format: 'RAW', histogram: './images/histograms/wed20hist.png' } },
+          { file: './images/weddings/wed21.jpg', title: '', url: '#', settings: { shutter: '1/250', aperture: 'F3.5', iso: '200', format: 'RAW', histogram: './images/histograms/wed21hist.png' } },
+          { file: './images/weddings/wed22.jpg', title: '', url: '#', settings: { shutter: '1/125', aperture: 'F4.0', iso: '400', format: 'RAW', histogram: './images/histograms/wed22hist.png' } },
+          { file: './images/weddings/wed23.jpg', title: '', url: '#', settings: { shutter: '1/400', aperture: 'F5.0', iso: '100', format: 'RAW', histogram: './images/histograms/wed23hist.png' } },
+          { file: './images/weddings/wed24.jpg', title: '', url: '#', settings: { shutter: '1/60', aperture: 'F2.8', iso: '800', format: 'RAW', histogram: './images/histograms/wed24hist.png' } },
+          { file: './images/weddings/wed25.jpg', title: '', url: '#', settings: { shutter: '1/320', aperture: 'F3.5', iso: '200', format: 'RAW', histogram: './images/histograms/wed25hist.png' } },
+          { file: './images/weddings/wed26.jpg', title: '', url: '#', settings: { shutter: '1/100', aperture: 'F3.2', iso: '640', format: 'RAW', histogram: './images/histograms/wed26hist.png' } },
+          { file: './images/weddings/wed27.jpg', title: '', url: '#', settings: { shutter: '1/200', aperture: 'F4.5', iso: '320', format: 'RAW', histogram: './images/histograms/wed27hist.png' } },
+          { file: './images/weddings/wed28.jpg', title: '', url: '#', settings: { shutter: '1/250', aperture: 'F3.5', iso: '200', format: 'RAW', histogram: './images/histograms/wed28hist.png' } },
+          { file: './images/weddings/wed29.jpg', title: '', url: '#', settings: { shutter: '1/125', aperture: 'F4.0', iso: '400', format: 'RAW', histogram: './images/histograms/wed29hist.png' } },
+          { file: './images/weddings/wed30.jpg', title: '', url: '#', settings: { shutter: '1/400', aperture: 'F5.0', iso: '100', format: 'RAW', histogram: './images/histograms/wed30hist.png' } },
+          { file: './images/weddings/wed31.jpg', title: '', url: '/contact', settings: { shutter: '1/200', aperture: 'F3.5', iso: '320', format: 'RAW', histogram: './images/histograms/wed31hist.png' } }
+        ]
+      }
+    ];
+  
+    let currentCategoryIndex = 0;
+    let currentPhotoIndex = 0;
+    let isGalleryView = true;
+    let isPhotoGalleryView = false; // NEW: tracks if we're in photo gallery within a category
+    let selectedGalleryIndex = 0;
+    let selectedPhotoGalleryIndex = 0; // NEW: tracks selected photo in photo gallery
+    let isMobile = false;
+    const heroContainer = document.getElementById('heroContainer');
+    const galleryContainer = document.getElementById('galleryContainer');
+    const galleryGrid = document.getElementById('galleryGrid');
+    const shutterOverlay = document.getElementById('shutterOverlay');
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+    const upBtn = document.getElementById('upBtn');
+    const downBtn = document.getElementById('downBtn');
+    const shutterBtn = document.getElementById('shutterBtn');
+    const galleryBtn = document.getElementById('galleryBtn');
+    const mobileShutter = document.getElementById('mobileShutter');
+    const mobileGalleryBtn = document.getElementById('mobileGalleryBtn');
+    const mobileTimer = document.getElementById('mobileTimer');
+    const mobileModes = document.getElementById('mobileModes');
+    const infoBtn = document.getElementById('infoBtn');
+    const photoInfoPanel = document.getElementById('photoInfoPanel');
+    const photoSettingsMobile = document.getElementById('photoSettingsMobile');
+    const photoTitleMobile = document.getElementById('photoTitleMobile');
+    const bodyTextMobile = document.getElementById('bodyTextMobile');
+    const indexNumber = document.getElementById('indexNumber');
+    const categoryName = document.getElementById('categoryName');
+    const photoTitle = document.getElementById('photoTitle');
+    const bodyText = document.getElementById('bodyText');
+    const photoSettings = document.getElementById('photoSettings');
+    const shutterSound = document.getElementById('shutterSound');
+    const zoom1x = document.getElementById('zoom1x');
+    const zoom2x = document.getElementById('zoom2x');
+    const zoom4x = document.getElementById('zoom4x');
+    shutterSound.volume = 0.5;
+  
+    let zoomLevel = 1; // Represents actual scale (1, 2, 4)
+    let touchStartX = 0;
+    let touchStartY = 0;
+    let isInfoPanelOpen = false;
+    let lastTouchTime = 0;
+    const touchDelay = 500; // 500ms delay for touch debounce
+    let isPanning = false;
+    let panStartX = 0;
+    let panStartY = 0;
+    let transformOriginX = 50; // Percentage
+    let transformOriginY = 50; // Percentage
+
+    // Toggle dropdown menu visibility
+    document.getElementById('menuButton').addEventListener('click', function() {
+    const dropdown = document.getElementById('menuDropdown');
+    dropdown.classList.toggle('hidden');
+    });
+
+    // Close dropdown when clicking outside
+    document.addEventListener('click', function(event) {
+      const dropdown = document.getElementById('menuDropdown');
+      const button = document.getElementById('menuButton');
+      if (!dropdown.contains(event.target) && !button.contains(event.target)) {
+        dropdown.classList.add('hidden');
+      }
+    });
+  
+    // Enhanced mobile detection
+    function detectMobile() {
+      const userAgent = navigator.userAgent || navigator.vendor || window.opera;
+      return (
+        window.innerWidth <= 768 ||
+        /android/i.test(userAgent) ||
+        /iPad|iPhone|iPod/.test(userAgent) ||
+        /Mobi|Android/.test(userAgent)
+      );
+    }
+  
+    // Initialize mobile detection and update on resize
+    function updateMobileStatus() {
+      isMobile = detectMobile();
+      if (isMobile) {
+        toggleGalleryView(isGalleryView); // Re-apply gallery view state to update mobile UI
+        populateCategoryCarousel();
+      }
+    }
+  
+    // Preload images to ensure smooth transitions
+    function preloadImages(categoryIndex, photoIndex) {
+      const category = categories[categoryIndex];
+      const imagesToPreload = [];
+  
+      const prevPhotoIndex = (photoIndex - 1 + category.photos.length) % category.photos.length;
+      const nextPhotoIndex = (photoIndex + 1) % category.photos.length;
+      imagesToPreload.push(category.photos[prevPhotoIndex].file);
+      imagesToPreload.push(category.photos[nextPhotoIndex].file);
+  
+      const prevCategoryIndex = (categoryIndex - 1 + categories.length) % categories.length;
+      const nextCategoryIndex = (categoryIndex + 1) % categories.length;
+      imagesToPreload.push(categories[prevCategoryIndex].photos[0].file);
+      imagesToPreload.push(categories[nextCategoryIndex].photos[0].file);
+  
+      imagesToPreload.forEach(src => {
+        const img = new Image();
+        img.src = src;
+      });
+    }
+  
+    // Populate the category carousel on mobile
+    function populateCategoryCarousel() {
+      if (!isMobile) return;
+      mobileModes.innerHTML = '';
+      categories.forEach((category, index) => {
+        const span = document.createElement('span');
+        span.textContent = category.name;
+        if (index === currentCategoryIndex) {
+          span.classList.add('active');
+        }
+        span.addEventListener('touchend', (e) => {
+          e.stopPropagation();
+          currentCategoryIndex = index;
+          currentPhotoIndex = 0;
+          zoomLevel = 1;
+          transformOriginX = 50;
+          transformOriginY = 50;
+          updateZoomButtons();
+          updateContent(currentCategoryIndex, currentPhotoIndex);
+        });
+        mobileModes.appendChild(span);
+      });
+  
+      // Center the active category
+      const activeSpan = mobileModes.querySelector('span.active');
+      if (activeSpan) {
+        const containerWidth = mobileModes.clientWidth;
+        const spanWidth = activeSpan.offsetWidth;
+        const spanOffsetLeft = activeSpan.offsetLeft;
+        const scrollPosition = spanOffsetLeft - (containerWidth / 2) + (spanWidth / 2);
+        mobileModes.scrollTo({
+          left: scrollPosition,
+          behavior: 'smooth'
+        });
+      }
+    }
+  
+    function updateZoomButtons() {
+      zoom1x.classList.toggle('active', zoomLevel === 1);
+      zoom2x.classList.toggle('active', zoomLevel === 2);
+      zoom4x.classList.toggle('active', zoomLevel === 4);
+    }
+  
+    function updateContent(categoryIndex, photoIndex, skipAnimation = false) {
+      const category = categories[categoryIndex];
+      const photo = category.photos[photoIndex];
+      const photoImage = document.getElementById('photoImage');
+
+      preloadImages(categoryIndex, photoIndex);
+
+      // Focus effect - blur before changing image
+      if (!skipAnimation) {
+        photoImage.classList.remove('focused');
+        photoImage.classList.add('focusing');
+      }
+
+      photoImage.src = photo.file;
+      photoImage.style.transform = `scale(${zoomLevel})`;
+      photoImage.style.transformOrigin = `${transformOriginX}% ${transformOriginY}%`;
+
+      // Focus effect - sharp after image loads
+      if (!skipAnimation) {
+        photoImage.onload = () => {
+          setTimeout(() => {
+            photoImage.classList.remove('focusing');
+            photoImage.classList.add('focused');
+          }, 100);
+        };
+      }
+  
+      // Get translations for current category
+      const t = translations[currentLang].categories[category.name];
+      const displayName = t ? t.name : category.name;
+      const displayBody = t ? t.body : category.body;
+      const displayTitle = (t && t.titles && t.titles[photoIndex]) ? t.titles[photoIndex] : photo.title;
+
+      indexNumber.textContent = `${photoIndex + 1}/${category.photos.length}`;
+      categoryName.textContent = displayName;
+  
+      if (isMobile) {
+        // On mobile, populate the info panel with title, body, and settings
+        photoSettings.innerHTML = '';
+        photoTitle.textContent = '';
+        bodyText.textContent = '';
+        photoTitleMobile.textContent = displayTitle || '';
+        bodyTextMobile.textContent = displayBody;
+        photoSettingsMobile.innerHTML = `
+          <span>Format: ${photo.settings.format}</span>
+          <span>ISO: ${photo.settings.iso}</span>
+          <span>Shutter Speed: ${photo.settings.shutter}</span>
+          <span>Aperture: ${photo.settings.aperture}</span>
+          <div class="histogram"><img src="${photo.settings.histogram}" alt="Histogram"></div>
+        `;
+        populateCategoryCarousel();
+      } else {
+        // On desktop, populate the info section and overlay
+        photoSettingsMobile.innerHTML = '';
+        photoTitleMobile.textContent = '';
+        bodyTextMobile.textContent = '';
+        photoTitle.textContent = displayTitle || '';
+        bodyText.textContent = displayBody;
+        photoSettings.innerHTML = '';
+      }
+  
+      const cameraScreen = document.getElementById('cameraScreen');
+      if (isMobile) {
+        cameraScreen.innerHTML = '';
+      } else {
+        cameraScreen.innerHTML = `
+          <div class="status-bar">
+            <div class="battery-icon"></div>
+            <span>100% | ${new Date().toISOString().split('T')[0]}</span>
+          </div>
+          <div class="shutter-aperture">
+            <span>Format: ${photo.settings.format}</span>
+            <span>ISO: ${photo.settings.iso}</span>
+            <span>Shutter Speed: ${photo.settings.shutter}</span>
+            <span>Aperture: ${photo.settings.aperture}</span>
+          </div>
+          <div class="histogram"><img src="${photo.settings.histogram}" alt="Histogram"></div>
+        `;
+      }
+  
+      if (!skipAnimation) {
+        shutterOverlay.classList.add('blink');
+        shutterSound.currentTime = 0;
+        shutterSound.play();
+        setTimeout(() => {
+          shutterOverlay.classList.remove('blink');
+        }, 300);
+      }
+    }
+  
+    function changePhoto(direction) {
+      const category = categories[currentCategoryIndex];
+      currentPhotoIndex = (currentPhotoIndex + direction + category.photos.length) % category.photos.length;
+      zoomLevel = 1; // Reset zoom when changing photos
+      transformOriginX = 50;
+      transformOriginY = 50;
+      updateZoomButtons();
+      updateContent(currentCategoryIndex, currentPhotoIndex);
+      updateFilmStripActive(); // Update film strip selection
+    }
+
+    function changeCategory(direction) {
+      currentCategoryIndex = (currentCategoryIndex + direction + categories.length) % categories.length;
+      currentPhotoIndex = 0;
+      zoomLevel = 1; // Reset zoom when changing categories
+      transformOriginX = 50;
+      transformOriginY = 50;
+      updateZoomButtons();
+      updateContent(currentCategoryIndex, currentPhotoIndex);
+      populateFilmStrip(); // Refresh film strip for new category
+      updateModeDial(); // Update mode dial rotation
+    }
+
+    window.addEventListener('wheel', (e) => {
+      if (isMobile) return;
+      // Allow normal scroll in gallery views
+      if (isGalleryView || isPhotoGalleryView) return;
+      // Only use wheel for zoom when viewing single photo
+      e.preventDefault();
+      const delta = e.deltaY > 0 ? 5 : -5;
+      zoomLevel = Math.min(Math.max(zoomLevel + (delta / 100), 1), 4);
+      const photoImage = document.getElementById('photoImage');
+      photoImage.style.transform = `scale(${zoomLevel})`;
+    }, { passive: false });
+  
+    // Populate gallery grid
+    function populateGalleryGrid() {
+      galleryGrid.innerHTML = '';
+      galleryGrid.classList.remove('photo-gallery-mode');
+      // Reset masonry inline styles
+      galleryGrid.style.height = '';
+      galleryGrid.style.position = '';
+      categories.forEach((category, index) => {
+        const t = translations[currentLang].categories[category.name];
+        const displayName = t ? t.name : category.name;
+        const item = document.createElement('div');
+        item.classList.add('gallery-item');
+        if (index === selectedGalleryIndex) item.classList.add('selected');
+        item.innerHTML = `
+          <div class="category-title">${displayName}</div>
+          <img src="${category.photos[0].file}" alt="${displayName}">
+        `;
+        if (isMobile) {
+          item.addEventListener('touchend', () => {
+            selectedGalleryIndex = index;
+            const items = galleryGrid.querySelectorAll('.gallery-item');
+            items.forEach((i, idx) => i.classList.toggle('selected', idx === selectedGalleryIndex));
+            currentCategoryIndex = selectedGalleryIndex;
+            currentPhotoIndex = 0;
+            zoomLevel = 1;
+            transformOriginX = 50;
+            transformOriginY = 50;
+            updateZoomButtons();
+            toggleGalleryView(false);
+          });
+        }
+        galleryGrid.appendChild(item);
+      });
+    }
+  
+    // Preload gallery images
+    function preloadGalleryImages() {
+      categories.forEach(category => {
+        const img = new Image();
+        img.src = category.photos[0].file;
+      });
+    }
+
+    // Film Strip Functions
+    const filmStrip = document.getElementById('filmStrip');
+
+    function populateFilmStrip() {
+      if (isMobile) return; // Don't show on mobile
+
+      const category = categories[currentCategoryIndex];
+      filmStrip.innerHTML = '';
+
+      category.photos.forEach((photo, index) => {
+        const frame = document.createElement('div');
+        frame.classList.add('film-frame');
+        if (index === currentPhotoIndex) frame.classList.add('active');
+        frame.innerHTML = `<img src="${photo.file}" alt="Photo ${index + 1}">`;
+
+        frame.addEventListener('click', () => {
+          currentPhotoIndex = index;
+          updateContent(currentCategoryIndex, currentPhotoIndex);
+          updateFilmStripActive();
+          shutterOverlay.classList.add('blink');
+          shutterSound.currentTime = 0;
+          shutterSound.play();
+          setTimeout(() => shutterOverlay.classList.remove('blink'), 300);
+        });
+
+        filmStrip.appendChild(frame);
+      });
+
+      // Scroll to active frame
+      scrollFilmStripToActive();
+    }
+
+    function updateFilmStripActive() {
+      const frames = filmStrip.querySelectorAll('.film-frame');
+      frames.forEach((frame, index) => {
+        frame.classList.toggle('active', index === currentPhotoIndex);
+      });
+      scrollFilmStripToActive();
+    }
+
+    function scrollFilmStripToActive() {
+      const activeFrame = filmStrip.querySelector('.film-frame.active');
+      if (activeFrame) {
+        activeFrame.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+      }
+    }
+
+    function showFilmStrip() {
+      if (isMobile) return;
+      filmStrip.classList.add('visible');
+      populateFilmStrip();
+    }
+
+    function hideFilmStrip() {
+      filmStrip.classList.remove('visible');
+      filmStrip.innerHTML = ''; // Clear content when hiding
+    }
+
+    // Mode Dial Functions
+    const modeDial = document.getElementById('modeDial');
+    const modeDialLabel = document.getElementById('modeDialLabel');
+    const modeDialContainer = document.getElementById('modeDialContainer');
+
+    // Category abbreviations for the dial
+    const categoryAbbreviations = {
+      'About Me': 'ME',
+      'Portraits': 'PORT',
+      'Product Photography': 'PROD',
+      'Sports': 'SPRT',
+      'Travels': 'TRVL',
+      'Weddings': 'WED'
+    };
+
+    function initModeDial() {
+      if (isMobile) {
+        modeDialContainer.style.display = 'none';
+        return;
+      }
+
+      modeDial.innerHTML = '';
+      const angleStep = 360 / categories.length;
+
+      categories.forEach((cat, index) => {
+        const marker = document.createElement('div');
+        marker.classList.add('dial-marker');
+        const abbr = categoryAbbreviations[cat.name] || cat.name.substring(0, 4).toUpperCase();
+        marker.textContent = abbr;
+        marker.dataset.index = index;
+
+        // Position markers around the dial
+        const angle = (index * angleStep) - 90; // Start from top
+        const radius = 55; // Distance from center (percentage)
+        const x = 50 + radius * Math.cos(angle * Math.PI / 180);
+        const y = 50 + radius * Math.sin(angle * Math.PI / 180);
+
+        marker.style.left = `${x}%`;
+        marker.style.top = `${y}%`;
+        marker.style.transform = 'translate(-50%, -50%)';
+
+        marker.addEventListener('click', (e) => {
+          e.stopPropagation();
+          if (isGalleryView) return;
+          const targetIndex = parseInt(marker.dataset.index);
+          if (targetIndex !== currentCategoryIndex) {
+            currentCategoryIndex = targetIndex;
+            currentPhotoIndex = 0;
+            zoomLevel = 1;
+            transformOriginX = 50;
+            transformOriginY = 50;
+            updateZoomButtons();
+            updateContent(currentCategoryIndex, currentPhotoIndex);
+            updateModeDial();
+            populateFilmStrip();
+            shutterOverlay.classList.add('blink');
+            shutterSound.currentTime = 0;
+            shutterSound.play();
+            setTimeout(() => shutterOverlay.classList.remove('blink'), 300);
+          }
+        });
+
+        modeDial.appendChild(marker);
+      });
+
+      updateModeDial();
+    }
+
+    function updateModeDial() {
+      if (isMobile) return;
+
+      const angleStep = 360 / categories.length;
+      const rotation = -currentCategoryIndex * angleStep;
+      modeDial.style.transform = `rotate(${rotation}deg)`;
+
+      // Update active marker
+      const markers = modeDial.querySelectorAll('.dial-marker');
+      markers.forEach((marker, index) => {
+        marker.classList.toggle('active', index === currentCategoryIndex);
+        // Counter-rotate text so it stays readable
+        const markerRotation = -rotation;
+        marker.style.transform = `translate(-50%, -50%) rotate(${markerRotation}deg)`;
+      });
+
+      // Update label
+      const category = categories[currentCategoryIndex];
+      const t = translations[currentLang].categories[category.name];
+      modeDialLabel.textContent = t ? t.name : category.name;
+    }
+
+    // Toggle gallery view
+    function toggleGalleryView(showGallery) {
+      isGalleryView = showGallery;
+      heroContainer.style.display = showGallery ? 'none' : 'block';
+      galleryContainer.style.display = showGallery ? 'block' : 'none';
+      indexNumber.style.display = showGallery ? 'none' : 'block';
+      mobileModes.style.display = showGallery ? 'none' : 'flex';
+  
+      if (isMobile) {
+        mobileShutter.classList.toggle('gallery-mode', showGallery);
+        mobileTimer.classList.toggle('active', showGallery);
+        mobileGalleryBtn.classList.toggle('gallery-mode', showGallery);
+      }
+  
+      if (showGallery) {
+        selectedGalleryIndex = currentCategoryIndex;
+        populateGalleryGrid();
+        preloadGalleryImages();
+        const galleryText = translations[currentLang].gallery;
+        categoryName.textContent = galleryText.title;
+        photoTitle.textContent = '';
+        bodyText.textContent = galleryText.description;
+        photoTitleMobile.textContent = '';
+        bodyTextMobile.textContent = galleryText.descriptionMobile;
+        photoSettings.innerHTML = '';
+        photoSettingsMobile.innerHTML = '';
+        shutterOverlay.classList.add('blink');
+        shutterSound.currentTime = 0;
+        shutterSound.play();
+        setTimeout(() => {
+          shutterOverlay.classList.remove('blink');
+        }, 300);
+  
+        if (!isMobile) {
+          upBtn.setAttribute('title', 'Move Up');
+          downBtn.setAttribute('title', 'Move Down');
+          prevBtn.setAttribute('title', 'Move Left');
+          nextBtn.setAttribute('title', 'Move Right');
+          shutterBtn.setAttribute('title', 'Select Category');
+        }
+        hideFilmStrip(); // Hide film strip in gallery view
+      } else {
+        if (!isMobile) {
+          upBtn.setAttribute('title', 'Switch to Previous Category');
+          downBtn.setAttribute('title', 'Switch to Next Category');
+          prevBtn.setAttribute('title', 'View Previous Photo');
+          nextBtn.setAttribute('title', 'View Next Photo');
+          shutterBtn.setAttribute('title', 'Go to Page');
+        }
+        updateContent(currentCategoryIndex, currentPhotoIndex);
+        showFilmStrip(); // Show film strip when viewing photos
+      }
+    }
+
+    // Navigate gallery grid (desktop)
+    function navigateGallery(direction) {
+      const prevIndex = selectedGalleryIndex;
+      const gridCols = window.innerWidth <= 768 ? (window.innerWidth <= 480 ? 1 : 2) : 3;
+      const gridRows = Math.ceil(categories.length / gridCols);
+  
+      if (direction === 'up') {
+        selectedGalleryIndex = Math.max(selectedGalleryIndex - gridCols, 0);
+      } else if (direction === 'down') {
+        selectedGalleryIndex = Math.min(selectedGalleryIndex + gridCols, categories.length - 1);
+      } else if (direction === 'left') {
+        selectedGalleryIndex = Math.max(selectedGalleryIndex - 1, 0);
+      } else if (direction === 'right') {
+        selectedGalleryIndex = Math.min(selectedGalleryIndex + 1, categories.length - 1);
+      }
+  
+      if (prevIndex !== selectedGalleryIndex) {
+        const items = galleryGrid.querySelectorAll('.gallery-item');
+        items[prevIndex].classList.remove('selected');
+        items[selectedGalleryIndex].classList.add('selected');
+      }
+    }
+
+    // NEW: Populate photo gallery grid (photos within a category)
+    function populatePhotoGalleryGrid() {
+      galleryGrid.innerHTML = '';
+      galleryGrid.classList.add('photo-gallery-mode');
+      const category = categories[currentCategoryIndex];
+      const t = translations[currentLang].categories[category.name];
+      const displayName = t ? t.name : category.name;
+
+      category.photos.forEach((photo, index) => {
+        const item = document.createElement('div');
+        item.classList.add('gallery-item', 'photo-gallery-item');
+        if (index === selectedPhotoGalleryIndex) item.classList.add('selected');
+        item.innerHTML = `
+          <div class="category-title">${index + 1} / ${category.photos.length}</div>
+          <img src="${photo.file}" alt="${displayName} ${index + 1}">
+        `;
+
+        // Click/touch to select photo
+        const selectPhoto = () => {
+          selectedPhotoGalleryIndex = index;
+          currentPhotoIndex = index;
+          zoomLevel = 1;
+          transformOriginX = 50;
+          transformOriginY = 50;
+          updateZoomButtons();
+          togglePhotoGalleryView(false);
+        };
+
+        if (isMobile) {
+          item.addEventListener('touchend', selectPhoto);
+        } else {
+          item.addEventListener('click', selectPhoto);
+        }
+
+        galleryGrid.appendChild(item);
+      });
+
+      // Apply masonry layout after images load
+      // Small delay to ensure container is visible and has dimensions
+      setTimeout(() => {
+        layoutMasonry();
+        // Re-layout after a bit more time in case images were slow to report dimensions
+        setTimeout(layoutMasonry, 300);
+      }, 50);
+    }
+
+    // Masonry layout function
+    function layoutMasonry() {
+      // Use requestAnimationFrame to ensure DOM is ready
+      requestAnimationFrame(() => {
+        const items = galleryGrid.querySelectorAll('.photo-gallery-item');
+        if (items.length === 0) return;
+
+        const gridWidth = galleryGrid.clientWidth;
+        if (gridWidth === 0) {
+          // Container not visible yet, retry
+          setTimeout(layoutMasonry, 50);
+          return;
+        }
+
+        const gap = Math.max(gridWidth * 0.01, 5); // 1vw gap, min 5px
+
+        // Determine number of columns based on screen width
+        let numCols = 4;
+        if (window.innerWidth <= 480) numCols = 2;
+        else if (window.innerWidth <= 768) numCols = 3;
+
+        const colWidth = (gridWidth - gap * (numCols + 1)) / numCols;
+
+        const positionItems = () => {
+          const colHeights = new Array(numCols).fill(gap);
+
+          items.forEach((item) => {
+            const img = item.querySelector('img');
+            const imgHeight = img.naturalHeight || img.offsetHeight || 200;
+            const imgWidth = img.naturalWidth || img.offsetWidth || 300;
+            const aspectRatio = imgHeight / imgWidth;
+            const itemHeight = colWidth * aspectRatio;
+
+            // Find shortest column
+            const shortestCol = colHeights.indexOf(Math.min(...colHeights));
+
+            // Position item
+            item.style.width = colWidth + 'px';
+            item.style.left = (gap + shortestCol * (colWidth + gap)) + 'px';
+            item.style.top = colHeights[shortestCol] + 'px';
+
+            // Update column height
+            colHeights[shortestCol] += itemHeight + gap;
+          });
+
+          // Set container height for scrolling
+          galleryGrid.style.height = Math.max(...colHeights) + gap + 'px';
+        };
+
+        // Wait for all images to load
+        const images = Array.from(galleryGrid.querySelectorAll('.photo-gallery-item img'));
+        let loadedCount = 0;
+        const totalImages = images.length;
+
+        const checkAllLoaded = () => {
+          loadedCount++;
+          if (loadedCount >= totalImages) {
+            positionItems();
+          }
+        };
+
+        images.forEach(img => {
+          if (img.complete && img.naturalHeight !== 0) {
+            checkAllLoaded();
+          } else {
+            img.onload = checkAllLoaded;
+            img.onerror = checkAllLoaded;
+          }
+        });
+
+        // If all images were already loaded
+        if (loadedCount >= totalImages) {
+          positionItems();
+        }
+      });
+    }
+
+    // Re-layout on window resize
+    window.addEventListener('resize', () => {
+      if (isPhotoGalleryView) {
+        layoutMasonry();
+      }
+    });
+
+    // NEW: Toggle photo gallery view (within a category)
+    function togglePhotoGalleryView(showPhotoGallery) {
+      isPhotoGalleryView = showPhotoGallery;
+      heroContainer.style.display = showPhotoGallery ? 'none' : 'block';
+      galleryContainer.style.display = showPhotoGallery ? 'block' : 'none';
+      indexNumber.style.display = showPhotoGallery ? 'none' : 'block';
+      mobileModes.style.display = showPhotoGallery ? 'none' : 'flex';
+
+      if (isMobile) {
+        mobileShutter.classList.toggle('gallery-mode', showPhotoGallery);
+        mobileTimer.classList.toggle('active', showPhotoGallery);
+        mobileGalleryBtn.classList.toggle('gallery-mode', showPhotoGallery);
+      }
+
+      if (showPhotoGallery) {
+        selectedPhotoGalleryIndex = currentPhotoIndex;
+        populatePhotoGalleryGrid();
+
+        const category = categories[currentCategoryIndex];
+        const t = translations[currentLang].categories[category.name];
+        const displayName = t ? t.name : category.name;
+        const displayBody = t ? t.body : category.body;
+
+        categoryName.textContent = displayName;
+        photoTitle.textContent = currentLang === 'es' ? 'Selecciona una foto' : 'Select a photo';
+        bodyText.textContent = displayBody;
+        photoTitleMobile.textContent = currentLang === 'es' ? 'Selecciona una foto' : 'Select a photo';
+        bodyTextMobile.textContent = displayBody;
+        photoSettings.innerHTML = '';
+        photoSettingsMobile.innerHTML = '';
+
+        shutterOverlay.classList.add('blink');
+        shutterSound.currentTime = 0;
+        shutterSound.play();
+        setTimeout(() => {
+          shutterOverlay.classList.remove('blink');
+        }, 300);
+
+        if (!isMobile) {
+          upBtn.setAttribute('title', 'Move Up');
+          downBtn.setAttribute('title', 'Move Down');
+          prevBtn.setAttribute('title', 'Move Left');
+          nextBtn.setAttribute('title', 'Move Right');
+          shutterBtn.setAttribute('title', 'Select Photo');
+        }
+        hideFilmStrip(); // Hide film strip in photo gallery view
+      } else {
+        if (!isMobile) {
+          upBtn.setAttribute('title', 'Switch to Previous Category');
+          downBtn.setAttribute('title', 'Switch to Next Category');
+          prevBtn.setAttribute('title', 'View Previous Photo');
+          nextBtn.setAttribute('title', 'View Next Photo');
+          shutterBtn.setAttribute('title', 'Go to Page');
+        }
+        updateContent(currentCategoryIndex, currentPhotoIndex);
+        showFilmStrip(); // Show film strip when viewing individual photo
+      }
+    }
+
+    // NEW: Navigate photo gallery grid
+    function navigatePhotoGallery(direction) {
+      const category = categories[currentCategoryIndex];
+      const totalPhotos = category.photos.length;
+      const prevIndex = selectedPhotoGalleryIndex;
+      const gridCols = window.innerWidth <= 768 ? (window.innerWidth <= 480 ? 2 : 3) : 4;
+
+      if (direction === 'up') {
+        selectedPhotoGalleryIndex = Math.max(selectedPhotoGalleryIndex - gridCols, 0);
+      } else if (direction === 'down') {
+        selectedPhotoGalleryIndex = Math.min(selectedPhotoGalleryIndex + gridCols, totalPhotos - 1);
+      } else if (direction === 'left') {
+        selectedPhotoGalleryIndex = Math.max(selectedPhotoGalleryIndex - 1, 0);
+      } else if (direction === 'right') {
+        selectedPhotoGalleryIndex = Math.min(selectedPhotoGalleryIndex + 1, totalPhotos - 1);
+      }
+
+      if (prevIndex !== selectedPhotoGalleryIndex) {
+        const items = galleryGrid.querySelectorAll('.gallery-item');
+        if (items[prevIndex]) items[prevIndex].classList.remove('selected');
+        if (items[selectedPhotoGalleryIndex]) items[selectedPhotoGalleryIndex].classList.add('selected');
+        // Scroll selected item into view
+        items[selectedPhotoGalleryIndex]?.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      }
+    }
+
+    // Desktop event listeners
+    prevBtn.addEventListener('click', () => {
+      if (isGalleryView) {
+        navigateGallery('left');
+      } else if (isPhotoGalleryView) {
+        navigatePhotoGallery('left');
+      } else {
+        changePhoto(-1);
+      }
+    });
+  
+    nextBtn.addEventListener('click', () => {
+      if (isGalleryView) {
+        navigateGallery('right');
+      } else if (isPhotoGalleryView) {
+        navigatePhotoGallery('right');
+      } else {
+        changePhoto(1);
+      }
+    });
+
+    upBtn.addEventListener('click', () => {
+      if (isGalleryView) {
+        navigateGallery('up');
+      } else if (isPhotoGalleryView) {
+        navigatePhotoGallery('up');
+      } else {
+        changeCategory(-1);
+      }
+    });
+
+    downBtn.addEventListener('click', () => {
+      if (isGalleryView) {
+        navigateGallery('down');
+      } else if (isPhotoGalleryView) {
+        navigatePhotoGallery('down');
+      } else {
+        changeCategory(1);
+      }
+    });
+
+    shutterBtn.addEventListener('click', () => {
+      if (isGalleryView) {
+        currentCategoryIndex = selectedGalleryIndex;
+        currentPhotoIndex = 0;
+        zoomLevel = 1;
+        transformOriginX = 50;
+        transformOriginY = 50;
+        updateZoomButtons();
+        toggleGalleryView(false);
+      } else if (isPhotoGalleryView) {
+        // Select the photo from photo gallery
+        currentPhotoIndex = selectedPhotoGalleryIndex;
+        zoomLevel = 1;
+        transformOriginX = 50;
+        transformOriginY = 50;
+        updateZoomButtons();
+        togglePhotoGalleryView(false);
+      } else {
+        window.location.href = categories[currentCategoryIndex].photos[currentPhotoIndex].url;
+      }
+    });
+
+    galleryBtn.addEventListener('click', () => {
+      if (isGalleryView) {
+        // Already in category gallery, do nothing
+        return;
+      } else if (isPhotoGalleryView) {
+        // In photo gallery, go back to category gallery
+        isPhotoGalleryView = false;
+        toggleGalleryView(true);
+      } else {
+        // Viewing single photo, show photo gallery for this category
+        togglePhotoGalleryView(true);
+      }
+    });
+  
+    // Mobile event listeners
+    mobileShutter.addEventListener('touchend', () => {
+      if (isGalleryView) {
+        currentCategoryIndex = selectedGalleryIndex;
+        currentPhotoIndex = 0;
+        zoomLevel = 1;
+        transformOriginX = 50;
+        transformOriginY = 50;
+        updateZoomButtons();
+        toggleGalleryView(false);
+      } else if (isPhotoGalleryView) {
+        // Select the photo from photo gallery
+        currentPhotoIndex = selectedPhotoGalleryIndex;
+        zoomLevel = 1;
+        transformOriginX = 50;
+        transformOriginY = 50;
+        updateZoomButtons();
+        togglePhotoGalleryView(false);
+      } else {
+        window.location.href = categories[currentCategoryIndex].photos[currentPhotoIndex].url;
+      }
+    });
+
+    mobileGalleryBtn.addEventListener('touchend', () => {
+      if (isGalleryView) {
+        // Already in category gallery, do nothing
+        return;
+      } else if (isPhotoGalleryView) {
+        isPhotoGalleryView = false;
+        toggleGalleryView(true);
+      } else {
+        togglePhotoGalleryView(true);
+      }
+    });
+  
+    // Zoom button event listeners
+    zoom1x.addEventListener('touchend', (e) => {
+      e.stopPropagation();
+      zoomLevel = 1;
+      transformOriginX = 50;
+      transformOriginY = 50;
+      updateZoomButtons();
+      const photoImage = document.getElementById('photoImage');
+      photoImage.style.transform = `scale(${zoomLevel})`;
+      photoImage.style.transformOrigin = `${transformOriginX}% ${transformOriginY}%`;
+    });
+  
+    zoom2x.addEventListener('touchend', (e) => {
+      e.stopPropagation();
+      zoomLevel = 2;
+      updateZoomButtons();
+      const photoImage = document.getElementById('photoImage');
+      photoImage.style.transform = `scale(${zoomLevel})`;
+      photoImage.style.transformOrigin = `${transformOriginX}% ${transformOriginY}%`;
+    });
+  
+    zoom4x.addEventListener('touchend', (e) => {
+      e.stopPropagation();
+      zoomLevel = 4;
+      updateZoomButtons();
+      const photoImage = document.getElementById('photoImage');
+      photoImage.style.transform = `scale(${zoomLevel})`;
+      photoImage.style.transformOrigin = `${transformOriginX}% ${transformOriginY}%`;
+    });
+  
+    // Mobile touch events with panning support
+    function setupMobileEvents() {
+      let touchStartTime = 0;
+  
+      // Tap on hero container for photo navigation or panning
+      heroContainer.addEventListener('touchstart', (e) => {
+        touchStartX = e.touches[0].clientX;
+        touchStartY = e.touches[0].clientY;
+        touchStartTime = Date.now();
+        if (zoomLevel > 1) {
+          panStartX = touchStartX;
+          panStartY = touchStartY;
+          isPanning = true;
+        }
+      });
+  
+      heroContainer.addEventListener('touchmove', (e) => {
+        if (!isPanning || zoomLevel === 1) return;
+        e.preventDefault(); // Prevent scrolling
+        const touchX = e.touches[0].clientX;
+        const touchY = e.touches[0].clientY;
+        const deltaX = (touchX - panStartX) / zoomLevel;
+        const deltaY = (touchY - panStartY) / zoomLevel;
+        const rect = heroContainer.getBoundingClientRect();
+        const sensitivity = 0.5; // Adjust panning sensitivity
+  
+        // Calculate new transform origin based on touch movement
+        transformOriginX = Math.min(Math.max(transformOriginX - (deltaX * sensitivity / rect.width) * 100, 0), 100);
+        transformOriginY = Math.min(Math.max(transformOriginY - (deltaY * sensitivity / rect.height) * 100, 0), 100);
+  
+        const photoImage = document.getElementById('photoImage');
+        photoImage.style.transformOrigin = `${transformOriginX}% ${transformOriginY}%`;
+        photoImage.style.transform = `scale(${zoomLevel})`;
+  
+        panStartX = touchX;
+        panStartY = touchY;
+      });
+  
+      heroContainer.addEventListener('touchend', (e) => {
+        const touchEndX = e.changedTouches[0].clientX;
+        const touchEndY = e.changedTouches[0].clientY;
+        const deltaX = touchEndX - touchStartX;
+        const deltaY = touchEndY - touchStartY;
+        const currentTime = Date.now();
+  
+        isPanning = false;
+  
+        // Debounce: Ignore if less than 500ms since last touch
+        if (currentTime - lastTouchTime < touchDelay) {
+          return;
+        }
+  
+        // Ignore if it's a swipe (significant movement) when not panning
+        if (Math.abs(deltaX) > 50 || Math.abs(deltaY) > 50) {
+          return;
+        }
+  
+        // Check if click is outside the info panel to close it
+        if (isInfoPanelOpen) {
+          const panelRect = photoInfoPanel.getBoundingClientRect();
+          if (touchEndX < panelRect.left) {
+            photoInfoPanel.classList.remove('active');
+            isInfoPanelOpen = false;
+            return;
+          }
+        }
+  
+        // Only allow photo navigation at 1x zoom
+        if (zoomLevel === 1) {
+          const rect = heroContainer.getBoundingClientRect();
+          const tapX = touchEndX - rect.left;
+          const halfWidth = rect.width / 2;
+  
+          // Navigate photos based on tap position
+          if (tapX < halfWidth) {
+            changePhoto(-1); // Left side: Previous photo
+          } else {
+            changePhoto(1); // Right side: Next photo
+          }
+        }
+  
+        lastTouchTime = currentTime;
+      });
+  
+      // Swipe on gallery container for gallery navigation
+      galleryContainer.addEventListener('touchstart', (e) => {
+        touchStartX = e.touches[0].clientX;
+        touchStartY = e.touches[0].clientY;
+        touchStartTime = Date.now();
+      });
+  
+      galleryContainer.addEventListener('touchend', (e) => {
+        const touchEndX = e.changedTouches[0].clientX;
+        const touchEndY = e.changedTouches[0].clientY;
+        const deltaX = touchEndX - touchStartX;
+        const deltaY = touchEndY - touchStartY;
+        const touchDuration = Date.now() - touchStartTime;
+  
+        // Tap to toggle or select
+        if (touchDuration < 300 && Math.abs(deltaX) < 50 && Math.abs(deltaY) < 50) {
+          if (isPhotoGalleryView) {
+            // In photo gallery, tap does nothing (use items to select)
+          } else if (isGalleryView) {
+            toggleGalleryView(!isGalleryView);
+          }
+          return;
+        }
+
+        // Navigate gallery with swipes
+        const navigateFn = isPhotoGalleryView ? navigatePhotoGallery : navigateGallery;
+        if (Math.abs(deltaX) > Math.abs(deltaY) && Math.abs(deltaX) > 50) {
+          if (deltaX > 0) {
+            navigateFn('left');
+          } else {
+            navigateFn('right');
+          }
+        } else if (Math.abs(deltaY) > 50) {
+          if (deltaY > 0) {
+            navigateFn('up');
+          } else {
+            navigateFn('down');
+          }
+        }
+      });
+  
+      // Toggle info panel on mobile
+      infoBtn.addEventListener('touchend', (e) => {
+        e.stopPropagation();
+        isInfoPanelOpen = !isInfoPanelOpen;
+        photoInfoPanel.classList.toggle('active', isInfoPanelOpen);
+      });
+    }
+
+    // Disable right-click to protect images
+    document.addEventListener('contextmenu', (e) => {
+      // Only prevent on images
+      if (e.target.tagName === 'IMG') {
+        e.preventDefault();
+        return false;
+      }
+    });
+
+    // Prevent drag on images
+    document.addEventListener('dragstart', (e) => {
+      if (e.target.tagName === 'IMG') {
+        e.preventDefault();
+        return false;
+      }
+    });
+
+    // Prevent keyboard shortcuts for saving images
+    document.addEventListener('keydown', (e) => {
+      // Ctrl+S, Ctrl+U, Ctrl+Shift+I
+      if ((e.ctrlKey || e.metaKey) && (e.key === 's' || e.key === 'S' || e.key === 'u' || e.key === 'U')) {
+        e.preventDefault();
+        return false;
+      }
+    });
+
+    // ===== CLIENT PORTAL FUNCTIONS =====
+    let currentClientCode = null;
+
+    function showClientGallery(code) {
+      const client = clientGalleries[code];
+      const t = translations[currentLang].portal;
+
+      document.getElementById('portalLogin').style.display = 'none';
+      document.getElementById('portalGallery').style.display = 'block';
+
+      // Set title based on language
+      const name = currentLang === 'es' && client.nameEs ? client.nameEs : client.name;
+      const date = currentLang === 'es' && client.dateEs ? client.dateEs : client.date;
+
+      document.getElementById('portalTitle').textContent = name;
+      document.getElementById('portalSubtitle').textContent = date + ' • ' + client.photos.length + ' ' + t.photos;
+
+      populatePortalGrid(code, client.photos);
+    }
+
+    function populatePortalGrid(code, photos) {
+      const grid = document.getElementById('portalGrid');
+      grid.innerHTML = '';
+
+      photos.forEach((photo, index) => {
+        const item = document.createElement('div');
+        item.classList.add('portal-photo');
+        item.innerHTML = `
+          <img src="./images/clients/${code}/${photo}" alt="Foto ${index + 1}" loading="lazy">
+          <button class="download-btn" data-file="${photo}">↓</button>
+        `;
+
+        // Download individual photo
+        item.querySelector('.download-btn').addEventListener('click', (e) => {
+          e.stopPropagation();
+          downloadPhoto(code, photo);
+        });
+
+        grid.appendChild(item);
+      });
+    }
+
+    function downloadPhoto(code, filename) {
+      const link = document.createElement('a');
+      link.href = `./images/clients/${code}/${filename}`;
+      link.download = filename;
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    }
+
+    function resetPortal() {
+      document.getElementById('portalLogin').style.display = 'block';
+      document.getElementById('portalGallery').style.display = 'none';
+      document.getElementById('accessCode').value = '';
+      document.getElementById('portalError').style.display = 'none';
+      currentClientCode = null;
+    }
+
+    function applyPortalTranslations() {
+      const t = translations[currentLang].portal;
+
+      // Update portal login
+      const portalLoginH2 = document.querySelector('#portalLogin h2');
+      const portalLoginP = document.querySelector('#portalLogin > p');
+      const accessCodeInput = document.getElementById('accessCode');
+      const portalLoginBtn = document.querySelector('#portalLogin .submit-btn');
+      const portalError = document.getElementById('portalError');
+      const portalBackBtn = document.getElementById('portalBackBtn');
+      const downloadAllBtn = document.getElementById('downloadAllBtn');
+      const portalMenuItem = document.getElementById('openPortalBtn');
+
+      if (portalLoginH2) portalLoginH2.textContent = t.title;
+      if (portalLoginP) portalLoginP.textContent = t.enterCode;
+      if (accessCodeInput) accessCodeInput.placeholder = t.placeholder;
+      if (portalLoginBtn) portalLoginBtn.textContent = t.access;
+      if (portalError) portalError.textContent = t.invalidCode;
+      if (portalBackBtn) portalBackBtn.textContent = t.back;
+      if (downloadAllBtn) downloadAllBtn.textContent = t.downloadAll;
+      if (portalMenuItem) portalMenuItem.textContent = t.menuItem;
+
+      // If gallery is open, update subtitle
+      if (currentClientCode && clientGalleries[currentClientCode]) {
+        const client = clientGalleries[currentClientCode];
+        const name = currentLang === 'es' && client.nameEs ? client.nameEs : client.name;
+        const date = currentLang === 'es' && client.dateEs ? client.dateEs : client.date;
+        document.getElementById('portalTitle').textContent = name;
+        document.getElementById('portalSubtitle').textContent = date + ' • ' + client.photos.length + ' ' + t.photos;
+      }
+    }
+    // ===== END CLIENT PORTAL FUNCTIONS =====
+
+    // Initialize on page load
+    window.addEventListener('load', () => {
+      updateMobileStatus();
+      initModeDial(); // Initialize mode dial
+      toggleGalleryView(true); // Initialize in gallery mode
+      if (isMobile) {
+        setupMobileEvents();
+      }
+
+      // Language selector functionality
+      document.querySelectorAll('.lang-option').forEach(option => {
+        option.addEventListener('click', () => {
+          const lang = option.dataset.lang;
+          applyTranslations(lang);
+          applyPortalTranslations(); // Update portal translations too
+          updateModeDial(); // Update mode dial label
+          // Refresh current view
+          if (!isGalleryView) {
+            updateContent(currentCategoryIndex, currentPhotoIndex, true);
+          } else {
+            populateGalleryGrid();
+          }
+        });
+      });
+
+      // Apply saved language preference
+      applyTranslations(currentLang);
+
+      // Contact Modal functionality
+      const contactModal = document.getElementById('contactModal');
+      const openContactBtn = document.getElementById('openContactBtn');
+      const closeContactBtn = document.getElementById('closeContactBtn');
+      const contactForm = document.getElementById('contactForm');
+      const formSuccess = document.getElementById('formSuccess');
+      const submitBtn = document.getElementById('submitBtn');
+
+      // Open modal
+      if (openContactBtn) {
+        openContactBtn.addEventListener('click', (e) => {
+          e.preventDefault();
+          e.stopPropagation();
+          contactModal.classList.add('active');
+          document.body.style.overflow = 'hidden';
+          // Close the menu dropdown
+          const dropdown = document.getElementById('menuDropdown');
+          dropdown.classList.add('hidden');
+        });
+      }
+
+      // Close modal
+      if (closeContactBtn) {
+        closeContactBtn.addEventListener('click', () => {
+          contactModal.classList.remove('active');
+          document.body.style.overflow = '';
+        });
+      }
+
+      // Close modal on background click
+      if (contactModal) {
+        contactModal.addEventListener('click', (e) => {
+          if (e.target === contactModal) {
+            contactModal.classList.remove('active');
+            document.body.style.overflow = '';
+          }
+        });
+      }
+
+      // Close modal with Escape key
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && contactModal && contactModal.classList.contains('active')) {
+          contactModal.classList.remove('active');
+          document.body.style.overflow = '';
+        }
+      });
+
+      // Handle form submission
+      if (contactForm) {
+        contactForm.addEventListener('submit', async (e) => {
+          e.preventDefault();
+          submitBtn.disabled = true;
+          submitBtn.textContent = 'Enviando...';
+
+          const formData = new FormData(contactForm);
+
+          try {
+            const response = await fetch('https://api.web3forms.com/submit', {
+              method: 'POST',
+              body: formData
+            });
+
+            if (response.ok) {
+              contactForm.style.display = 'none';
+              formSuccess.style.display = 'block';
+              setTimeout(() => {
+                contactModal.classList.remove('active');
+                document.body.style.overflow = '';
+                // Reset form for next use
+                contactForm.reset();
+                contactForm.style.display = 'flex';
+                formSuccess.style.display = 'none';
+                submitBtn.disabled = false;
+                submitBtn.textContent = 'Enviar mensaje';
+              }, 3000);
+            } else {
+              throw new Error('Error en el envío');
+            }
+          } catch (error) {
+            alert('Hubo un error al enviar el mensaje. Por favor, intenta de nuevo o contacta por WhatsApp.');
+            submitBtn.disabled = false;
+            submitBtn.textContent = 'Enviar mensaje';
+          }
+        });
+      }
+
+      // ===== CLIENT PORTAL EVENT LISTENERS =====
+      const portalModal = document.getElementById('clientPortalModal');
+      const openPortalBtn = document.getElementById('openPortalBtn');
+      const closePortalBtn = document.getElementById('closePortalBtn');
+      const portalLoginForm = document.getElementById('portalLoginForm');
+      const portalBackBtn = document.getElementById('portalBackBtn');
+      const downloadAllBtn = document.getElementById('downloadAllBtn');
+
+      // Open portal from menu
+      if (openPortalBtn) {
+        openPortalBtn.addEventListener('click', (e) => {
+          e.preventDefault();
+          e.stopPropagation();
+          portalModal.classList.add('active');
+          document.body.style.overflow = 'hidden';
+          // Close the menu dropdown
+          const dropdown = document.getElementById('menuDropdown');
+          dropdown.classList.add('hidden');
+          // Apply translations
+          applyPortalTranslations();
+        });
+      }
+
+      // Close portal
+      if (closePortalBtn) {
+        closePortalBtn.addEventListener('click', () => {
+          portalModal.classList.remove('active');
+          document.body.style.overflow = '';
+          resetPortal();
+        });
+      }
+
+      // Close portal on background click
+      if (portalModal) {
+        portalModal.addEventListener('click', (e) => {
+          if (e.target === portalModal) {
+            portalModal.classList.remove('active');
+            document.body.style.overflow = '';
+            resetPortal();
+          }
+        });
+      }
+
+      // Handle portal login form
+      if (portalLoginForm) {
+        portalLoginForm.addEventListener('submit', (e) => {
+          e.preventDefault();
+          const codeInput = document.getElementById('accessCode');
+          const code = codeInput.value.trim().toLowerCase();
+
+          if (clientGalleries[code]) {
+            // Redirect to dedicated portal page
+            window.location.href = `portal.html?code=${code}`;
+          } else {
+            document.getElementById('portalError').style.display = 'block';
+          }
+        });
+      }
+
+      // Back button in portal gallery
+      if (portalBackBtn) {
+        portalBackBtn.addEventListener('click', () => {
+          resetPortal();
+          applyPortalTranslations();
+        });
+      }
+
+      // Download all photos
+      if (downloadAllBtn) {
+        downloadAllBtn.addEventListener('click', () => {
+          if (currentClientCode && clientGalleries[currentClientCode]) {
+            const client = clientGalleries[currentClientCode];
+            client.photos.forEach((photo, index) => {
+              setTimeout(() => {
+                downloadPhoto(currentClientCode, photo);
+              }, index * 500); // Delay to avoid browser blocking
+            });
+          }
+        });
+      }
+
+      // Close portal with Escape key
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && portalModal && portalModal.classList.contains('active')) {
+          portalModal.classList.remove('active');
+          document.body.style.overflow = '';
+          resetPortal();
+        }
+      });
+
+      // Apply portal translations on page load
+      applyPortalTranslations();
+      // ===== END CLIENT PORTAL EVENT LISTENERS =====
+    });
+
+    // Update on window resize
+    window.addEventListener('resize', updateMobileStatus);
+  </script>
+</body>
+</html>
