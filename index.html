@@ -844,10 +844,16 @@
       letter-spacing: 1px;
     }
   
-    .gallery-btn {
+    .bottom-buttons {
       position: absolute;
       bottom: 5vh;
       left: 2vw;
+      display: flex;
+      gap: 1vw;
+      align-items: center;
+    }
+
+    .gallery-btn {
       width: clamp(45px, 5vw, 65px);
       height: clamp(45px, 5vw, 65px);
       background: linear-gradient(145deg, #f0f0f0, #d0d0d0) url('./images/icons/gallery.png') no-repeat center/60%;
@@ -869,7 +875,97 @@
         0 1px 0 #999,
         0 2px 5px rgba(0,0,0,0.2);
     }
-  
+
+    /* Focus Mode Button */
+    .focus-btn {
+      width: clamp(40px, 5vw, 60px);
+      height: clamp(40px, 5vw, 60px);
+      background: linear-gradient(145deg, #f0f0f0, #d0d0d0);
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      transition: all 0.15s ease;
+      box-shadow:
+        0 4px 0 #999,
+        0 6px 10px rgba(0,0,0,0.3),
+        inset 0 1px 2px rgba(255,255,255,0.8);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: clamp(1.2rem, 1.8vw, 1.8rem);
+    }
+    .focus-btn:hover {
+      background: linear-gradient(145deg, #ffb366, #f28c38);
+    }
+    .focus-btn:active {
+      transform: translateY(3px);
+      box-shadow:
+        0 1px 0 #999,
+        0 2px 5px rgba(0,0,0,0.2);
+    }
+    .focus-btn.active {
+      background: linear-gradient(145deg, #f9a352, #e07a28);
+      box-shadow:
+        0 4px 0 #b35d15,
+        0 6px 10px rgba(0,0,0,0.3),
+        0 0 30px rgba(242, 140, 56, 0.6);
+      z-index: 200;
+    }
+    .focus-btn .bulb-off { display: block; }
+    .focus-btn .bulb-on { display: none; }
+    .focus-btn.active .bulb-off { display: none; }
+    .focus-btn.active .bulb-on { display: block; }
+
+    /* Focus Mode Overlay */
+    .focus-mode-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0);
+      pointer-events: none;
+      z-index: 50;
+      transition: background 0.3s ease;
+    }
+    .focus-mode-overlay.active {
+      background: rgba(0, 0, 0, 0.92);
+    }
+
+    /* Focus mode - dim everything except photo */
+    body.focus-mode .header-bar,
+    body.focus-mode .camera-ui,
+    body.focus-mode .film-strip,
+    body.focus-mode .frame,
+    body.focus-mode .index-number {
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+    }
+
+    /* Keep focus button visible in focus mode */
+    body.focus-mode .bottom-buttons {
+      opacity: 1;
+      pointer-events: auto;
+      z-index: 200;
+    }
+    body.focus-mode .bottom-buttons .gallery-btn {
+      opacity: 0;
+      pointer-events: none;
+    }
+
+
+    /* Keep hero-container and photo visible above overlay */
+    body.focus-mode .hero-container {
+      z-index: 100;
+    }
+
+    /* Hide camera screen overlay info in focus mode */
+    body.focus-mode .camera-screen-overlay {
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
     /* Tooltip styling */
     button[title]:hover:after {
       content: attr(title);
@@ -1045,8 +1141,8 @@
         --header-height: 6vh;
       }
       .header-bar { padding: 0 0.5vw; }
-      .rec-indicator, .viewfinder, .camera-model {
-        display: none;
+      .rec-indicator, .viewfinder, .camera-model, .focus-btn {
+        display: none !important;
       }
       .hero-container {
         width: 100%;
@@ -1087,7 +1183,7 @@
         align-items: center;
         overflow-y: auto;
       }
-      .camera-controls, .nav-cluster, .shutter-btn, .gallery-btn { 
+      .camera-controls, .nav-cluster, .shutter-btn, .gallery-btn, .bottom-buttons, .focus-btn {
         display: none; /* Hide desktop buttons on mobile */
       }
       .header-text { width: 90%; }
@@ -1209,37 +1305,84 @@
       .mobile-shutter {
         display: block;
         position: absolute;
-        bottom: calc(5vh + var(--footer-height, 5vh)); /* Just below mobile-modes */
+        bottom: calc(5vh + var(--footer-height, 5vh));
         left: 50%;
         transform: translateX(-50%);
-        width: 60px;
-        height: 60px;
+        width: 70px;
+        height: 70px;
         border-radius: 50%;
-        background: white;
-        border: 4px solid #ccc;
+        background:
+          radial-gradient(circle at 30% 30%, rgba(255,255,255,0.4), transparent 50%),
+          linear-gradient(145deg, #f9f9f9, #e0e0e0);
+        border: 5px solid #bbb;
+        box-shadow:
+          0 6px 0 #999,
+          0 8px 15px rgba(0,0,0,0.4),
+          inset 0 2px 3px rgba(255,255,255,0.9),
+          inset 0 -2px 3px rgba(0,0,0,0.1);
         z-index: 5;
         cursor: pointer;
+        transition: all 0.1s ease;
+      }
+      .mobile-shutter:active {
+        transform: translateX(-50%) translateY(4px);
+        box-shadow:
+          0 2px 0 #999,
+          0 3px 8px rgba(0,0,0,0.3),
+          inset 0 2px 3px rgba(255,255,255,0.9);
       }
       .mobile-shutter.gallery-mode {
-        background: red;
+        background:
+          radial-gradient(circle at 30% 30%, rgba(255,255,255,0.3), transparent 50%),
+          linear-gradient(145deg, #ff6b6b, #cc4444);
+        border-color: #aa3333;
+        box-shadow:
+          0 6px 0 #882222,
+          0 8px 15px rgba(0,0,0,0.4),
+          inset 0 2px 3px rgba(255,255,255,0.4),
+          inset 0 -2px 3px rgba(0,0,0,0.2);
       }
-  
+      .mobile-shutter.gallery-mode:active {
+        transform: translateX(-50%) translateY(4px);
+        box-shadow:
+          0 2px 0 #882222,
+          0 3px 8px rgba(0,0,0,0.3);
+      }
+
       .mobile-gallery-btn {
         display: block;
         position: absolute;
-        bottom: calc(5vh + var(--footer-height, 5vh)); /* Just below mobile-modes */
-        left: calc(50% - 80px); /* Position to the left of the shutter */
-        width: 40px;
-        height: 40px;
-        background: #E6E6E6 url('./images/icons/gallery.png') no-repeat center/contain;
-        border: 0.3vw solid #4A4A4A;
+        bottom: calc(5vh + var(--footer-height, 5vh) + 10px);
+        left: calc(50% - 85px);
+        width: 50px;
+        height: 50px;
+        background:
+          linear-gradient(145deg, #f0f0f0, #d0d0d0)
+          url('./images/icons/gallery.png') no-repeat center/60%;
+        border: none;
         border-radius: 50%;
         cursor: pointer;
         z-index: 5;
-        transition: background 0.2s;
+        box-shadow:
+          0 4px 0 #999,
+          0 6px 10px rgba(0,0,0,0.3),
+          inset 0 1px 2px rgba(255,255,255,0.8);
+        transition: all 0.1s ease;
       }
-      .mobile-gallery-btn:hover {
-        background: #F28C38 url('./images/icons/gallery.png') no-repeat center/contain;
+      .mobile-gallery-btn:active {
+        transform: translateY(3px);
+        box-shadow:
+          0 1px 0 #999,
+          0 2px 5px rgba(0,0,0,0.2);
+      }
+      .mobile-gallery-btn.gallery-mode {
+        background:
+          linear-gradient(145deg, #ffb366, #f28c38)
+          url('./images/icons/gallery.png') no-repeat center/60%;
+        box-shadow:
+          0 4px 0 #b35d15,
+          0 6px 10px rgba(0,0,0,0.3),
+          inset 0 1px 2px rgba(255,255,255,0.5);
       }
   
       /* Zoom buttons inside the frame */
@@ -1782,6 +1925,9 @@
 </head>
 
 <body>
+  <!-- Focus Mode Overlay -->
+  <div class="focus-mode-overlay" id="focusModeOverlay"></div>
+
   <section class="hero">
     <div class="hero-container" id="heroContainer">
       <div class="hero-background" id="currentImage">
@@ -1869,7 +2015,13 @@
         </div>
         <button class="shutter-btn" id="shutterBtn" title="Go to Page"></button>
       </div>
-      <button class="gallery-btn" id="galleryBtn" title="View Gallery"></button>
+      <div class="bottom-buttons">
+        <button class="gallery-btn" id="galleryBtn" title="View Gallery"></button>
+        <button class="focus-btn" id="focusBtn" title="Focus Mode">
+          <span class="bulb-off">💡</span>
+          <span class="bulb-on">🔆</span>
+        </button>
+      </div>
       <div class="footer">
         <span>© 2025 Juan Luis Serna Photography</span>
         <div class="social-links">
@@ -2519,6 +2671,7 @@
     let currentPhotoIndex = 0;
     let isGalleryView = true;
     let isPhotoGalleryView = false; // NEW: tracks if we're in photo gallery within a category
+    let isFocusMode = false; // Tracks focus mode (dims everything except photo)
     let selectedGalleryIndex = 0;
     let selectedPhotoGalleryIndex = 0; // NEW: tracks selected photo in photo gallery
     let isMobile = false;
@@ -2856,19 +3009,40 @@
           <div class="category-title">${displayName}</div>
           <img src="${category.photos[0].file}" alt="${displayName}">
         `;
+        // Click/touch to select category
+        const selectCategory = () => {
+          selectedGalleryIndex = index;
+          const items = galleryGrid.querySelectorAll('.gallery-item');
+          items.forEach((i, idx) => i.classList.toggle('selected', idx === selectedGalleryIndex));
+          currentCategoryIndex = selectedGalleryIndex;
+          currentPhotoIndex = 0;
+          zoomLevel = 1;
+          transformOriginX = 50;
+          transformOriginY = 50;
+          updateZoomButtons();
+          toggleGalleryView(false);
+        };
+
         if (isMobile) {
-          item.addEventListener('touchend', () => {
-            selectedGalleryIndex = index;
-            const items = galleryGrid.querySelectorAll('.gallery-item');
-            items.forEach((i, idx) => i.classList.toggle('selected', idx === selectedGalleryIndex));
-            currentCategoryIndex = selectedGalleryIndex;
-            currentPhotoIndex = 0;
-            zoomLevel = 1;
-            transformOriginX = 50;
-            transformOriginY = 50;
-            updateZoomButtons();
-            toggleGalleryView(false);
+          // Track touch position to distinguish tap from scroll
+          let touchStartY = 0;
+          let touchStartX = 0;
+          item.addEventListener('touchstart', (e) => {
+            touchStartY = e.touches[0].clientY;
+            touchStartX = e.touches[0].clientX;
+          }, { passive: true });
+          item.addEventListener('touchend', (e) => {
+            const touchEndY = e.changedTouches[0].clientY;
+            const touchEndX = e.changedTouches[0].clientX;
+            const deltaY = Math.abs(touchEndY - touchStartY);
+            const deltaX = Math.abs(touchEndX - touchStartX);
+            // Only select if it was a tap (minimal movement)
+            if (deltaY < 15 && deltaX < 15) {
+              selectCategory();
+            }
           });
+        } else {
+          item.addEventListener('click', selectCategory);
         }
         galleryGrid.appendChild(item);
       });
@@ -2983,12 +3157,42 @@
 
         marker.addEventListener('click', (e) => {
           e.stopPropagation();
-          if (isGalleryView) return;
           const targetIndex = parseInt(marker.dataset.index);
+
+          // If in gallery view, select category and exit gallery
+          if (isGalleryView) {
+            currentCategoryIndex = targetIndex;
+            currentPhotoIndex = 0;
+            zoomLevel = 1;
+            zoomScrollAccumulator = 0;
+            transformOriginX = 50;
+            transformOriginY = 50;
+            updateZoomButtons();
+            toggleGalleryView(false);
+            updateModeDial();
+            return;
+          }
+
+          // If in photo gallery view, go to that category
+          if (isPhotoGalleryView) {
+            currentCategoryIndex = targetIndex;
+            currentPhotoIndex = 0;
+            zoomLevel = 1;
+            zoomScrollAccumulator = 0;
+            transformOriginX = 50;
+            transformOriginY = 50;
+            updateZoomButtons();
+            togglePhotoGalleryView(false);
+            updateModeDial();
+            return;
+          }
+
+          // If viewing single photo, switch category
           if (targetIndex !== currentCategoryIndex) {
             currentCategoryIndex = targetIndex;
             currentPhotoIndex = 0;
             zoomLevel = 1;
+            zoomScrollAccumulator = 0;
             transformOriginX = 50;
             transformOriginY = 50;
             updateZoomButtons();
@@ -3032,6 +3236,8 @@
 
     // Toggle gallery view
     function toggleGalleryView(showGallery) {
+      // Exit focus mode when changing views
+      if (typeof toggleFocusMode === 'function' && isFocusMode) toggleFocusMode(false);
       isGalleryView = showGallery;
       heroContainer.style.display = showGallery ? 'none' : 'block';
       galleryContainer.style.display = showGallery ? 'block' : 'none';
@@ -3040,6 +3246,8 @@
       photoFrame.style.display = showGallery ? 'none' : 'block';
       const zoomIndicator = document.getElementById('zoomIndicator');
       if (zoomIndicator) zoomIndicator.style.display = showGallery ? 'none' : 'flex';
+      const focusBtnEl = document.getElementById('focusBtn');
+      if (focusBtnEl) focusBtnEl.style.display = showGallery ? 'none' : 'flex';
   
       if (isMobile) {
         mobileShutter.classList.toggle('gallery-mode', showGallery);
@@ -3139,7 +3347,23 @@
         };
 
         if (isMobile) {
-          item.addEventListener('touchend', selectPhoto);
+          // Track touch position to distinguish tap from scroll
+          let touchStartY = 0;
+          let touchStartX = 0;
+          item.addEventListener('touchstart', (e) => {
+            touchStartY = e.touches[0].clientY;
+            touchStartX = e.touches[0].clientX;
+          }, { passive: true });
+          item.addEventListener('touchend', (e) => {
+            const touchEndY = e.changedTouches[0].clientY;
+            const touchEndX = e.changedTouches[0].clientX;
+            const deltaY = Math.abs(touchEndY - touchStartY);
+            const deltaX = Math.abs(touchEndX - touchStartX);
+            // Only select if it was a tap (minimal movement)
+            if (deltaY < 15 && deltaX < 15) {
+              selectPhoto();
+            }
+          });
         } else {
           item.addEventListener('click', selectPhoto);
         }
@@ -3242,6 +3466,8 @@
 
     // NEW: Toggle photo gallery view (within a category)
     function togglePhotoGalleryView(showPhotoGallery) {
+      // Exit focus mode when changing views
+      if (typeof toggleFocusMode === 'function' && isFocusMode) toggleFocusMode(false);
       isPhotoGalleryView = showPhotoGallery;
       heroContainer.style.display = showPhotoGallery ? 'none' : 'block';
       galleryContainer.style.display = showPhotoGallery ? 'block' : 'none';
@@ -3250,6 +3476,8 @@
       photoFrame.style.display = showPhotoGallery ? 'none' : 'block';
       const zoomIndicator = document.getElementById('zoomIndicator');
       if (zoomIndicator) zoomIndicator.style.display = showPhotoGallery ? 'none' : 'flex';
+      const focusBtnEl = document.getElementById('focusBtn');
+      if (focusBtnEl) focusBtnEl.style.display = showPhotoGallery ? 'none' : 'flex';
 
       if (isMobile) {
         mobileShutter.classList.toggle('gallery-mode', showPhotoGallery);
@@ -3404,7 +3632,32 @@
         togglePhotoGalleryView(true);
       }
     });
-  
+
+    // Focus Mode Button
+    const focusBtn = document.getElementById('focusBtn');
+    const focusModeOverlay = document.getElementById('focusModeOverlay');
+
+    function toggleFocusMode(enable) {
+      isFocusMode = enable;
+      focusBtn.classList.toggle('active', enable);
+      focusModeOverlay.classList.toggle('active', enable);
+      document.body.classList.toggle('focus-mode', enable);
+    }
+
+    focusBtn.addEventListener('click', () => {
+      // Only works in single photo view
+      if (!isGalleryView && !isPhotoGalleryView) {
+        toggleFocusMode(!isFocusMode);
+      }
+    });
+
+    // Exit focus mode with Escape key
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && isFocusMode) {
+        toggleFocusMode(false);
+      }
+    });
+
     // Mobile event listeners
     mobileShutter.addEventListener('touchend', () => {
       if (isGalleryView) {
