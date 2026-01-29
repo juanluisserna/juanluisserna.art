@@ -1141,7 +1141,7 @@
         --header-height: 6vh;
       }
       .header-bar { padding: 0 0.5vw; }
-      .rec-indicator, .viewfinder, .camera-model, .focus-btn {
+      .rec-indicator, .viewfinder, .camera-model, .focus-btn, .lang-selector, .zoom-indicator {
         display: none !important;
       }
       .hero-container {
@@ -1305,57 +1305,50 @@
       .mobile-shutter {
         display: block;
         position: absolute;
-        bottom: calc(5vh + var(--footer-height, 5vh));
+        bottom: calc(2vh + var(--footer-height, 5vh));
         left: 50%;
         transform: translateX(-50%);
-        width: 70px;
-        height: 70px;
+        width: 55px;
+        height: 55px;
         border-radius: 50%;
-        background:
-          radial-gradient(circle at 30% 30%, rgba(255,255,255,0.4), transparent 50%),
-          linear-gradient(145deg, #f9f9f9, #e0e0e0);
-        border: 5px solid #bbb;
+        background: linear-gradient(145deg, #f9a352, #e07a28);
+        border: 4px solid #ccc;
         box-shadow:
-          0 6px 0 #999,
-          0 8px 15px rgba(0,0,0,0.4),
-          inset 0 2px 3px rgba(255,255,255,0.9),
-          inset 0 -2px 3px rgba(0,0,0,0.1);
+          0 4px 0 #b35d15,
+          0 6px 10px rgba(0,0,0,0.3),
+          inset 0 2px 3px rgba(255,255,255,0.5);
         z-index: 5;
         cursor: pointer;
         transition: all 0.1s ease;
       }
       .mobile-shutter:active {
-        transform: translateX(-50%) translateY(4px);
+        transform: translateX(-50%) translateY(3px);
         box-shadow:
-          0 2px 0 #999,
-          0 3px 8px rgba(0,0,0,0.3),
-          inset 0 2px 3px rgba(255,255,255,0.9);
+          0 1px 0 #b35d15,
+          0 2px 5px rgba(0,0,0,0.2);
       }
       .mobile-shutter.gallery-mode {
-        background:
-          radial-gradient(circle at 30% 30%, rgba(255,255,255,0.3), transparent 50%),
-          linear-gradient(145deg, #ff6b6b, #cc4444);
-        border-color: #aa3333;
+        background: linear-gradient(145deg, #f0f0f0, #d0d0d0);
+        border-color: #bbb;
         box-shadow:
-          0 6px 0 #882222,
-          0 8px 15px rgba(0,0,0,0.4),
-          inset 0 2px 3px rgba(255,255,255,0.4),
-          inset 0 -2px 3px rgba(0,0,0,0.2);
+          0 4px 0 #999,
+          0 6px 10px rgba(0,0,0,0.3),
+          inset 0 1px 2px rgba(255,255,255,0.8);
       }
       .mobile-shutter.gallery-mode:active {
-        transform: translateX(-50%) translateY(4px);
+        transform: translateX(-50%) translateY(3px);
         box-shadow:
-          0 2px 0 #882222,
-          0 3px 8px rgba(0,0,0,0.3);
+          0 1px 0 #999,
+          0 2px 5px rgba(0,0,0,0.2);
       }
 
       .mobile-gallery-btn {
         display: block;
         position: absolute;
-        bottom: calc(5vh + var(--footer-height, 5vh) + 10px);
-        left: calc(50% - 85px);
-        width: 50px;
-        height: 50px;
+        bottom: calc(2vh + var(--footer-height, 5vh) + 5px);
+        left: calc(50% - 70px);
+        width: 40px;
+        height: 40px;
         background:
           linear-gradient(145deg, #f0f0f0, #d0d0d0)
           url('./images/icons/gallery.png') no-repeat center/60%;
@@ -1364,24 +1357,24 @@
         cursor: pointer;
         z-index: 5;
         box-shadow:
-          0 4px 0 #999,
-          0 6px 10px rgba(0,0,0,0.3),
+          0 3px 0 #999,
+          0 5px 8px rgba(0,0,0,0.3),
           inset 0 1px 2px rgba(255,255,255,0.8);
         transition: all 0.1s ease;
       }
       .mobile-gallery-btn:active {
-        transform: translateY(3px);
+        transform: translateY(2px);
         box-shadow:
           0 1px 0 #999,
-          0 2px 5px rgba(0,0,0,0.2);
+          0 2px 4px rgba(0,0,0,0.2);
       }
       .mobile-gallery-btn.gallery-mode {
         background:
           linear-gradient(145deg, #ffb366, #f28c38)
           url('./images/icons/gallery.png') no-repeat center/60%;
         box-shadow:
-          0 4px 0 #b35d15,
-          0 6px 10px rgba(0,0,0,0.3),
+          0 3px 0 #b35d15,
+          0 5px 8px rgba(0,0,0,0.3),
           inset 0 1px 2px rgba(255,255,255,0.5);
       }
   
@@ -1458,6 +1451,36 @@
     .menu-item:hover {
       background: #F28C38;
       color: #1A1A1A;
+    }
+
+    /* Language selector inside menu */
+    .menu-lang-selector {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+      padding: 12px 20px;
+      border-top: 1px solid #333;
+      margin-top: 4px;
+    }
+    .menu-lang-option {
+      color: #E6E6E6;
+      font-size: 1.2rem;
+      cursor: pointer;
+      padding: 4px 10px;
+      border-radius: 4px;
+      transition: all 0.2s;
+    }
+    .menu-lang-option:hover {
+      color: #F28C38;
+    }
+    .menu-lang-option.active {
+      background: #F28C38;
+      color: #1A1A1A;
+      font-weight: 700;
+    }
+    .menu-lang-divider {
+      color: #666;
     }
 
     /* Contact Modal Styles */
@@ -2049,6 +2072,11 @@
     <a href="./portfolios/Wedding Portfolio Juan Luis Serna.pdf" download="Wedding_Portfolio_Juan_Luis_Serna.pdf" class="menu-item">Portfolio de bodas y eventos</a>
     <a href="#" id="openPortalBtn" class="menu-item">Portal de Clientes</a>
     <a href="#" id="openContactBtn" class="menu-item">Contacto</a>
+    <div class="menu-lang-selector">
+      <span class="menu-lang-option" data-lang="es">ES</span>
+      <span class="menu-lang-divider">|</span>
+      <span class="menu-lang-option" data-lang="en">EN</span>
+    </div>
   </div>
 
   <!-- Contact Modal -->
@@ -4001,13 +4029,14 @@
         setupMobileEvents();
       }
 
-      // Language selector functionality
+      // Language selector functionality (header)
       document.querySelectorAll('.lang-option').forEach(option => {
         option.addEventListener('click', () => {
           const lang = option.dataset.lang;
           applyTranslations(lang);
           applyPortalTranslations(); // Update portal translations too
           updateModeDial(); // Update mode dial label
+          updateMenuLangSelector(); // Update menu selector
           // Refresh current view
           if (!isGalleryView) {
             updateContent(currentCategoryIndex, currentPhotoIndex, true);
@@ -4017,8 +4046,35 @@
         });
       });
 
+      // Language selector functionality (menu - for mobile)
+      document.querySelectorAll('.menu-lang-option').forEach(option => {
+        option.addEventListener('click', () => {
+          const lang = option.dataset.lang;
+          applyTranslations(lang);
+          applyPortalTranslations();
+          updateModeDial();
+          updateMenuLangSelector();
+          // Close menu after selection
+          document.getElementById('menuDropdown').classList.add('hidden');
+          // Refresh current view
+          if (!isGalleryView) {
+            updateContent(currentCategoryIndex, currentPhotoIndex, true);
+          } else {
+            populateGalleryGrid();
+          }
+        });
+      });
+
+      // Update menu language selector active state
+      function updateMenuLangSelector() {
+        document.querySelectorAll('.menu-lang-option').forEach(opt => {
+          opt.classList.toggle('active', opt.dataset.lang === currentLang);
+        });
+      }
+
       // Apply saved language preference
       applyTranslations(currentLang);
+      updateMenuLangSelector();
 
       // Contact Modal functionality
       const contactModal = document.getElementById('contactModal');
