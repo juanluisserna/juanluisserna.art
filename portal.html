@@ -586,12 +586,14 @@
 
   <script>
     // Client galleries data - Same as in index.html, keep synchronized!
+    // megaLink: enlace a la carpeta de MEGA con las fotos en alta resolución
     const clientGalleries = {
       "demo-2024": {
         name: "Demo Gallery",
         nameEs: "Galería Demo",
         date: "January 2024",
         dateEs: "Enero 2024",
+        megaLink: "", // Dejar vacío si no hay enlace de MEGA (descargará del servidor)
         photos: [
           "Sabina & Santiago-1000.jpg",
           "Sabina & Santiago-1015.jpg",
@@ -602,6 +604,15 @@
         ]
       }
       // Add more clients here - keep in sync with index.html
+      // Ejemplo con MEGA:
+      // "cliente-boda-2024": {
+      //   name: "Client Wedding",
+      //   nameEs: "Boda Cliente",
+      //   date: "March 2024",
+      //   dateEs: "Marzo 2024",
+      //   megaLink: "https://mega.nz/folder/XXXXXX#YYYYYY",
+      //   photos: ["preview1.jpg", "preview2.jpg"]
+      // }
     };
 
     // Get code from URL
@@ -639,6 +650,25 @@
 
       document.getElementById('galleryTitle').textContent = name;
       document.getElementById('gallerySubtitle').textContent = `${date} • ${client.photos.length} fotos`;
+
+      // Update download button based on MEGA availability
+      const downloadBtn = document.getElementById('downloadAllBtn');
+      if (client.megaLink && client.megaLink.trim() !== '') {
+        downloadBtn.innerHTML = `
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+            <path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.6 0 12 0zm5.2 17.2h-2.1l-2-3.9-2 3.9H9l3.1-5.7L9.2 6.8h2.1l1.8 3.5 1.8-3.5h2.1l-2.9 4.7 3.1 5.7z"/>
+          </svg>
+          ${isSpanish ? 'Descargar desde MEGA' : 'Download from MEGA'}
+        `;
+        downloadBtn.title = isSpanish ? 'Se abrirá MEGA en una nueva pestaña' : 'Opens MEGA in a new tab';
+      } else {
+        downloadBtn.innerHTML = `
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/>
+          </svg>
+          ${isSpanish ? 'Descargar todas las fotos' : 'Download all photos'}
+        `;
+      }
 
       // Populate grid
       const grid = document.getElementById('photoGrid');
@@ -684,12 +714,19 @@
       document.body.removeChild(link);
     }
 
-    // Download all
+    // Download all - opens MEGA if available, otherwise downloads from server
     document.getElementById('downloadAllBtn').addEventListener('click', () => {
       const client = clientGalleries[clientCode];
-      client.photos.forEach((photo, index) => {
-        setTimeout(() => downloadPhoto(photo), index * 500);
-      });
+
+      if (client.megaLink && client.megaLink.trim() !== '') {
+        // Open MEGA folder in new tab
+        window.open(client.megaLink, '_blank');
+      } else {
+        // Fallback: download each photo from server
+        client.photos.forEach((photo, index) => {
+          setTimeout(() => downloadPhoto(photo), index * 500);
+        });
+      }
     });
 
     // Login form

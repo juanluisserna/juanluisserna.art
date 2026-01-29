@@ -3,9 +3,10 @@
 ## Sobre el proyecto
 Página web personal de fotografía profesional para conseguir más clientes y mejorar la experiencia de entrega de archivos.
 
-- **URL actual:** www.juanluisserna.art (usa plantilla de Hostinger, será reemplazada)
-- **Proyecto en desarrollo:** index.html local (diseño de cámara, mucho mejor potencial)
-- **Hosting actual:** Hostinger (objetivo: migrar a opción gratuita)
+- **URL:** www.juanluisserna.art
+- **Hosting:** GitHub Pages (gratuito)
+- **Repositorio:** https://github.com/juanluisserna/juanluisserna.art
+- **Dominio:** Namecheap (DNS configurado para GitHub Pages)
 - **Ubicación:** España (Barcelona)
 - **Especialidad principal:** Bodas y eventos
 
@@ -22,6 +23,8 @@ Página web personal de fotografía profesional para conseguir más clientes y m
 ├── index.html          # Página principal (todo el código aquí)
 ├── portal.html         # Portal de clientes (página dedicada, fondo blanco)
 ├── CLAUDE.md           # Este archivo de contexto
+├── CNAME               # Dominio personalizado para GitHub Pages
+├── .gitignore          # Archivos excluidos del repositorio
 ├── images/
 │   ├── about/          # Fotos personales (aboutme1-4.jpg)
 │   ├── portraits/      # Retratos (port1-30.jpg)
@@ -32,7 +35,6 @@ Página web personal de fotografía profesional para conseguir más clientes y m
 │   ├── clients/        # Galerías privadas de clientes
 │   │   └── demo-2024/  # Carpeta demo de ejemplo
 │   ├── histograms/     # Histogramas para UI de cámara
-│   ├── textures/       # Texturas de fondo
 │   ├── icons/          # Iconos UI
 │   └── logo/           # Logos
 ├── audio/              # Efectos de sonido (shutter.mp3)
@@ -61,7 +63,7 @@ Página web personal de fotografía profesional para conseguir más clientes y m
 
 ### 3. Menú desplegable
 - Botón "Menu" en header
-- Opciones: Portfolio Deportivo (PDF), Portfolio Bodas (PDF), Contacto
+- Opciones: Portfolio Deportivo (PDF), Portfolio Bodas (PDF), Portal de Clientes, Contacto
 - Posición fija, z-index alto para evitar problemas de superposición
 
 ### 4. Sistema de navegación de fotos
@@ -89,7 +91,27 @@ Página web personal de fotografía profesional para conseguir más clientes y m
 - Arrastrar imágenes deshabilitado
 - Atajos de teclado bloqueados (Ctrl+S, Ctrl+U)
 
-### 8. Portal de Clientes
+### 8. Animaciones de cámara (UI)
+
+#### Efecto de enfoque (Focus Effect)
+- Cuando cambia la foto, inicia con blur y transiciona a enfocada
+- Clases CSS: `.focusing` (blur 8px, scale 1.02) → `.focused` (blur 0, scale 1)
+- Simula el autoenfoque de una cámara real
+
+#### Tira de película (Film Strip)
+- Barra horizontal en la parte inferior con miniaturas de fotos
+- Muestra todas las fotos de la categoría actual
+- Click en miniatura navega a esa foto
+- Se oculta en modo galería, visible en modo foto individual
+- Clase CSS: `.film-strip`, se activa con `.visible`
+
+#### Dial de modo (Mode Dial)
+- Selector circular que simula el dial de una cámara
+- Muestra las 6 categorías alrededor del dial
+- Click en categoría la selecciona y rota el dial
+- Integrado en el panel derecho de controles
+
+### 9. Portal de Clientes
 - Accesible desde: Menú > Portal de Clientes
 - **Página dedicada:** `portal.html` con diseño limpio (fondo blanco, colores amigables)
 - Sistema de acceso mediante código único por cliente
@@ -97,32 +119,54 @@ Página web personal de fotografía profesional para conseguir más clientes y m
 - Galería con grid responsive y efecto hover
 - **Lightbox:** Ver fotos en grande con navegación por flechas
 - Descarga individual de fotos con botón overlay
-- Descarga masiva de todas las fotos
+- **Descarga masiva via MEGA:** El botón "Descargar todas" abre el enlace de MEGA
 - Acceso directo vía URL: `portal.html?code=demo-2024`
+
+**Integración con MEGA (para entregas grandes):**
+- Las fotos de previsualización (resolución media) se guardan en GitHub Pages
+- Las fotos en alta resolución se suben a MEGA (20GB gratis)
+- El botón "Descargar todas" abre automáticamente la carpeta de MEGA
+- Si no hay megaLink, descarga las fotos del servidor (comportamiento anterior)
 
 **Cómo añadir nuevos clientes:**
 1. Crear carpeta en `/images/clients/` con el código (ej: `perez-boda-2024`)
-2. Copiar las fotos del cliente a esa carpeta
-3. Añadir entrada en `clientGalleries` en **AMBOS archivos** (`index.html` y `portal.html`):
+2. Exportar fotos en dos versiones:
+   - **Previsualizaciones** (1200-1600px de ancho) → copiar a `/images/clients/perez-boda-2024/`
+   - **Alta resolución** (originales) → subir a carpeta en MEGA
+3. Crear carpeta en MEGA y obtener el enlace compartido (Clic derecho > Obtener enlace)
+4. Añadir entrada en `clientGalleries` en **AMBOS archivos** (`index.html` y `portal.html`):
 ```javascript
 "perez-boda-2024": {
   name: "Pérez & García Wedding",
   nameEs: "Boda Pérez & García",
   date: "March 10, 2024",
   dateEs: "10 de Marzo, 2024",
-  photos: ["IMG_001.jpg", "IMG_002.jpg", ...]
+  megaLink: "https://mega.nz/folder/XXXXXX#YYYYYY",  // Enlace de MEGA
+  photos: ["preview1.jpg", "preview2.jpg", ...]      // Previsualizaciones
 }
 ```
-4. Enviar al cliente el código: `perez-boda-2024`
+5. Enviar al cliente el código: `perez-boda-2024`
 5. O enviar link directo: `tudominio.com/portal.html?code=perez-boda-2024`
 
 **Código de prueba:** `demo-2024`
 
 ## Funcionalidades pendientes (por prioridad)
-1. **Cotizador/Paquetes** - Mostrar servicios y precios
-2. **Blog/Historias** - Publicar sesiones y contenido
-3. **Testimonios** - Opiniones de clientes anteriores
-4. **Imagen og-image.jpg** - Crear imagen para compartir en redes (1200x630px)
+
+### Alta prioridad (para conseguir más clientes)
+1. **Testimonios** - Sección con opiniones de clientes anteriores (prueba social)
+2. **og-image.jpg** - Imagen 1200x630px para compartir en redes (WhatsApp, Instagram, Facebook)
+
+### Media prioridad
+3. **Cotizador/Paquetes** - Mostrar servicios y precios para filtrar clientes serios
+4. **Blog/Historias** - Publicar sesiones completas (mejora SEO + muestra trabajo en contexto)
+5. **Galería de bodas destacadas** - Página dedicada solo a bodas (especialidad principal)
+
+### Marketing externo (no técnico)
+- Google My Business - Perfil gratuito para búsquedas locales en Barcelona
+- Instagram consistente - 3-4 posts/semana con hashtags locales (#fotografobodabarcelona)
+- Colaboraciones - Wedding planners, floristas, venues para referidos
+- Reseñas en Google - Pedir a clientes satisfechos
+- Bodas.net / Zankyou - Directorios de bodas
 
 ## Detalles técnicos importantes
 
@@ -149,6 +193,8 @@ Página web personal de fotografía profesional para conseguir más clientes y m
 - `downloadPhoto(code, filename)` - Descarga una foto individual
 - `resetPortal()` - Reinicia el portal al estado de login
 - `applyPortalTranslations()` - Aplica traducciones del portal
+- `updateFilmStrip()` - Actualiza las miniaturas de la tira de película
+- `updateModeDial()` - Actualiza la rotación del dial de modo
 
 ### Clases CSS importantes
 - `.hidden` - Oculta elementos (display: none)
@@ -161,31 +207,64 @@ Página web personal de fotografía profesional para conseguir más clientes y m
 - `.portal-photo` - Cada foto en el portal
 - `.lang-selector` - Selector de idioma
 - `.photo-gallery-mode` - Grid de galería de fotos (más columnas, scroll)
+- `.focusing` - Estado de enfocando (blur, scale)
+- `.focused` - Estado enfocado (sin blur)
+- `.film-strip` - Contenedor de la tira de película
+- `.film-strip.visible` - Tira de película visible
+- `.film-thumb` - Miniatura en la tira de película
+- `.mode-dial` - Dial selector de modo/categoría
 
 ## Sistema de entrega actual
 - **Portal de Clientes integrado** - Cada cliente recibe un código único para acceder a su galería privada
-- Alternativa: Google Drive / Dropbox para entregas muy grandes
+- **MEGA** para descargas en alta resolución (20GB gratis, sin límite de descarga)
+- Las previsualizaciones se ven en el portal, la descarga completa va a MEGA
 
 ## Redes sociales
 - Instagram: @juanluisserna_foto
 - WhatsApp: +34 653 413 157
 
-## Opciones de hosting gratuito a considerar
-- **GitHub Pages** - Gratis, requiere aprender git básico
-- **Cloudflare Pages** - Gratis, buen rendimiento
-- **Netlify** - Gratis tier, fácil deploy
+## Hosting y Deployment
 
-## Para probar localmente
+### GitHub Pages (actual)
+- **Repositorio:** https://github.com/juanluisserna/juanluisserna.art
+- **Branch:** main
+- **Dominio personalizado:** juanluisserna.art (configurado en Settings > Pages)
+
+### Para subir cambios al sitio web
+```bash
+cd ~/Documents/juanluisserna.art
+git add .
+git commit -m "Descripción del cambio"
+git push
+```
+Los cambios se publican automáticamente en 1-2 minutos.
+
+### Configuración DNS (Namecheap)
+El dominio está en Namecheap con los siguientes registros:
+- **A Records** (apuntan a GitHub Pages):
+  - 185.199.108.153
+  - 185.199.109.153
+  - 185.199.110.153
+  - 185.199.111.153
+- **CNAME Record:** www → juanluisserna.github.io
+
+### Archivos excluidos del repositorio (.gitignore)
+- Carpetas "Tamaño original" (archivos muy grandes)
+- Archivos .ARW (RAW de cámara)
+- Archivos .MP4/.mp4 (videos)
+- Respaldo*.html (versiones anteriores)
+- Archivos temporales y de sistema
+
+## Para probar localmente (antes de subir cambios)
 ```bash
 cd ~/Documents/juanluisserna.art
 python3 -m http.server 3000
-# Abrir http://localhost:3000
+# Abrir http://127.0.0.1:3000
 ```
 **Notas:**
-- No abrir el archivo directamente con `file://` - causa problemas con rutas relativas.
-- Si `localhost:3000` no funciona, probar con `127.0.0.1:3000`
-- Si sigue sin funcionar, verificar que el servidor esté corriendo (debe mostrar "Serving HTTP on 0.0.0.0 port 3000")
-- **Problema conocido:** En algunos sistemas el localhost no resuelve correctamente. Usar la IP directa: `http://127.0.0.1:3000`
+- No abrir el archivo directamente con `file://` - causa problemas con rutas relativas
+- Usar `127.0.0.1:3000` en lugar de `localhost:3000` (más confiable)
+- Después de probar, subir cambios con `git add . && git commit -m "mensaje" && git push`
 
 ## Nivel técnico del usuario
 Básico - puede copiar/pegar código y hacer cambios simples. Prefiere recibir código completo para reemplazar.
@@ -207,6 +286,6 @@ Básico - puede copiar/pegar código y hacer cambios simples. Prefiere recibir c
 ## Notas importantes
 - El diseño simula una cámara real - mantener esta estética
 - Responsive design es importante (clientes ven desde móvil)
-- El archivo index.html tiene ~2000 líneas - todo está en un solo archivo
+- El archivo index.html tiene ~2500 líneas - todo está en un solo archivo (HTML, CSS, JS)
 - Los textos de las fotos individuales (photo.title) están mayormente vacíos, solo la primera foto de cada categoría tiene título
 - El body/descripción está en la categoría, no en cada foto individual

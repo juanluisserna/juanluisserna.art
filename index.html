@@ -55,12 +55,42 @@
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
     html { font-size: 62.5%; }
-    body { 
-      font-family: 'Roboto', sans-serif; 
-      background: #4A4A4A;
+    :root {
+      --header-height: 8vh;
+    }
+    body {
+      font-family: 'Roboto', sans-serif;
+      background: linear-gradient(135deg, #3a3a3a 0%, #2a2a2a 50%, #1a1a1a 100%);
       color: #E6E6E6;
       overflow: hidden;
       height: 100vh;
+    }
+
+    /* Camera body texture overlay */
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image:
+        repeating-linear-gradient(
+          0deg,
+          transparent,
+          transparent 2px,
+          rgba(0,0,0,0.03) 2px,
+          rgba(0,0,0,0.03) 4px
+        ),
+        repeating-linear-gradient(
+          90deg,
+          transparent,
+          transparent 2px,
+          rgba(0,0,0,0.03) 2px,
+          rgba(0,0,0,0.03) 4px
+        );
+      pointer-events: none;
+      z-index: 0;
     }
   
     .hero {
@@ -76,16 +106,76 @@
       top: 0;
       left: 0;
       width: 100%;
+      height: var(--header-height);
       display: flex;
       align-items: center;
-      padding: clamp(0.5vh, 1vh, 1.5vh) clamp(0.5vw, 1vw, 1.5vw);
-      background: rgba(0, 0, 0, 0.5);
+      padding: 0 clamp(1vw, 1.5vw, 2vw);
+      background: linear-gradient(180deg, #252525 0%, #1a1a1a 100%);
+      border-bottom: 3px solid #111;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.5);
       z-index: 3;
+    }
+
+    /* Camera details in header */
+    .camera-model {
+      position: absolute;
+      left: clamp(80px, 10vw, 120px);
+      font-size: clamp(0.7rem, 0.9vw, 1rem);
+      color: #666;
+      font-weight: 500;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+    .rec-indicator {
+      position: absolute;
+      left: clamp(60px, 8vw, 90px);
+      display: flex;
+      align-items: center;
+      gap: 0.4vw;
+    }
+    .rec-dot {
+      width: 8px;
+      height: 8px;
+      background: #ff3333;
+      border-radius: 50%;
+      box-shadow: 0 0 8px #ff3333, 0 0 15px rgba(255,51,51,0.5);
+      animation: recBlink 1.5s infinite;
+    }
+    @keyframes recBlink {
+      0%, 50% { opacity: 1; }
+      51%, 100% { opacity: 0.3; }
+    }
+    .rec-text {
+      font-size: clamp(0.7rem, 0.8vw, 0.9rem);
+      color: #ff3333;
+      font-weight: 700;
+      letter-spacing: 1px;
+    }
+    .viewfinder {
+      position: absolute;
+      right: clamp(140px, 18vw, 200px);
+      width: clamp(25px, 3vw, 40px);
+      height: clamp(15px, 2vw, 25px);
+      background: linear-gradient(145deg, #111, #000);
+      border: 2px solid #333;
+      border-radius: 3px;
+      box-shadow: inset 0 0 5px rgba(0,0,0,0.8);
+    }
+    .viewfinder::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 60%;
+      height: 50%;
+      background: linear-gradient(135deg, #1a1a1a, #0a0a0a);
+      border-radius: 2px;
     }
   
     .logo {
-      width: clamp(30px, 5vw, 75px);
-      height: auto;
+      height: calc(var(--header-height) - 1.5vh);
+      width: auto;
       flex: 0 0 auto;
     }
   
@@ -161,23 +251,27 @@
   
     .hero-container {
       position: absolute;
-      top: var(--header-height, 15vh);
+      top: var(--header-height);
       left: 0;
       width: clamp(60%, 70vw, 80%);
-      height: calc(100vh - var(--header-height, 15vh) - 85px); /* Leave room for film strip */
+      height: calc(100vh - var(--header-height) - 85px);
       overflow: hidden;
       z-index: 0;
+      transform: translateZ(0);
+      backface-visibility: hidden;
     }
 
     .gallery-container {
       position: absolute;
-      top: var(--header-height, 15vh);
+      top: var(--header-height);
       left: 0;
       width: clamp(60%, 70vw, 80%);
-      height: calc(100vh - var(--header-height, 15vh));
+      height: calc(100vh - var(--header-height));
       overflow-y: auto;
       overflow-x: hidden;
       z-index: 0;
+      transform: translateZ(0);
+      backface-visibility: hidden;
     }
   
     .hero-background {
@@ -196,13 +290,14 @@
       width: 100%;
       height: 100%;
       object-fit: contain;
-      transition: transform 0.1s ease, filter 0.4s ease;
+      transition: transform 0.1s ease, filter 0.15s ease;
+      will-change: transform, filter;
     }
 
-    /* Focus effect - blur to sharp */
+    /* Focus effect - blur to sharp (faster) */
     .hero-background img.focusing {
-      filter: blur(8px);
-      transform: scale(1.02);
+      filter: blur(4px);
+      transform: scale(1.01);
     }
     .hero-background img.focused {
       filter: blur(0);
@@ -219,14 +314,15 @@
       opacity: 0;
       z-index: 1;
       pointer-events: none;
+      will-change: opacity;
     }
     .shutter-overlay.blink {
-      animation: shutterBlink 0.3s ease;
+      animation: shutterBlink 0.15s ease-out;
     }
-  
+
     @keyframes shutterBlink {
       0% { opacity: 0; }
-      20% { opacity: 1; }
+      30% { opacity: 0.9; }
       100% { opacity: 0; }
     }
   
@@ -246,11 +342,17 @@
   
     .frame {
       position: absolute;
-      top: var(--header-height, 15vh);
+      top: var(--header-height);
       left: 0;
       width: clamp(60%, 70vw, 80%);
-      height: calc(100vh - var(--header-height, 15vh) - 85px); /* Match hero-container, leave room for film strip */
-      border: 0.2vw solid #4A4A4A;
+      height: calc(100vh - var(--header-height) - 85px);
+      border: 4px solid #1a1a1a;
+      border-radius: 8px;
+      box-shadow:
+        inset 0 0 0 2px #333,
+        inset 0 0 20px rgba(0,0,0,0.5),
+        0 0 0 3px #2a2a2a,
+        0 4px 15px rgba(0,0,0,0.4);
       z-index: 2;
       pointer-events: none;
     }
@@ -265,16 +367,20 @@
       background: #1a1a1a;
       z-index: 5;
       display: none; /* Hidden by default, shown via JS */
+      visibility: hidden;
+      opacity: 0;
       align-items: center;
       padding: 0 10px;
       overflow-x: auto;
       overflow-y: hidden;
       gap: 8px;
-      border-top: 3px solid #333;
-      border-bottom: 3px solid #333;
     }
     .film-strip.visible {
       display: flex;
+      visibility: visible;
+      opacity: 1;
+      border-top: 3px solid #333;
+      border-bottom: 3px solid #333;
     }
     .film-strip::before,
     .film-strip::after {
@@ -346,13 +452,28 @@
   
     .camera-ui {
       position: absolute;
-      top: var(--header-height, 15vh);
+      top: var(--header-height);
       left: clamp(60%, 70vw, 80%);
       width: clamp(20%, 30vw, 40%);
-      height: calc(100vh - var(--header-height, 15vh));
-      background: url('./images/textures/texture1.jpg') no-repeat center/cover;
-      background-blend-mode: overlay;
-      background-color: rgba(0, 0, 0, 0.5);
+      height: calc(100vh - var(--header-height));
+      background:
+        repeating-linear-gradient(
+          0deg,
+          transparent 0px,
+          transparent 3px,
+          rgba(0,0,0,0.15) 3px,
+          rgba(0,0,0,0.15) 6px
+        ),
+        repeating-linear-gradient(
+          90deg,
+          transparent 0px,
+          transparent 3px,
+          rgba(0,0,0,0.1) 3px,
+          rgba(0,0,0,0.1) 6px
+        ),
+        linear-gradient(180deg, #2d2d2d 0%, #1f1f1f 50%, #1a1a1a 100%);
+      border-left: 3px solid #111;
+      box-shadow: -5px 0 20px rgba(0,0,0,0.4);
       padding: clamp(1vw, 2vw, 3vw);
       z-index: 3;
       display: flex;
@@ -368,9 +489,7 @@
       gap: clamp(2vw, 5vw, 8vw);
       align-items: center;
       justify-content: center;
-      flex-shrink: 0;
-      margin-top: auto;
-      margin-bottom: auto;
+      flex: 1;
     }
 
     /* Mode Dial */
@@ -445,7 +564,9 @@
     .info-section {
       text-align: center;
       color: #E6E6E6;
-      flex: 1;
+      flex-shrink: 0;
+      max-height: 25vh;
+      overflow-y: auto;
     }
     .info-section .category-name {
       font-size: clamp(1.8rem, 2.5vw, 3rem);
@@ -492,9 +613,8 @@
       left: 0;
       width: 100%;
       padding: 0.5vh 1vw;
-      background: url('./images/textures/texture1.jpg') no-repeat center/cover;
-      background-blend-mode: overlay;
-      background-color: rgba(0, 0, 0, 0.7);
+      background: linear-gradient(180deg, #1a1a1a 0%, #111 100%);
+      border-top: 1px solid #333;
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -542,15 +662,42 @@
     .shutter-btn {
       width: clamp(60px, 8vw, 100px);
       height: clamp(60px, 8vw, 100px);
-      background: #F28C38;
-      border: 0.4vw solid #E6E6E6;
+      background: linear-gradient(145deg, #f9a352, #e07a28);
+      border: 4px solid #ccc;
       border-radius: 50%;
       cursor: pointer;
-      transition: background 0.2s, transform 0.2s;
+      transition: all 0.15s ease;
+      box-shadow:
+        0 6px 0 #b35d15,
+        0 8px 15px rgba(0,0,0,0.4),
+        inset 0 2px 5px rgba(255,255,255,0.3);
+      position: relative;
+    }
+    .shutter-btn::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 50%;
+      height: 50%;
+      background: linear-gradient(145deg, rgba(255,255,255,0.2), transparent);
+      border-radius: 50%;
     }
     .shutter-btn:hover {
-      background: #F28C38;
-      transform: scale(1.1);
+      background: linear-gradient(145deg, #ffb366, #f28c38);
+      transform: translateY(-2px);
+      box-shadow:
+        0 8px 0 #b35d15,
+        0 12px 20px rgba(0,0,0,0.5),
+        inset 0 2px 5px rgba(255,255,255,0.3);
+    }
+    .shutter-btn:active {
+      transform: translateY(4px);
+      box-shadow:
+        0 2px 0 #b35d15,
+        0 3px 8px rgba(0,0,0,0.3),
+        inset 0 2px 5px rgba(255,255,255,0.3);
     }
   
     .nav-cluster {
@@ -568,22 +715,37 @@
     .nav-cluster .nav-btn:nth-child(3) { grid-area: down; }
   
     .nav-btn {
-      width: clamp(30px, 4vw, 60px);
-      height: clamp(30px, 4vw, 60px);
-      background: #E6E6E6;
-      border: 0.3vw solid #4A4A4A;
-      border-radius: 0.8vw;
+      width: clamp(35px, 4vw, 55px);
+      height: clamp(35px, 4vw, 55px);
+      background: linear-gradient(145deg, #f0f0f0, #d0d0d0);
+      border: none;
+      border-radius: 8px;
       cursor: pointer;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: clamp(1rem, 1.8vw, 2.5rem);
-      color: #1A1A1A;
-      transition: background 0.2s;
+      font-size: clamp(1rem, 1.6vw, 2rem);
+      color: #333;
+      transition: all 0.15s ease;
+      box-shadow:
+        0 4px 0 #999,
+        0 6px 10px rgba(0,0,0,0.3),
+        inset 0 1px 2px rgba(255,255,255,0.8);
     }
     .nav-btn:hover {
-      background: #F28C38;
-      color: #E6E6E6;
+      background: linear-gradient(145deg, #ffb366, #f28c38);
+      color: #fff;
+      box-shadow:
+        0 4px 0 #b35d15,
+        0 6px 10px rgba(0,0,0,0.3),
+        inset 0 1px 2px rgba(255,255,255,0.3);
+    }
+    .nav-btn:active {
+      transform: translateY(3px);
+      box-shadow:
+        0 1px 0 #999,
+        0 2px 5px rgba(0,0,0,0.2),
+        inset 0 1px 2px rgba(255,255,255,0.8);
     }
     .nav-left-right {
       display: flex;
@@ -591,21 +753,121 @@
       width: clamp(80px, 12vw, 160px);
       position: relative;
     }
+
+    /* Camera button labels */
+    .btn-label {
+      font-size: clamp(0.6rem, 0.7vw, 0.8rem);
+      color: #888;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-top: 0.5vh;
+      font-weight: 500;
+    }
+    .shutter-label {
+      position: absolute;
+      bottom: -2.5vh;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: clamp(0.6rem, 0.7vw, 0.8rem);
+      color: #F28C38;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      font-weight: 600;
+      white-space: nowrap;
+    }
+
+    /* Zoom/Focal Length Indicator */
+    .zoom-indicator {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.8vh;
+      padding: 1.5vh 0;
+      flex-shrink: 0;
+    }
+    .zoom-label {
+      font-size: clamp(0.7rem, 0.8vw, 0.9rem);
+      color: #888;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    .zoom-ring {
+      width: clamp(80px, 10vw, 120px);
+      height: clamp(30px, 4vh, 45px);
+      background: linear-gradient(180deg, #1a1a1a 0%, #252525 50%, #1a1a1a 100%);
+      border: 2px solid #333;
+      border-radius: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+      padding: 0 8px;
+      box-shadow:
+        inset 0 2px 5px rgba(0,0,0,0.5),
+        0 2px 5px rgba(0,0,0,0.3);
+      position: relative;
+    }
+    .zoom-ring::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 5px;
+      right: 5px;
+      height: 2px;
+      background: linear-gradient(90deg, #333, #444, #333);
+      transform: translateY(-50%);
+      border-radius: 1px;
+    }
+    .zoom-mark {
+      font-size: clamp(0.65rem, 0.75vw, 0.85rem);
+      color: #666;
+      cursor: pointer;
+      padding: 4px 6px;
+      border-radius: 4px;
+      transition: all 0.15s ease;
+      position: relative;
+      z-index: 1;
+      font-weight: 500;
+    }
+    .zoom-mark:hover {
+      color: #aaa;
+    }
+    .zoom-mark.active {
+      color: #F28C38;
+      text-shadow: 0 0 10px rgba(242, 140, 56, 0.5);
+      font-weight: 700;
+    }
+    .focal-display {
+      font-family: 'Press Start 2P', cursive;
+      font-size: clamp(1rem, 1.2vw, 1.4rem);
+      color: #F28C38;
+      text-shadow: 0 0 8px rgba(242, 140, 56, 0.4);
+      letter-spacing: 1px;
+    }
   
     .gallery-btn {
       position: absolute;
       bottom: 5vh;
       left: 2vw;
-      width: clamp(40px, 5vw, 70px);
-      height: clamp(40px, 5vw, 70px);
-      background: #E6E6E6 url('./images/icons/gallery.png') no-repeat center/contain;
-      border: 0.3vw solid #4A4A4A;
+      width: clamp(45px, 5vw, 65px);
+      height: clamp(45px, 5vw, 65px);
+      background: linear-gradient(145deg, #f0f0f0, #d0d0d0) url('./images/icons/gallery.png') no-repeat center/60%;
+      border: none;
       border-radius: 50%;
       cursor: pointer;
-      transition: background 0.2s;
+      transition: all 0.15s ease;
+      box-shadow:
+        0 4px 0 #999,
+        0 6px 10px rgba(0,0,0,0.3),
+        inset 0 1px 2px rgba(255,255,255,0.8);
     }
     .gallery-btn:hover {
-      background: #F28C38 url('./images/icons/gallery.png') no-repeat center/contain;
+      background: linear-gradient(145deg, #ffb366, #f28c38) url('./images/icons/gallery.png') no-repeat center/60%;
+    }
+    .gallery-btn:active {
+      transform: translateY(3px);
+      box-shadow:
+        0 1px 0 #999,
+        0 2px 5px rgba(0,0,0,0.2);
     }
   
     /* Tooltip styling */
@@ -779,7 +1041,13 @@
   
     /* Mobile-specific styles */
     @media (max-width: 768px) {
-      .header-bar { padding: 0.5vh 0.5vw; }
+      :root {
+        --header-height: 6vh;
+      }
+      .header-bar { padding: 0 0.5vw; }
+      .rec-indicator, .viewfinder, .camera-model {
+        display: none;
+      }
       .hero-container {
         width: 100%;
         top: var(--header-height, 10vh);
@@ -1417,6 +1685,99 @@
         max-height: 50vh;
       }
     }
+
+    /* Welcome Modal Styles */
+    .welcome-modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.92);
+      z-index: 2000;
+      justify-content: center;
+      align-items: center;
+      padding: 2vw;
+    }
+    .welcome-modal.active {
+      display: flex;
+    }
+    .welcome-container {
+      background: #2A2A2A;
+      border: 2px solid #F28C38;
+      border-radius: 1vw;
+      padding: clamp(25px, 4vw, 50px);
+      max-width: 520px;
+      width: 100%;
+      text-align: center;
+      position: relative;
+    }
+    .welcome-icon {
+      font-size: clamp(4rem, 6vw, 6rem);
+      margin-bottom: 2vh;
+    }
+    .welcome-container h2 {
+      color: #F28C38;
+      font-size: clamp(2rem, 3vw, 3rem);
+      margin-bottom: 2vh;
+    }
+    .welcome-container p {
+      color: #E6E6E6;
+      font-size: clamp(1.3rem, 1.6vw, 1.8rem);
+      line-height: 1.6;
+      margin-bottom: 2vh;
+    }
+    .welcome-container .highlight {
+      color: #F28C38;
+      font-weight: 700;
+    }
+    .welcome-tips {
+      background: #1A1A1A;
+      border-radius: 0.5vw;
+      padding: clamp(15px, 2vw, 25px);
+      margin: 2vh 0;
+      text-align: left;
+    }
+    .welcome-tips p {
+      font-size: clamp(1.2rem, 1.4vw, 1.5rem);
+      margin-bottom: 1vh;
+      display: flex;
+      align-items: center;
+      gap: 1vw;
+    }
+    .welcome-tips p:last-child {
+      margin-bottom: 0;
+    }
+    .welcome-tips .tip-icon {
+      font-size: clamp(1.4rem, 1.8vw, 2rem);
+      flex-shrink: 0;
+    }
+    .welcome-btn {
+      background: #F28C38;
+      color: #1A1A1A;
+      border: none;
+      border-radius: 0.5vw;
+      padding: clamp(14px, 1.8vh, 20px) clamp(30px, 4vw, 50px);
+      font-size: clamp(1.5rem, 1.8vw, 2rem);
+      font-weight: 700;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.2s;
+      margin-top: 1vh;
+    }
+    .welcome-btn:hover {
+      background: #E6E6E6;
+      transform: scale(1.03);
+    }
+    @media (max-width: 768px) {
+      .welcome-container {
+        margin: 3vh 3vw;
+        padding: clamp(20px, 5vw, 35px);
+      }
+      .welcome-tips p {
+        font-size: clamp(1.1rem, 3vw, 1.4rem);
+      }
+    }
   </style>
 </head>
 
@@ -1448,10 +1809,15 @@
     </div>
     <div class="header-bar" id="headerBar">
       <a href="/" class="logo-link"><img src="./images/logo/logo.png" alt="Juan Luis Serna Logo" class="logo"></a>
+      <div class="rec-indicator">
+        <span class="rec-dot"></span>
+        <span class="rec-text">REC</span>
+      </div>
       <div class="header-text">
         <h1>Juan Luis Serna</h1>
         <p>Using light to write stories</p>
       </div>
+      <div class="viewfinder"></div>
       <button class="menu-btn" id="menuButton">Menu</button>
       <div class="lang-selector" id="langSelector">
         <span class="lang-option active" data-lang="en">EN</span>
@@ -1463,7 +1829,7 @@
     <!-- Film Strip -->
     <div class="film-strip" id="filmStrip"></div>
 
-    <div class="frame"></div>
+    <div class="frame" id="photoFrame"></div>
     <div class="mobile-modes" id="mobileModes">
       <!-- Categories will be populated dynamically -->
     </div>
@@ -1480,6 +1846,18 @@
         <div class="body-text" id="bodyText"></div>
         <div class="photo-settings" id="photoSettings"></div>
       </div>
+
+      <!-- Zoom/Focal Length Indicator -->
+      <div class="zoom-indicator" id="zoomIndicator">
+        <span class="zoom-label">Focal Length</span>
+        <div class="zoom-ring">
+          <span class="zoom-mark active" data-zoom="1" data-focal="24">24</span>
+          <span class="zoom-mark" data-zoom="2" data-focal="50">50</span>
+          <span class="zoom-mark" data-zoom="4" data-focal="200">200</span>
+        </div>
+        <span class="focal-display" id="focalDisplay">24mm</span>
+      </div>
+
       <div class="camera-controls">
         <div class="nav-cluster">
            <button class="nav-btn" title="Switch to Previous Category" id="upBtn">▲</button>
@@ -1632,6 +2010,21 @@
     </div>
   </div>
 
+  <!-- Welcome Modal -->
+  <div class="welcome-modal" id="welcomeModal">
+    <div class="welcome-container">
+      <div class="welcome-icon">📷</div>
+      <h2 id="welcomeTitle">Welcome!</h2>
+      <p id="welcomeText">This website simulates a <span class="highlight">real camera interface</span>. Navigate through my work using the controls on the right side.</p>
+      <div class="welcome-tips">
+        <p><span class="tip-icon">🎯</span> <span id="tip1">Use the dial to select categories</span></p>
+        <p><span class="tip-icon">◀▶</span> <span id="tip2">Arrows to navigate between photos</span></p>
+        <p><span class="tip-icon">🖼️</span> <span id="tip3">Click "Gallery" to see all photos</span></p>
+      </div>
+      <button class="welcome-btn" id="welcomeBtn">Got it!</button>
+    </div>
+  </div>
+
   <script>
     // Translations system
     const translations = {
@@ -1677,6 +2070,14 @@
           title: "Portfolio Gallery",
           description: "Select a category to view photos. Use the arrows to select the type of photography you want to see. I do different styles and for different occasions but I enjoy them all.",
           descriptionMobile: "Select a category to view photos. Swipe to navigate, tap to select the type of photography you want to see. I do different styles and for different occasions but I enjoy them all."
+        },
+        welcome: {
+          title: "Welcome to my camera!",
+          text: "I'm <span class=\"highlight\">Juan Luis Serna</span> and I designed this website to look like my camera. Explore my work using the controls, just like I do when shooting.",
+          tip1: "Use the dial to select categories",
+          tip2: "Arrows to navigate between photos",
+          tip3: "Click \"Gallery\" to see all photos",
+          button: "Let's explore!"
         },
         contactForm: {
           title: "Contact",
@@ -1761,6 +2162,14 @@
           description: "Selecciona una categoría para ver las fotos. Usa las flechas para elegir el tipo de fotografía que quieres ver. Hago diferentes estilos y para distintas ocasiones, pero disfruto todos.",
           descriptionMobile: "Selecciona una categoría para ver las fotos. Desliza para navegar, toca para seleccionar el tipo de fotografía que quieres ver. Hago diferentes estilos y para distintas ocasiones, pero disfruto todos."
         },
+        welcome: {
+          title: "¡Bienvenido a mi cámara!",
+          text: "Soy <span class=\"highlight\">Juan Luis Serna</span> y diseñé esta web para que se vea como mi cámara. Explora mi trabajo usando los controles, igual que yo cuando disparo.",
+          tip1: "Usa el dial para seleccionar categorías",
+          tip2: "Flechas para navegar entre fotos",
+          tip3: "Clic en \"Gallery\" para ver todas las fotos",
+          button: "¡A explorar!"
+        },
         contactForm: {
           title: "Contacto",
           subtitle: "Cuéntame sobre tu proyecto y te responderé pronto",
@@ -1806,12 +2215,14 @@
     let currentLang = localStorage.getItem('lang') || 'en';
 
     // Client galleries data - Add new clients here
+    // megaLink: enlace a la carpeta de MEGA con las fotos en alta resolución
     const clientGalleries = {
       "demo-2024": {
         name: "Demo Gallery",
         nameEs: "Galería Demo",
         date: "January 2024",
         dateEs: "Enero 2024",
+        megaLink: "", // Dejar vacío si no hay enlace de MEGA
         photos: [
           "Sabina & Santiago-1000.jpg",
           "Sabina & Santiago-1015.jpg",
@@ -1827,7 +2238,8 @@
       //   nameEs: "Boda García & López",
       //   date: "June 15, 2024",
       //   dateEs: "15 de Junio, 2024",
-      //   photos: ["foto1.jpg", "foto2.jpg", ...]
+      //   megaLink: "https://mega.nz/folder/XXXXXX#YYYYYY",
+      //   photos: ["preview1.jpg", "preview2.jpg", ...]
       // }
     };
 
@@ -1881,6 +2293,20 @@
       if (typeof updateDisplay === 'function') {
         updateDisplay();
       }
+
+      // Update welcome modal
+      const welcomeTitle = document.getElementById('welcomeTitle');
+      const welcomeText = document.getElementById('welcomeText');
+      const tip1 = document.getElementById('tip1');
+      const tip2 = document.getElementById('tip2');
+      const tip3 = document.getElementById('tip3');
+      const welcomeBtn = document.getElementById('welcomeBtn');
+      if (welcomeTitle) welcomeTitle.textContent = t.welcome.title;
+      if (welcomeText) welcomeText.innerHTML = t.welcome.text;
+      if (tip1) tip1.textContent = t.welcome.tip1;
+      if (tip2) tip2.textContent = t.welcome.tip2;
+      if (tip3) tip3.textContent = t.welcome.tip3;
+      if (welcomeBtn) welcomeBtn.textContent = t.welcome.button;
     }
 
     // Get translated category data
@@ -2098,6 +2524,7 @@
     let isMobile = false;
     const heroContainer = document.getElementById('heroContainer');
     const galleryContainer = document.getElementById('galleryContainer');
+    const photoFrame = document.getElementById('photoFrame');
     const galleryGrid = document.getElementById('galleryGrid');
     const shutterOverlay = document.getElementById('shutterOverlay');
     const prevBtn = document.getElementById('prevBtn');
@@ -2174,23 +2601,34 @@
     }
   
     // Preload images to ensure smooth transitions
+    // Image preload cache to avoid re-downloading
+    const preloadedImages = new Set();
+
     function preloadImages(categoryIndex, photoIndex) {
       const category = categories[categoryIndex];
       const imagesToPreload = [];
-  
-      const prevPhotoIndex = (photoIndex - 1 + category.photos.length) % category.photos.length;
-      const nextPhotoIndex = (photoIndex + 1) % category.photos.length;
-      imagesToPreload.push(category.photos[prevPhotoIndex].file);
-      imagesToPreload.push(category.photos[nextPhotoIndex].file);
-  
+
+      // Preload 2 photos in each direction
+      for (let i = 1; i <= 2; i++) {
+        const prevPhotoIndex = (photoIndex - i + category.photos.length) % category.photos.length;
+        const nextPhotoIndex = (photoIndex + i) % category.photos.length;
+        imagesToPreload.push(category.photos[prevPhotoIndex].file);
+        imagesToPreload.push(category.photos[nextPhotoIndex].file);
+      }
+
+      // Preload first photo of adjacent categories
       const prevCategoryIndex = (categoryIndex - 1 + categories.length) % categories.length;
       const nextCategoryIndex = (categoryIndex + 1) % categories.length;
       imagesToPreload.push(categories[prevCategoryIndex].photos[0].file);
       imagesToPreload.push(categories[nextCategoryIndex].photos[0].file);
-  
+
+      // Only preload images not already cached
       imagesToPreload.forEach(src => {
-        const img = new Image();
-        img.src = src;
+        if (!preloadedImages.has(src)) {
+          const img = new Image();
+          img.src = src;
+          preloadedImages.add(src);
+        }
       });
     }
   
@@ -2235,6 +2673,17 @@
       zoom1x.classList.toggle('active', zoomLevel === 1);
       zoom2x.classList.toggle('active', zoomLevel === 2);
       zoom4x.classList.toggle('active', zoomLevel === 4);
+
+      // Update desktop focal length indicator
+      const focalDisplay = document.getElementById('focalDisplay');
+      const zoomMarks = document.querySelectorAll('.zoom-mark');
+      if (focalDisplay && zoomMarks.length) {
+        const focalMap = { 1: '24mm', 2: '50mm', 4: '200mm' };
+        focalDisplay.textContent = focalMap[zoomLevel] || '24mm';
+        zoomMarks.forEach(mark => {
+          mark.classList.toggle('active', parseInt(mark.dataset.zoom) === zoomLevel);
+        });
+      }
     }
   
     function updateContent(categoryIndex, photoIndex, skipAnimation = false) {
@@ -2242,7 +2691,8 @@
       const photo = category.photos[photoIndex];
       const photoImage = document.getElementById('photoImage');
 
-      preloadImages(categoryIndex, photoIndex);
+      // Preload adjacent images in background
+      requestIdleCallback ? requestIdleCallback(() => preloadImages(categoryIndex, photoIndex)) : preloadImages(categoryIndex, photoIndex);
 
       // Focus effect - blur before changing image
       if (!skipAnimation) {
@@ -2254,13 +2704,13 @@
       photoImage.style.transform = `scale(${zoomLevel})`;
       photoImage.style.transformOrigin = `${transformOriginX}% ${transformOriginY}%`;
 
-      // Focus effect - sharp after image loads
+      // Focus effect - sharp after image loads (faster)
       if (!skipAnimation) {
         photoImage.onload = () => {
-          setTimeout(() => {
+          requestAnimationFrame(() => {
             photoImage.classList.remove('focusing');
             photoImage.classList.add('focused');
-          }, 100);
+          });
         };
       }
   
@@ -2285,7 +2735,7 @@
           <span>ISO: ${photo.settings.iso}</span>
           <span>Shutter Speed: ${photo.settings.shutter}</span>
           <span>Aperture: ${photo.settings.aperture}</span>
-          <div class="histogram"><img src="${photo.settings.histogram}" alt="Histogram"></div>
+          <div class="histogram"><img src="${photo.settings.histogram}" alt="Histogram" loading="lazy"></div>
         `;
         populateCategoryCarousel();
       } else {
@@ -2313,17 +2763,17 @@
             <span>Shutter Speed: ${photo.settings.shutter}</span>
             <span>Aperture: ${photo.settings.aperture}</span>
           </div>
-          <div class="histogram"><img src="${photo.settings.histogram}" alt="Histogram"></div>
+          <div class="histogram"><img src="${photo.settings.histogram}" alt="Histogram" loading="lazy"></div>
         `;
       }
   
       if (!skipAnimation) {
         shutterOverlay.classList.add('blink');
         shutterSound.currentTime = 0;
-        shutterSound.play();
+        shutterSound.play().catch(() => {}); // Ignore autoplay errors
         setTimeout(() => {
           shutterOverlay.classList.remove('blink');
-        }, 300);
+        }, 150);
       }
     }
   
@@ -2331,6 +2781,7 @@
       const category = categories[currentCategoryIndex];
       currentPhotoIndex = (currentPhotoIndex + direction + category.photos.length) % category.photos.length;
       zoomLevel = 1; // Reset zoom when changing photos
+      zoomScrollAccumulator = 0;
       transformOriginX = 50;
       transformOriginY = 50;
       updateZoomButtons();
@@ -2342,6 +2793,7 @@
       currentCategoryIndex = (currentCategoryIndex + direction + categories.length) % categories.length;
       currentPhotoIndex = 0;
       zoomLevel = 1; // Reset zoom when changing categories
+      zoomScrollAccumulator = 0;
       transformOriginX = 50;
       transformOriginY = 50;
       updateZoomButtons();
@@ -2350,16 +2802,41 @@
       updateModeDial(); // Update mode dial rotation
     }
 
+    let zoomScrollAccumulator = 0;
+    const zoomScrollThreshold = 150; // Amount of scroll needed to change zoom level
+
     window.addEventListener('wheel', (e) => {
       if (isMobile) return;
       // Allow normal scroll in gallery views
       if (isGalleryView || isPhotoGalleryView) return;
       // Only use wheel for zoom when viewing single photo
       e.preventDefault();
-      const delta = e.deltaY > 0 ? 5 : -5;
-      zoomLevel = Math.min(Math.max(zoomLevel + (delta / 100), 1), 4);
-      const photoImage = document.getElementById('photoImage');
-      photoImage.style.transform = `scale(${zoomLevel})`;
+
+      zoomScrollAccumulator += e.deltaY;
+
+      const zoomSteps = [1, 2, 4];
+      const currentIndex = zoomSteps.indexOf(zoomLevel);
+      let newIndex = currentIndex;
+
+      if (zoomScrollAccumulator > zoomScrollThreshold && currentIndex < zoomSteps.length - 1) {
+        newIndex = currentIndex + 1; // Zoom in
+        zoomScrollAccumulator = 0;
+      } else if (zoomScrollAccumulator < -zoomScrollThreshold && currentIndex > 0) {
+        newIndex = currentIndex - 1; // Zoom out
+        zoomScrollAccumulator = 0;
+      }
+
+      if (newIndex !== currentIndex) {
+        zoomLevel = zoomSteps[newIndex];
+        if (zoomLevel === 1) {
+          transformOriginX = 50;
+          transformOriginY = 50;
+        }
+        updateZoomButtons();
+        const photoImage = document.getElementById('photoImage');
+        photoImage.style.transform = `scale(${zoomLevel})`;
+        photoImage.style.transformOrigin = `${transformOriginX}% ${transformOriginY}%`;
+      }
     }, { passive: false });
   
     // Populate gallery grid
@@ -2426,8 +2903,8 @@
           updateFilmStripActive();
           shutterOverlay.classList.add('blink');
           shutterSound.currentTime = 0;
-          shutterSound.play();
-          setTimeout(() => shutterOverlay.classList.remove('blink'), 300);
+          shutterSound.play().catch(() => {});
+          setTimeout(() => shutterOverlay.classList.remove('blink'), 150);
         });
 
         filmStrip.appendChild(frame);
@@ -2520,8 +2997,8 @@
             populateFilmStrip();
             shutterOverlay.classList.add('blink');
             shutterSound.currentTime = 0;
-            shutterSound.play();
-            setTimeout(() => shutterOverlay.classList.remove('blink'), 300);
+            shutterSound.play().catch(() => {});
+            setTimeout(() => shutterOverlay.classList.remove('blink'), 150);
           }
         });
 
@@ -2560,6 +3037,9 @@
       galleryContainer.style.display = showGallery ? 'block' : 'none';
       indexNumber.style.display = showGallery ? 'none' : 'block';
       mobileModes.style.display = showGallery ? 'none' : 'flex';
+      photoFrame.style.display = showGallery ? 'none' : 'block';
+      const zoomIndicator = document.getElementById('zoomIndicator');
+      if (zoomIndicator) zoomIndicator.style.display = showGallery ? 'none' : 'flex';
   
       if (isMobile) {
         mobileShutter.classList.toggle('gallery-mode', showGallery);
@@ -2581,11 +3061,11 @@
         photoSettingsMobile.innerHTML = '';
         shutterOverlay.classList.add('blink');
         shutterSound.currentTime = 0;
-        shutterSound.play();
+        shutterSound.play().catch(() => {});
         setTimeout(() => {
           shutterOverlay.classList.remove('blink');
-        }, 300);
-  
+        }, 150);
+
         if (!isMobile) {
           upBtn.setAttribute('title', 'Move Up');
           downBtn.setAttribute('title', 'Move Down');
@@ -2767,6 +3247,9 @@
       galleryContainer.style.display = showPhotoGallery ? 'block' : 'none';
       indexNumber.style.display = showPhotoGallery ? 'none' : 'block';
       mobileModes.style.display = showPhotoGallery ? 'none' : 'flex';
+      photoFrame.style.display = showPhotoGallery ? 'none' : 'block';
+      const zoomIndicator = document.getElementById('zoomIndicator');
+      if (zoomIndicator) zoomIndicator.style.display = showPhotoGallery ? 'none' : 'flex';
 
       if (isMobile) {
         mobileShutter.classList.toggle('gallery-mode', showPhotoGallery);
@@ -2793,10 +3276,10 @@
 
         shutterOverlay.classList.add('blink');
         shutterSound.currentTime = 0;
-        shutterSound.play();
+        shutterSound.play().catch(() => {});
         setTimeout(() => {
           shutterOverlay.classList.remove('blink');
-        }, 300);
+        }, 150);
 
         if (!isMobile) {
           upBtn.setAttribute('title', 'Move Up');
@@ -2986,7 +3469,25 @@
       photoImage.style.transform = `scale(${zoomLevel})`;
       photoImage.style.transformOrigin = `${transformOriginX}% ${transformOriginY}%`;
     });
-  
+
+    // Desktop zoom indicator click events
+    document.querySelectorAll('.zoom-mark').forEach(mark => {
+      mark.addEventListener('click', (e) => {
+        const newZoom = parseInt(e.target.dataset.zoom);
+        if (newZoom && !isGalleryView && !isPhotoGalleryView) {
+          zoomLevel = newZoom;
+          if (newZoom === 1) {
+            transformOriginX = 50;
+            transformOriginY = 50;
+          }
+          updateZoomButtons();
+          const photoImage = document.getElementById('photoImage');
+          photoImage.style.transform = `scale(${zoomLevel})`;
+          photoImage.style.transformOrigin = `${transformOriginX}% ${transformOriginY}%`;
+        }
+      });
+    });
+
     // Mobile touch events with panning support
     function setupMobileEvents() {
       let touchStartTime = 0;
@@ -3445,6 +3946,55 @@
       // Apply portal translations on page load
       applyPortalTranslations();
       // ===== END CLIENT PORTAL EVENT LISTENERS =====
+
+      // ===== WELCOME MODAL =====
+      const welcomeModal = document.getElementById('welcomeModal');
+      const welcomeBtn = document.getElementById('welcomeBtn');
+      const hasSeenWelcome = localStorage.getItem('hasSeenWelcome');
+
+      // Show welcome modal if first visit
+      if (!hasSeenWelcome && welcomeModal) {
+        // Apply translations to welcome modal based on current language
+        const t = translations[currentLang];
+        document.getElementById('welcomeTitle').textContent = t.welcome.title;
+        document.getElementById('welcomeText').innerHTML = t.welcome.text;
+        document.getElementById('tip1').textContent = t.welcome.tip1;
+        document.getElementById('tip2').textContent = t.welcome.tip2;
+        document.getElementById('tip3').textContent = t.welcome.tip3;
+        welcomeBtn.textContent = t.welcome.button;
+
+        // Show modal with slight delay for better UX
+        setTimeout(() => {
+          welcomeModal.classList.add('active');
+        }, 500);
+      }
+
+      // Close welcome modal
+      if (welcomeBtn) {
+        welcomeBtn.addEventListener('click', () => {
+          welcomeModal.classList.remove('active');
+          localStorage.setItem('hasSeenWelcome', 'true');
+        });
+      }
+
+      // Close welcome modal with Escape key
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && welcomeModal && welcomeModal.classList.contains('active')) {
+          welcomeModal.classList.remove('active');
+          localStorage.setItem('hasSeenWelcome', 'true');
+        }
+      });
+
+      // Close welcome modal clicking outside
+      if (welcomeModal) {
+        welcomeModal.addEventListener('click', (e) => {
+          if (e.target === welcomeModal) {
+            welcomeModal.classList.remove('active');
+            localStorage.setItem('hasSeenWelcome', 'true');
+          }
+        });
+      }
+      // ===== END WELCOME MODAL =====
     });
 
     // Update on window resize
