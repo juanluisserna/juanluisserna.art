@@ -1144,6 +1144,25 @@
       .rec-indicator, .viewfinder, .camera-model, .focus-btn, .lang-selector, .zoom-indicator {
         display: none !important;
       }
+      .desktop-tips {
+        display: none !important;
+      }
+      .mobile-tips {
+        display: block !important;
+      }
+      /* Mobile performance optimizations */
+      * {
+        -webkit-tap-highlight-color: transparent;
+      }
+      .gallery-item, .photo-gallery-item {
+        transition: none !important;
+      }
+      .gallery-item img, .photo-gallery-item img {
+        transition: none !important;
+      }
+      #photoImage {
+        transition: transform 0.1s ease !important;
+      }
       .hero-container {
         width: 100%;
         top: var(--header-height, 10vh);
@@ -1346,7 +1365,7 @@
         display: block;
         position: absolute;
         bottom: calc(12vh + var(--footer-height, 5vh) + 3px);
-        left: calc(50% - 60px);
+        left: calc(50% - 85px);
         width: 38px;
         height: 38px;
         background: linear-gradient(145deg, #e8e8e8, #c8c8c8);
@@ -1908,6 +1927,9 @@
       border-radius: 0.5vw;
       padding: clamp(15px, 2vw, 25px);
       margin: 2vh 0;
+    }
+    .mobile-tips {
+      display: none;
       text-align: left;
     }
     .welcome-tips p {
@@ -2201,10 +2223,15 @@
       <div class="welcome-icon">📷</div>
       <h2 id="welcomeTitle">Welcome!</h2>
       <p id="welcomeText">This website simulates a <span class="highlight">real camera interface</span>. Navigate through my work using the controls on the right side.</p>
-      <div class="welcome-tips">
+      <div class="welcome-tips desktop-tips">
         <p><span class="tip-icon">🎯</span> <span id="tip1">Use the dial to select categories</span></p>
         <p><span class="tip-icon">◀▶</span> <span id="tip2">Arrows to navigate between photos</span></p>
         <p><span class="tip-icon">🖼️</span> <span id="tip3">Click "Gallery" to see all photos</span></p>
+      </div>
+      <div class="welcome-tips mobile-tips">
+        <p><span class="tip-icon">👆</span> <span id="tipMobile1">Tap on a category to select it</span></p>
+        <p><span class="tip-icon">👈👉</span> <span id="tipMobile2">Swipe to navigate photos</span></p>
+        <p><span class="tip-icon">🔍</span> <span id="tipMobile3">Use 1x 2x 4x to zoom</span></p>
       </div>
       <button class="welcome-btn" id="welcomeBtn">Got it!</button>
     </div>
@@ -3040,7 +3067,7 @@
         if (index === selectedGalleryIndex) item.classList.add('selected');
         item.innerHTML = `
           <div class="category-title">${displayName}</div>
-          <img src="${category.photos[0].file}" alt="${displayName}">
+          <img src="${category.photos[0].file}" alt="${displayName}" loading="lazy">
         `;
         // Click/touch to select category
         const selectCategory = () => {
@@ -3365,7 +3392,7 @@
         if (index === selectedPhotoGalleryIndex) item.classList.add('selected');
         item.innerHTML = `
           <div class="category-title">${index + 1} / ${category.photos.length}</div>
-          <img src="${photo.file}" alt="${displayName} ${index + 1}">
+          <img src="${photo.file}" alt="${displayName} ${index + 1}" loading="lazy">
         `;
 
         // Click/touch to select photo
