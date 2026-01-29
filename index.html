@@ -1305,73 +1305,78 @@
       .mobile-shutter {
         display: block;
         position: absolute;
-        bottom: calc(2vh + var(--footer-height, 5vh));
+        bottom: calc(12vh + var(--footer-height, 5vh));
         left: 50%;
         transform: translateX(-50%);
-        width: 55px;
-        height: 55px;
+        width: 50px;
+        height: 50px;
         border-radius: 50%;
         background: linear-gradient(145deg, #f9a352, #e07a28);
-        border: 4px solid #ccc;
+        border: 3px solid #ccc;
         box-shadow:
-          0 4px 0 #b35d15,
-          0 6px 10px rgba(0,0,0,0.3),
+          0 3px 0 #b35d15,
+          0 5px 8px rgba(0,0,0,0.3),
           inset 0 2px 3px rgba(255,255,255,0.5);
         z-index: 5;
         cursor: pointer;
         transition: all 0.1s ease;
       }
       .mobile-shutter:active {
-        transform: translateX(-50%) translateY(3px);
+        transform: translateX(-50%) translateY(2px);
         box-shadow:
           0 1px 0 #b35d15,
-          0 2px 5px rgba(0,0,0,0.2);
+          0 2px 4px rgba(0,0,0,0.2);
       }
       .mobile-shutter.gallery-mode {
-        background: linear-gradient(145deg, #f0f0f0, #d0d0d0);
-        border-color: #bbb;
+        background: linear-gradient(145deg, #e8e8e8, #c8c8c8);
+        border-color: #aaa;
         box-shadow:
-          0 4px 0 #999,
-          0 6px 10px rgba(0,0,0,0.3),
+          0 3px 0 #888,
+          0 5px 8px rgba(0,0,0,0.3),
           inset 0 1px 2px rgba(255,255,255,0.8);
       }
       .mobile-shutter.gallery-mode:active {
-        transform: translateX(-50%) translateY(3px);
+        transform: translateX(-50%) translateY(2px);
         box-shadow:
-          0 1px 0 #999,
-          0 2px 5px rgba(0,0,0,0.2);
+          0 1px 0 #888,
+          0 2px 4px rgba(0,0,0,0.2);
       }
 
       .mobile-gallery-btn {
         display: block;
         position: absolute;
-        bottom: calc(2vh + var(--footer-height, 5vh) + 5px);
-        left: calc(50% - 70px);
-        width: 40px;
-        height: 40px;
-        background:
-          linear-gradient(145deg, #f0f0f0, #d0d0d0)
-          url('./images/icons/gallery.png') no-repeat center/60%;
+        bottom: calc(12vh + var(--footer-height, 5vh) + 3px);
+        left: calc(50% - 60px);
+        width: 38px;
+        height: 38px;
+        background: linear-gradient(145deg, #e8e8e8, #c8c8c8);
         border: none;
         border-radius: 50%;
         cursor: pointer;
         z-index: 5;
         box-shadow:
-          0 3px 0 #999,
+          0 3px 0 #888,
           0 5px 8px rgba(0,0,0,0.3),
           inset 0 1px 2px rgba(255,255,255,0.8);
         transition: all 0.1s ease;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .mobile-gallery-btn::after {
+        content: '';
+        width: 60%;
+        height: 60%;
+        background: url('./images/icons/gallery.png') no-repeat center/contain;
       }
       .mobile-gallery-btn:active {
         transform: translateY(2px);
         box-shadow:
-          0 1px 0 #999,
+          0 1px 0 #888,
           0 2px 4px rgba(0,0,0,0.2);
       }
       .mobile-gallery-btn.gallery-mode {
-        background:
-          linear-gradient(145deg, #ffb366, #f28c38)
-          url('./images/icons/gallery.png') no-repeat center/60%;
+        background: linear-gradient(145deg, #ffb366, #f28c38);
         box-shadow:
           0 3px 0 #b35d15,
           0 5px 8px rgba(0,0,0,0.3),
