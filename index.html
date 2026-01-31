@@ -2466,7 +2466,8 @@
       const menuItems = document.querySelectorAll('.menu-item');
       if (menuItems[0]) menuItems[0].textContent = t.portfolioSports;
       if (menuItems[1]) menuItems[1].textContent = t.portfolioWeddings;
-      if (menuItems[2]) menuItems[2].textContent = t.contact;
+      if (menuItems[2]) menuItems[2].textContent = t.portal.menuItem;
+      if (menuItems[3]) menuItems[3].textContent = t.contact;
 
       // Update contact form
       const formTitle = document.querySelector('.contact-form-container h2');
@@ -2905,26 +2906,40 @@
       const photoImage = document.getElementById('photoImage');
 
       // Preload adjacent images in background
-      requestIdleCallback ? requestIdleCallback(() => preloadImages(categoryIndex, photoIndex)) : preloadImages(categoryIndex, photoIndex);
+      if (typeof requestIdleCallback === 'function') {
+        requestIdleCallback(() => preloadImages(categoryIndex, photoIndex));
+      } else {
+        setTimeout(() => preloadImages(categoryIndex, photoIndex), 1);
+      }
+
+      // Focus effect function - removes blur when image is ready
+      const applyFocusedState = () => {
+        requestAnimationFrame(() => {
+          photoImage.classList.remove('focusing');
+          photoImage.classList.add('focused');
+        });
+      };
+
+      // Clear previous onload handler
+      photoImage.onload = null;
 
       // Focus effect - blur before changing image
       if (!skipAnimation) {
         photoImage.classList.remove('focused');
         photoImage.classList.add('focusing');
+
+        // Set onload handler BEFORE changing src (critical for Safari/iOS)
+        photoImage.onload = applyFocusedState;
       }
 
+      // Now change the image source
       photoImage.src = photo.file;
       photoImage.style.transform = `scale(${zoomLevel})`;
       photoImage.style.transformOrigin = `${transformOriginX}% ${transformOriginY}%`;
 
-      // Focus effect - sharp after image loads (faster)
-      if (!skipAnimation) {
-        photoImage.onload = () => {
-          requestAnimationFrame(() => {
-            photoImage.classList.remove('focusing');
-            photoImage.classList.add('focused');
-          });
-        };
+      // Safari/iOS fix: check if image already loaded from cache
+      if (!skipAnimation && photoImage.complete && photoImage.naturalHeight !== 0) {
+        applyFocusedState();
       }
   
       // Get translations for current category
@@ -3067,7 +3082,7 @@
         if (index === selectedGalleryIndex) item.classList.add('selected');
         item.innerHTML = `
           <div class="category-title">${displayName}</div>
-          <img src="${category.photos[0].file}" alt="${displayName}" loading="lazy">
+          <img src="${category.photos[0].file}" alt="${displayName}">
         `;
         // Click/touch to select category
         const selectCategory = () => {
@@ -3392,7 +3407,7 @@
         if (index === selectedPhotoGalleryIndex) item.classList.add('selected');
         item.innerHTML = `
           <div class="category-title">${index + 1} / ${category.photos.length}</div>
-          <img src="${photo.file}" alt="${displayName} ${index + 1}" loading="lazy">
+          <img src="${photo.file}" alt="${displayName} ${index + 1}">
         `;
 
         // Click/touch to select photo
@@ -3493,11 +3508,18 @@
         const images = Array.from(galleryGrid.querySelectorAll('.photo-gallery-item img'));
         let loadedCount = 0;
         const totalImages = images.length;
+        let layoutDone = false;
+
+        const doLayout = () => {
+          if (layoutDone) return;
+          layoutDone = true;
+          positionItems();
+        };
 
         const checkAllLoaded = () => {
           loadedCount++;
           if (loadedCount >= totalImages) {
-            positionItems();
+            doLayout();
           }
         };
 
@@ -3510,10 +3532,17 @@
           }
         });
 
-        // If all images were already loaded
+        // If all images were already loaded (sync check)
         if (loadedCount >= totalImages) {
-          positionItems();
+          doLayout();
         }
+
+        // Safari/iOS fallback: force layout after timeout if images haven't loaded
+        setTimeout(() => {
+          if (!layoutDone) {
+            doLayout();
+          }
+        }, 500);
       });
     }
 
@@ -4080,7 +4109,9 @@
 
       // Language selector functionality (menu - for mobile)
       document.querySelectorAll('.menu-lang-option').forEach(option => {
-        option.addEventListener('click', () => {
+        const handleLangChange = (e) => {
+          e.preventDefault();
+          e.stopPropagation();
           const lang = option.dataset.lang;
           applyTranslations(lang);
           applyPortalTranslations();
@@ -4089,12 +4120,17 @@
           // Close menu after selection
           document.getElementById('menuDropdown').classList.add('hidden');
           // Refresh current view
-          if (!isGalleryView) {
+          if (!isGalleryView && !isPhotoGalleryView) {
             updateContent(currentCategoryIndex, currentPhotoIndex, true);
-          } else {
+          } else if (isGalleryView) {
             populateGalleryGrid();
+          } else if (isPhotoGalleryView) {
+            populatePhotoGalleryGrid();
           }
-        });
+        };
+        option.addEventListener('click', handleLangChange);
+        // iOS Safari fix: also listen for touchend
+        option.addEventListener('touchend', handleLangChange);
       });
 
       // Update menu language selector active state
